@@ -162,6 +162,38 @@ section { padding: 70px 0; }
 
 .mobile-only { display: none; }
 
+/* ---------- Artikelen (kennisbank & magazine) ---------- */
+.crumbs { font-size: 13.5px; color: var(--muted); margin-bottom: 6px; }
+.crumbs a { color: var(--muted); }
+.crumbs a:hover { color: var(--ink); }
+.article { max-width: 720px; margin: 0 auto; }
+.article > section, .article section { padding: 0; }
+.article h2 { font-size: 27px; font-weight: 900; letter-spacing: -0.5px; margin: 42px 0 14px; }
+.article h3 { font-size: 19px; font-weight: 800; margin: 26px 0 8px; }
+.article p { margin: 0 0 16px; font-size: 16.5px; }
+.article ul, .article ol { margin: 0 0 18px 22px; display: grid; gap: 8px; font-size: 16px; }
+.article a { color: var(--coral-d); font-weight: 600; }
+.article .lead-in { font-size: 18px; color: var(--muted); }
+.article .answer {
+  background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25);
+  border-radius: 16px; padding: 18px 22px; margin: 0 0 18px; font-size: 16.5px;
+}
+.article table { width: 100%; border-collapse: collapse; margin: 0 0 18px; background: var(--card); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); font-size: 15.5px; }
+.article th, .article td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.article th { background: rgba(36,27,58,0.04); font-size: 13px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); }
+.article tr:last-child td { border-bottom: none; }
+.article .note { font-size: 13.5px; color: var(--muted); }
+dl.woordenboek { display: grid; gap: 14px; margin: 0 0 18px; }
+dl.woordenboek dt { font-weight: 800; }
+dl.woordenboek dd { color: var(--muted); margin-left: 0; }
+
+/* Kalender-hub */
+.cal-empty {
+  border: 2px dashed rgba(36,27,58,0.18); border-radius: var(--radius);
+  padding: 34px 28px; text-align: center; color: var(--muted); background: rgba(255,255,255,0.6);
+}
+.cal-empty b { color: var(--ink); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; gap: 30px; }
