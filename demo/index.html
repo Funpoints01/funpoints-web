@@ -134,59 +134,76 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div>
-        <form class="formcard" id="demo-form" method="POST"
-              action="https://formspree.io/f/JOUW_FORMSPREE_ID">
-          <h2>Vraag je demo aan</h2>
-          <p class="sub">Vul dit in en we bellen je binnen twee werkdagen om een moment af te spreken.</p>
+        <div class="formcard">
 
-          <!-- honeypot tegen spam -->
-          <div class="hp" aria-hidden="true">
-            <label for="website">Laat dit veld leeg</label>
-            <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
-          </div>
+          <!-- Bevestiging: wordt gevuld door Formspree en dan zichtbaar -->
+          <div class="form-done" data-fs-success role="status" aria-live="polite"></div>
 
-          <div class="field">
-            <label for="naam">Je naam</label>
-            <input type="text" id="naam" name="naam" autocomplete="name" required>
-          </div>
+          <!-- action + method blijven staan: als het script niet laadt,
+               verstuurt de browser het formulier gewoon rechtstreeks -->
+          <form id="demo-form" method="POST" action="https://formspree.io/f/xkjwwavb">
+            <h2>Vraag je demo aan</h2>
+            <p class="sub">Vul dit in en we bellen je binnen twee werkdagen om een moment af te spreken.</p>
 
-          <div class="field">
-            <label for="zaak">Naam van je zaak of kraam</label>
-            <input type="text" id="zaak" name="zaak" placeholder="bv. Lunapark Verhelst" required>
-          </div>
+            <!-- honeypot tegen spam -->
+            <div class="hp" aria-hidden="true">
+              <label for="website">Laat dit veld leeg</label>
+              <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
 
-          <div class="field">
-            <label for="telefoon">Telefoonnummer <span class="hint">— we bellen liever dan we mailen</span></label>
-            <input type="tel" id="telefoon" name="telefoon" autocomplete="tel" placeholder="04.. .. .. .." required>
-          </div>
+            <div class="field">
+              <label for="naam">Je naam</label>
+              <input type="text" id="naam" name="naam" autocomplete="name" data-fs-field required>
+              <span class="field-error" data-fs-error="naam"></span>
+            </div>
 
-          <div class="field">
-            <label for="email">E-mailadres</label>
-            <input type="email" id="email" name="email" autocomplete="email" required>
-          </div>
+            <div class="field">
+              <label for="zaak">Naam van je zaak of kraam</label>
+              <input type="text" id="zaak" name="zaak" placeholder="bv. Lunapark Verhelst" data-fs-field required>
+              <span class="field-error" data-fs-error="zaak"></span>
+            </div>
 
-          <div class="field">
-            <label for="soort">Wat voor kramen heb je?</label>
-            <select id="soort" name="soort" required>
-              <option value="">Kies…</option>
-              <option>Spelkraam (schieten, eendjes, grijpkraan…)</option>
-              <option>Attractie (botsauto's, draaimolen, rups…)</option>
-              <option>Lunapark</option>
-              <option>Eetkraam (smoutebollen, frituur, snoep…)</option>
-              <option>Een combinatie</option>
-              <option>Iets anders</option>
-            </select>
-          </div>
+            <div class="field">
+              <label for="telefoon">Telefoonnummer <span class="hint">— we bellen liever dan we mailen</span></label>
+              <input type="tel" id="telefoon" name="telefoon" autocomplete="tel" placeholder="04.. .. .. .." data-fs-field required>
+              <span class="field-error" data-fs-error="telefoon"></span>
+            </div>
 
-          <div class="field">
-            <label for="standplaats">Waar sta je de komende weken? <span class="hint">— optioneel</span></label>
-            <textarea id="standplaats" name="standplaats" placeholder="bv. deze week Zottegem, volgende week Herzele"></textarea>
-          </div>
+            <div class="field">
+              <label for="email">E-mailadres</label>
+              <input type="email" id="email" name="email" autocomplete="email" data-fs-field required>
+              <span class="field-error" data-fs-error="email"></span>
+            </div>
 
-          <input type="hidden" name="_subject" value="Demo-aanvraag via funpoints.be">
-          <button class="btn btn-primary btn-lg" type="submit">Demo aanvragen</button>
-          <p class="form-note">Vrijblijvend en gratis. We gebruiken je gegevens alleen om je demo af te spreken — zie ons <a href="/privacy.html">privacybeleid</a>.</p>
-        </form>
+            <div class="field">
+              <label for="soort">Wat voor kramen heb je?</label>
+              <select id="soort" name="soort" data-fs-field required>
+                <option value="">Kies…</option>
+                <option>Spelkraam (schieten, eendjes, grijpkraan…)</option>
+                <option>Attractie (botsauto's, draaimolen, rups…)</option>
+                <option>Lunapark</option>
+                <option>Eetkraam (smoutebollen, frituur, snoep…)</option>
+                <option>Een combinatie</option>
+                <option>Iets anders</option>
+              </select>
+              <span class="field-error" data-fs-error="soort"></span>
+            </div>
+
+            <div class="field">
+              <label for="standplaats">Waar sta je de komende weken? <span class="hint">— optioneel</span></label>
+              <textarea id="standplaats" name="standplaats" data-fs-field placeholder="bv. deze week Zottegem, volgende week Herzele"></textarea>
+              <span class="field-error" data-fs-error="standplaats"></span>
+            </div>
+
+            <input type="hidden" name="_subject" value="Demo-aanvraag via funpoints.be">
+
+            <!-- fout op formulierniveau (bv. geen verbinding) -->
+            <div class="form-error" data-fs-error role="alert"></div>
+
+            <button class="btn btn-primary btn-lg" type="submit" data-fs-submit-btn>Demo aanvragen</button>
+            <p class="form-note">Vrijblijvend en gratis. We gebruiken je gegevens alleen om je demo af te spreken — zie ons <a href="/privacy.html">privacybeleid</a>.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -361,6 +378,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="sticky-cta">
   <a class="btn btn-primary btn-lg" href="#demo-form">Demo aanvragen — vrijblijvend</a>
 </div>
+
+<!-- Formspree: versturen zonder de pagina te verlaten -->
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#demo-form', formId: 'xkjwwavb' });
+
+  // Bij succes: formulier verbergen, bedanktboodschap tonen en de conversie
+  // doorgeven aan Google Tag Manager (custom event 'demo_aanvraag').
+  (function () {
+    var melding = document.querySelector('[data-fs-success]');
+    var formulier = document.getElementById('demo-form');
+    var balk = document.querySelector('.sticky-cta');
+    if (!melding || !formulier || !window.MutationObserver) return;
+
+    var waarnemer = new MutationObserver(function () {
+      if (!melding.textContent.trim()) return;
+      waarnemer.disconnect();
+
+      // Vervangt ook de standaardtekst van Formspree, zodat de bevestiging
+      // altijd Nederlands is ongeacht de instelling in het dashboard.
+      melding.innerHTML =
+        '<div class="done-ic">🎉</div>' +
+        '<h2>Bedankt, je aanvraag is binnen</h2>' +
+        '<p>We bellen je binnen twee werkdagen om een moment af te spreken dat jou past. ' +
+        'Liever meteen iets vragen? Mail ons op <a href="mailto:info@funpoints.be">info@funpoints.be</a>.</p>';
+
+      formulier.hidden = true;
+      if (balk) balk.hidden = true;
+      document.body.classList.remove('has-sticky-cta');
+      melding.scrollIntoView({ block: 'center' });
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'demo_aanvraag', formulier: 'demo-landingspagina' });
+    });
+
+    waarnemer.observe(melding, { childList: true, subtree: true, characterData: true });
+  })();
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 <footer class="footer">
   <div class="container footer-grid">
