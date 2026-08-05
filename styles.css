@@ -276,6 +276,79 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
 }
 .cal-empty b { color: var(--ink); }
 
+/* ---------- Demo-landingspagina ---------- */
+.lp-hero { position: relative; overflow: hidden; padding: 56px 0 60px; }
+.lp-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: start; }
+.lp-hero h1 { font-size: 46px; line-height: 1.06; font-weight: 900; letter-spacing: -1.3px; margin: 16px 0 16px; }
+.lp-hero h1 .hl { color: var(--coral-d); }
+.lp-hero .lead { font-size: 18.5px; color: var(--muted); }
+.lp-proof { list-style: none; margin: 26px 0 0; display: grid; gap: 12px; }
+.lp-proof li { padding-left: 32px; position: relative; font-size: 16.5px; font-weight: 600; }
+.lp-proof li:before {
+  content: "✓"; position: absolute; left: 0; top: 1px; color: #fff; font-weight: 900; font-size: 13px;
+  background: var(--green); width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+}
+.lp-trust { margin-top: 26px; font-size: 14px; color: var(--muted); display: flex; gap: 18px; flex-wrap: wrap; }
+
+/* Formulierkaart */
+.formcard {
+  background: var(--card); border: 1px solid var(--line); border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(36,27,58,0.14); padding: 30px; position: sticky; top: 92px;
+}
+.formcard h2 { font-size: 23px; font-weight: 900; letter-spacing: -0.4px; }
+.formcard .sub { color: var(--muted); font-size: 15px; margin-top: 6px; }
+.field { margin-top: 16px; }
+.field label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.field .hint { font-weight: 500; color: var(--muted); font-size: 13px; }
+.field input, .field select, .field textarea {
+  width: 100%; font-family: inherit; font-size: 16px; color: var(--ink);
+  background: var(--bg); border: 1.5px solid var(--line); border-radius: 13px; padding: 13px 15px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.field textarea { min-height: 88px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none; border-color: var(--green); box-shadow: 0 0 0 4px rgba(16,185,129,0.16);
+}
+.field input:user-invalid, .field select:user-invalid {
+  border-color: var(--coral-d); box-shadow: 0 0 0 4px rgba(225,29,99,0.12);
+}
+.formcard .btn { width: 100%; margin-top: 22px; }
+.form-note { font-size: 12.5px; color: var(--muted); margin-top: 14px; text-align: center; line-height: 1.5; }
+.form-note a { color: var(--muted); text-decoration: underline; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* USP-raster */
+.usp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.usp {
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px;
+  box-shadow: 0 10px 26px rgba(36,27,58,0.06);
+}
+.usp .ic { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; font-size: 22px; margin-bottom: 13px; }
+.usp h3 { font-size: 17.5px; font-weight: 800; margin-bottom: 7px; line-height: 1.3; }
+.usp p { color: var(--muted); font-size: 14.5px; }
+.usp-band { margin-bottom: 30px; }
+.usp-band h2 { font-size: 25px; font-weight: 900; letter-spacing: -0.5px; }
+.usp-band p { color: var(--muted); font-size: 16px; margin-top: 8px; max-width: 640px; }
+
+/* Stappen naar de demo */
+.demo-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.demo-step { text-align: center; padding: 8px; }
+.demo-step .n {
+  width: 46px; height: 46px; border-radius: 50%; background: var(--coral); color: #fff;
+  display: grid; place-items: center; font-weight: 900; font-size: 19px; margin: 0 auto 14px;
+  box-shadow: 0 10px 22px rgba(251,113,133,0.32);
+}
+.demo-step h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+.demo-step p { color: var(--muted); font-size: 15px; }
+
+/* Mobiele CTA-balk */
+.sticky-cta {
+  display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  background: rgba(255,248,240,0.96); backdrop-filter: saturate(180%) blur(12px);
+  border-top: 1px solid var(--line); padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+}
+.sticky-cta .btn { width: 100%; }
+
 /* ---------- Responsive ---------- */
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
@@ -296,6 +369,13 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
   .nav-toggle-input:checked ~ .nav-links a { padding: 14px 24px; font-size: 16px; border-bottom: 1px solid var(--line); }
   .nav-toggle-input:checked ~ .nav-links a:last-child { border-bottom: none; }
   .related-grid, .jump { grid-template-columns: 1fr; }
+  .lp-grid { grid-template-columns: 1fr; gap: 34px; }
+  .lp-hero h1 { font-size: 36px; }
+  .formcard { position: static; }
+  .usp-grid { grid-template-columns: 1fr 1fr; }
+  .demo-steps { grid-template-columns: 1fr; }
+  .sticky-cta { display: block; }
+  body.has-sticky-cta { padding-bottom: 84px; }
   .hero-grid { grid-template-columns: 1fr; gap: 30px; }
   .phone-wrap { order: -1; }
   .hero h1 { font-size: 40px; }
@@ -318,6 +398,9 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
   .cta h2 { font-size: 27px; }
   .footer-grid { grid-template-columns: 1fr; }
   .btn-lg { white-space: normal; }
+  .lp-hero h1 { font-size: 30px; }
+  .usp-grid { grid-template-columns: 1fr; }
+  .formcard { padding: 22px; }
   .page-hero.article-head h1 { font-size: 31px; }
   .article table { font-size: 14.5px; }
   .article th, .article td { padding: 10px 12px; }
