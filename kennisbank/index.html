@@ -40,14 +40,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "url": "https://funpoints.be/kennisbank/",
-  "name": "Kennisbank voor foorkramers",
-  "inLanguage": "nl-BE",
-  "description": "Praktische artikels voor foorkramers en kermisuitbaters.",
-  "publisher": {
-    "@id": "https://funpoints.be/#organization"
-  }
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "url": "https://funpoints.be/kennisbank/",
+      "name": "Kennisbank voor foorkramers",
+      "inLanguage": "nl-BE",
+      "description": "Praktische artikels voor foorkramers en kermisuitbaters.",
+      "publisher": {
+        "@id": "https://funpoints.be/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://funpoints.be/#organization",
+      "name": "Funpoints",
+      "url": "https://funpoints.be/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://funpoints.be/favicon.png",
+        "width": 256,
+        "height": 256
+      },
+      "email": "info@funpoints.be",
+      "description": "Funpoints is het digitale spaarsysteem voor de kermis.",
+      "areaServed": "BE"
+    }
+  ]
 }
 </script>
 </head>

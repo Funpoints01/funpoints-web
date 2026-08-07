@@ -40,14 +40,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://funpoints.be/privacy.html",
-  "name": "Privacybeleid",
-  "inLanguage": "nl-BE",
-  "description": "Welke gegevens Funpoints verzamelt via de website en het demoformulier, waarom, en welke rechten je hebt.",
-  "publisher": {
-    "@id": "https://funpoints.be/#organization"
-  }
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "url": "https://funpoints.be/privacy.html",
+      "name": "Privacybeleid",
+      "inLanguage": "nl-BE",
+      "description": "Welke gegevens Funpoints verzamelt via de website en het demoformulier, waarom, en welke rechten je hebt.",
+      "publisher": {
+        "@id": "https://funpoints.be/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://funpoints.be/#organization",
+      "name": "Funpoints",
+      "url": "https://funpoints.be/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://funpoints.be/favicon.png",
+        "width": 256,
+        "height": 256
+      },
+      "email": "info@funpoints.be",
+      "description": "Funpoints is het digitale spaarsysteem voor de kermis.",
+      "areaServed": "BE"
+    }
+  ]
 }
 </script>
 </head>

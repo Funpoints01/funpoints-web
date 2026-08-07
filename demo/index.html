@@ -48,15 +48,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "name": "Demo aanvragen — Funpoints aan je eigen kraam",
       "inLanguage": "nl-BE",
       "description": "Vraag een demo van Funpoints aan. Wij komen langs op je standplaats en zetten het digitale puntensysteem samen op.",
-      "isPartOf": { "@id": "https://funpoints.be/#website" },
-      "publisher": { "@id": "https://funpoints.be/#organization" }
+      "isPartOf": {
+        "@id": "https://funpoints.be/#website"
+      },
+      "publisher": {
+        "@id": "https://funpoints.be/#organization"
+      }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Funpoints", "item": "https://funpoints.be/" },
-        { "@type": "ListItem", "position": 2, "name": "Voor uitbaters", "item": "https://funpoints.be/uitbaters.html" },
-        { "@type": "ListItem", "position": 3, "name": "Demo aanvragen", "item": "https://funpoints.be/demo/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Funpoints",
+          "item": "https://funpoints.be/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Voor uitbaters",
+          "item": "https://funpoints.be/uitbaters.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Demo aanvragen",
+          "item": "https://funpoints.be/demo/"
+        }
       ]
     },
     {
@@ -65,24 +84,61 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {
           "@type": "Question",
           "name": "Wat kost de demo?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Niets. We komen langs op je standplaats, zetten Funpoints samen op en je probeert het uit tijdens een kermis. Je beslist pas daarna of je verdergaat." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Niets. We komen langs op je standplaats, zetten Funpoints samen op en je probeert het uit tijdens een kermis. Je beslist pas daarna of je verdergaat."
+          }
         },
         {
           "@type": "Question",
           "name": "Heb ik een kassasysteem nodig?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Nee. Funpoints werkt los van je kassa. Je foorkramer scant de QR-code van de klant met een gewone smartphone of tablet — meer heb je niet nodig om punten te boeken." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. Funpoints werkt los van je kassa. Je foorkramer scant de QR-code van de klant met een gewone smartphone of tablet — meer heb je niet nodig om punten te boeken."
+          }
         },
         {
           "@type": "Question",
           "name": "Hoeveel tijd kost het per klant?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Een paar seconden. Scannen en boeken is één handeling. Registreren van een nieuwe klant duurt ongeveer een halve minuut en gebeurt aan de balie, terwijl jij verder werkt." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een paar seconden. Scannen en boeken is één handeling. Registreren van een nieuwe klant duurt ongeveer een halve minuut en gebeurt aan de balie, terwijl jij verder werkt."
+          }
         },
         {
           "@type": "Question",
           "name": "Van wie zijn de klantgegevens?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Van jou. De spaarders die je opbouwt zijn jouw klanten. Stop je ooit met Funpoints, dan neem je je gegevens mee." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Van jou. De spaarders die je opbouwt zijn jouw klanten. Stop je ooit met Funpoints, dan neem je je gegevens mee."
+          }
         }
       ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://funpoints.be/#organization",
+      "name": "Funpoints",
+      "url": "https://funpoints.be/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://funpoints.be/favicon.png",
+        "width": 256,
+        "height": 256
+      },
+      "email": "info@funpoints.be",
+      "description": "Funpoints is het digitale spaarsysteem voor de kermis.",
+      "areaServed": "BE"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://funpoints.be/#website",
+      "url": "https://funpoints.be/",
+      "name": "Funpoints",
+      "inLanguage": "nl-BE",
+      "publisher": {
+        "@id": "https://funpoints.be/#organization"
+      }
     }
   ]
 }

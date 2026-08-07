@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+# Geen inhoud, alleen bevestigingen van formulieren
+Disallow: /*?_gl=
+Disallow: /*?gclid=
+Disallow: /*?fbclid=
+Disallow: /*?utm_
+
 Sitemap: https://funpoints.be/sitemap.xml
