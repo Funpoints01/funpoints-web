@@ -360,6 +360,35 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
 .demo-step h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
 .demo-step p { color: var(--muted); font-size: 15px; }
 
+/* ---------- Telefoonframe met een echte schermafbeelding ---------- */
+.device {
+  width: 260px; margin: 0 auto; background: #fff; border-radius: 34px;
+  border: 1px solid var(--line); box-shadow: var(--shadow); padding: 10px;
+  position: relative;
+}
+.device picture { display: block; overflow: hidden; border-radius: 25px; }
+.device img { width: 100%; display: block; }
+.device-wrap { display: grid; place-items: center; }
+.device-cap { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 12px; max-width: 300px; }
+/* Op ruimere schermen het scherm afsnijden met een fade: houdt de hero in balans
+   en suggereert dat het scherm doorloopt. */
+@media (min-width: 901px) {
+  .device picture { max-height: 430px; }
+  .device:after {
+    content: ""; position: absolute; left: 10px; right: 10px; bottom: 10px; height: 90px;
+    border-radius: 0 0 25px 25px; pointer-events: none;
+    background: linear-gradient(rgba(255,255,255,0), #fff 85%);
+  }
+}
+
+/* Beeldblok binnen een sectie, naast tekst */
+.shot-figure { margin: 0; }
+.shot-figure img {
+  width: 100%; border-radius: 18px; display: block;
+  border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.shot-figure figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; text-align: center; }
+
 /* ---------- Stappenlijn (proces met verbindingslijn) ---------- */
 .flow { list-style: none; margin: 0; padding: 0; position: relative; }
 .flow-step { position: relative; padding: 0 0 34px 66px; }
