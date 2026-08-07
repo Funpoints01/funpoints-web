@@ -388,39 +388,88 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
   .nav-toggle-input:checked ~ .nav-links a { padding: 14px 24px; font-size: 16px; border-bottom: 1px solid var(--line); }
   .nav-toggle-input:checked ~ .nav-links a:last-child { border-bottom: none; }
   .related-grid, .jump { grid-template-columns: 1fr; }
-  .lp-grid { grid-template-columns: 1fr; gap: 34px; }
-  .lp-hero h1 { font-size: 36px; }
+
+  /* Verticaal ritme: strakker dan op desktop, zodat pagina's niet eindeloos aanvoelen */
+  section { padding: 52px 0; }
+
+  .lp-grid { grid-template-columns: 1fr; gap: 30px; }
+  .lp-hero { padding: 30px 0 44px; }
+  .lp-hero h1 { font-size: 34px; }
   .formcard { position: static; }
   .usp-grid { grid-template-columns: 1fr 1fr; }
   .demo-steps { grid-template-columns: 1fr; }
   .sticky-cta { display: block; }
   body.has-sticky-cta { padding-bottom: 84px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 30px; }
-  .phone-wrap { order: -1; }
-  .hero h1 { font-size: 40px; }
+
+  /* Hero: tekst eerst, telefoon eronder — de kop moet meteen leesbaar zijn */
+  .hero { padding: 30px 0 48px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .phone-wrap { order: 0; }
+  .hero h1 { font-size: 38px; }
+  .hero p.lead { font-size: 17.5px; }
+
   .grid-3, .steps { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
   .feature, .feature.rev { grid-template-columns: 1fr; direction: ltr; }
+  .feature h2 { font-size: 26px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .nav-links { display: none; }
+
+  .section-head { margin-bottom: 36px; }
   .article h2 { font-size: 24px; }
   .article p, .article ul, .article ol { font-size: 16px; }
 }
 @media (max-width: 560px) {
   :root { --subnav-h: 34px; }
+  .container { padding: 0 20px; }
+
   .subnav-inner { gap: 11px; }
   .subnav a { font-size: 11.5px; }
-  .hero h1 { font-size: 33px; }
-  .section-head h2 { font-size: 28px; }
-  .page-hero h1 { font-size: 34px; }
-  .cta { padding: 40px 24px; }
-  .cta h2 { font-size: 27px; }
-  .footer-grid { grid-template-columns: 1fr; }
+
+  /* Nog iets strakker ritme op kleine telefoons */
+  section { padding: 46px 0; }
+
+  /* Hero — kop leesbaar houden: minder agressieve tracking op klein scherm */
+  .hero { padding: 26px 0 42px; }
+  .hero h1 { font-size: 33px; letter-spacing: -0.7px; }
+  .hero-cta { gap: 12px; }
+  .hero-cta .btn { width: 100%; }
+
+  .section-head { margin-bottom: 30px; }
+  .section-head h2 { font-size: 26px; }
+  .section-head p { font-size: 16px; }
+
+  .page-hero { padding: 34px 0 8px; }
+  .page-hero h1 { font-size: 32px; letter-spacing: -0.6px; }
+  .page-hero p { font-size: 16.5px; }
+
+  .cta { padding: 38px 22px; border-radius: 22px; }
+  .cta h2 { font-size: 25px; }
+  .cta p { font-size: 16px; }
+  .cta .btn { width: 100%; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 26px; }
+
   .btn-lg { white-space: normal; }
-  .lp-hero h1 { font-size: 30px; }
+
+  .lp-hero { padding: 26px 0 40px; }
+  .lp-hero h1 { font-size: 30px; letter-spacing: -0.6px; }
+  .lp-proof li { font-size: 16px; }
   .usp-grid { grid-template-columns: 1fr; }
   .formcard { padding: 22px; }
-  .page-hero.article-head h1 { font-size: 31px; }
+
+  /* Artikelen: kop minder dominant, meta netjes op één rij-ritme */
+  .page-hero.article-head { padding: 26px 0 6px; }
+  .page-hero.article-head h1 { font-size: 28px; line-height: 1.15; }
+  .article-head-inner .crumbs { font-size: 13px; }
+  .article-meta { gap: 8px 16px; margin-top: 16px; }
+  .article .toc { padding: 20px 20px; }
+  .article h2 { font-size: 23px; }
+  .article h3 { font-size: 18px; }
   .article table { font-size: 14.5px; min-width: 460px; }
   .article th, .article td { padding: 10px 12px; }
+  .related-grid a, .jump a { padding: 18px 20px; }
+
+  .card { padding: 24px; }
+  .usp { padding: 22px; }
 }
