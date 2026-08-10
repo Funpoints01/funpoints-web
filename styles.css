@@ -210,6 +210,9 @@ a.more:hover { text-decoration: underline; }
 .page-hero { padding: 66px 0 20px; text-align: center; }
 .page-hero h1 { font-size: 46px; font-weight: 900; letter-spacing: -1px; margin: 14px 0 14px; }
 .page-hero p { color: var(--muted); font-size: 18px; max-width: 620px; margin: 0 auto; }
+/* .page-hero p zet de marge op nul; het notitieregeltje onder de knoppen heeft
+   wel lucht nodig, anders plakt het tegen de knoppen. */
+.page-hero p.hero-note { margin-top: 18px; }
 
 .mobile-only { display: none; }
 
@@ -250,6 +253,8 @@ a.more:hover { text-decoration: underline; }
 
 /* Doorsteek-blok binnen tekstpagina's */
 .jump { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 30px; }
+/* Drie doorsteken naast elkaar: met twee kolommen blijft de derde alleen achter. */
+.jump.drie { grid-template-columns: repeat(3, 1fr); }
 .jump a {
   display: block; background: var(--card); border: 1px solid var(--line); border-radius: 16px;
   padding: 20px 22px; transition: transform .18s ease, box-shadow .18s ease;
@@ -265,7 +270,7 @@ a.more:hover { text-decoration: underline; }
 .article ul, .article ol { margin: 0 0 18px 22px; display: grid; gap: 8px; font-size: 16px; }
 .article a { color: var(--coral-d); font-weight: 600; }
 .article .lead-in { font-size: 18px; color: var(--muted); }
-.article .answer {
+.answer, .article .answer {
   background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25);
   border-radius: 16px; padding: 18px 22px; margin: 0 0 18px; font-size: 16.5px;
 }
@@ -307,6 +312,41 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
   display: inline-block; font-size: 12.5px; font-weight: 800;
   letter-spacing: .3px; color: var(--muted);
 }
+
+/* ---------- Ritme en herbruikbare onderdelen ----------
+   Sections staan standaard op 70px boven en onder. Volgt een sectie inhoudelijk
+   direct op de vorige, dan hoort daar minder lucht tussen. Vroeger stonden die
+   uitzonderingen als inline style in de HTML; nu staan ze hier. */
+section.aansluitend { padding-top: 10px; }
+section.aansluitend-strak { padding-top: 0; }
+
+/* Smalle tekstkolom binnen een brede sectie */
+.smal { max-width: 680px; margin-left: auto; margin-right: auto; }
+
+/* Platte kaart: voor stapeltjes in een paneel, zonder schaduw */
+.kaart-plat { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 17px 19px; }
+.kaart-plat + .kaart-plat { margin-top: 12px; }
+.kaart-plat strong { display: block; font-size: 15.5px; }
+.kaart-plat p { color: var(--muted); font-size: 14px; margin-top: 5px; }
+.kaart-plat .wanneer { font-size: 13.5px; color: var(--muted); margin-top: 10px; }
+
+/* Voortgangsbalk naar een prijs */
+.balk { height: 10px; border-radius: 999px; background: rgba(36,27,58,0.08); overflow: hidden; margin: 11px 0 0; }
+.balk > i { display: block; height: 100%; border-radius: 999px; background: var(--green); }
+.balk.paars > i { background: var(--violet); }
+
+/* Voorbeeldgrafiekje in een paneel — puur illustratief */
+.mini-grafiek { display: flex; gap: 8px; align-items: flex-end; height: 110px; margin-top: 20px; }
+.mini-grafiek i { flex: 1; border-radius: 8px 8px 0 0; background: rgba(139,92,246,0.4); }
+.mini-grafiek i.hoog { background: var(--violet); }
+
+/* Compacte opsomming van wat iets kost of doet, zonder tabel */
+.trap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.trap div {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px;
+}
+.trap b { display: block; font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+.trap span { color: var(--muted); font-size: 14.5px; }
 
 /* ---------- Demo-landingspagina ---------- */
 .lp-hero { position: relative; overflow: hidden; padding: 56px 0 60px; }
@@ -496,7 +536,9 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
 .rolerow span { display: block; font-size: 13.5px; color: var(--muted); margin-top: 1px; }
 
 /* ---------- FAQ als accordeon (native, werkt zonder JavaScript) ---------- */
-.faq { max-width: 760px; margin: 0 auto; }
+/* Zelfde breedte als .section-head en .smal, zodat de vragen exact onder
+   hun eigen kop uitkomen in plaats van 40px breder. */
+.faq { max-width: 680px; margin: 0 auto; }
 .faq-item {
   background: var(--card); border: 1px solid var(--line); border-radius: 16px;
   margin-bottom: 12px; overflow: hidden;
@@ -550,7 +592,7 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
   }
   .nav-toggle-input:checked ~ .nav-links a { padding: 14px 24px; font-size: 16px; border-bottom: 1px solid var(--line); }
   .nav-toggle-input:checked ~ .nav-links a:last-child { border-bottom: none; }
-  .related-grid, .jump { grid-template-columns: 1fr; }
+  .related-grid, .jump, .jump.drie { grid-template-columns: 1fr; }
 
   /* Verticaal ritme: strakker dan op desktop, zodat pagina's niet eindeloos aanvoelen */
   section { padding: 52px 0; }
@@ -561,6 +603,7 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
   .formcard { position: static; }
   .usp-grid { grid-template-columns: 1fr 1fr; }
   .demo-steps { grid-template-columns: 1fr; }
+  .trap { grid-template-columns: 1fr 1fr; }
   .sticky-cta { display: block; }
   body.has-sticky-cta { padding-bottom: 84px; }
 
@@ -571,8 +614,8 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
   .hero h1 { font-size: 38px; }
   .hero p.lead { font-size: 17.5px; }
 
-  .grid-3, .steps { grid-template-columns: 1fr; }
-  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr; }
   .feature, .feature.rev { grid-template-columns: 1fr; direction: ltr; }
   .feature h2 { font-size: 26px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -584,6 +627,11 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
 
   .rolerow { grid-template-columns: 1fr; gap: 12px; }
 }
+@media (max-width: 620px) {
+  /* Pas hier naar één kolom: op een tablet blijven twee kolommen leesbaar. */
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 560px) {
   :root { --subnav-h: 34px; }
   .container { padding: 0 20px; }
@@ -614,6 +662,7 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
   .cta .btn { width: 100%; }
 
   .footer-grid { grid-template-columns: 1fr; gap: 26px; }
+  .trap { grid-template-columns: 1fr; }
 
   .btn-lg { white-space: normal; }
 
