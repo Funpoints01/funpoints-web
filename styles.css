@@ -179,6 +179,8 @@ a.more:hover { text-decoration: underline; }
 .feature.rev > * { direction: ltr; }
 .feature h2 { font-size: 30px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 14px; }
 .feature p { color: var(--muted); font-size: 16px; }
+/* Twee alinea's naast elkaar liepen tegen elkaar aan: .feature p had geen marge. */
+.feature p + p { margin-top: 14px; }
 .feature ul { list-style: none; margin-top: 18px; display: grid; gap: 10px; }
 .feature li { padding-left: 30px; position: relative; font-size: 15.5px; }
 .feature li:before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--green); font-weight: 900; background: rgba(16,185,129,0.14); width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; }
