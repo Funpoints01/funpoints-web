@@ -3,46 +3,46 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://funpoints.be/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <image:image>
-      <image:loc>https://funpoints.be/img/punten-sparen-op-de-kermis-funpoints-app.png</image:loc>
-      <image:title>Punten sparen op de kermis met de Funpoints-app</image:title>
+      <image:loc>https://funpoints.be/img/kermiskalender-in-de-funpoints-app.jpg</image:loc>
+      <image:title>De kermiskalender in de Funpoints-app</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://funpoints.be/bezoekers.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <image:image>
-      <image:loc>https://funpoints.be/img/acties-van-kermiskramen-funpoints-app.png</image:loc>
-      <image:title>Acties van kermiskramen in Funpoints</image:title>
+      <image:loc>https://funpoints.be/img/puntensaldo-per-kraam-funpoints-app.jpg</image:loc>
+      <image:title>Je puntensaldo per kraam in de Funpoints-app</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://funpoints.be/demo/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://funpoints.be/foorkramers.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://funpoints.be/hoe-het-werkt.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <image:image>
-      <image:loc>https://funpoints.be/img/punten-sparen-op-de-kermis-funpoints-app.png</image:loc>
-      <image:title>Het Funpoints-scherm van een kermisbezoeker</image:title>
+      <image:loc>https://funpoints.be/img/spaardoel-voortgang-funpoints-app.jpg</image:loc>
+      <image:title>Je spaardoel en voortgang in de Funpoints-app</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://funpoints.be/over-ons.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://funpoints.be/privacy.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://funpoints.be/uitbaters.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
 </urlset>

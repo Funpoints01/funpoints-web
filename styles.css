@@ -337,6 +337,12 @@ section.aansluitend-strak { padding-top: 0; }
 .balk > i { display: block; height: 100%; border-radius: 999px; background: var(--green); }
 .balk.paars > i { background: var(--violet); }
 
+/* Losse schermafbeelding zonder telefoonlijst: voor uitsneden uit de app.
+   width/height staan in de HTML, zodat de verhouding vastligt en er niets rekt. */
+.schermbeeld { display: block; margin: 0 auto; max-width: min(100%, 420px); height: auto;
+  border-radius: 18px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.schermbeeld-bij { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 12px; }
+
 /* Schermmock: het dashboard van een uitbater, nagebouwd in HTML zodat er geen
    screenshot nodig is die bij elke wijziging veroudert. */
 .scherm {
@@ -456,7 +462,7 @@ section.aansluitend-strak { padding-top: 0; }
   position: relative;
 }
 .device picture { display: block; overflow: hidden; border-radius: 25px; }
-.device img { width: 100%; display: block; }
+.device img { width: 100%; height: auto; display: block; }
 .device-wrap { display: grid; place-items: center; }
 .device-cap { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 12px; max-width: 300px; }
 /* Op ruimere schermen het scherm afsnijden met een fade: houdt de hero in balans
@@ -473,7 +479,7 @@ section.aansluitend-strak { padding-top: 0; }
 /* Beeldblok binnen een sectie, naast tekst */
 .shot-figure { margin: 0; }
 .shot-figure img {
-  width: 100%; border-radius: 18px; display: block;
+  width: 100%; height: auto; border-radius: 18px; display: block;
   border: 1px solid var(--line); box-shadow: var(--shadow);
 }
 .shot-figure figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; text-align: center; }
