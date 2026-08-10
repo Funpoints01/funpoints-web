@@ -3,6 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Consent Mode v2 — standaard alles geweigerd, zoals de EER vereist.
+     Dit blok moet vóór het bannerscript en vóór GTM staan. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  personalization_storage: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+gtag('set', 'ads_data_redaction', true);
+gtag('set', 'url_passthrough', true);
+</script>
+<!-- Cookiebanner. Bewust synchroon: een opgeslagen keuze moet doorgegeven zijn
+     vóór GTM zijn eerste tag afvuurt. Geen async, geen defer. -->
+<script src="/js/funpoints-consent.js"></script>
 <!-- Paginacontext voor Google Tag Manager (staat bewust vóór de GTM-snippet) -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -127,7 +148,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Wat we bijhouden wanneer je onze site bezoekt of een demo aanvraagt, waarom we dat doen,
       en wat je eraan kan veranderen.</p>
       <p class="article-meta">
-        <span>📅 Laatst bijgewerkt op 5 augustus 2026</span>
+        <span>📅 Laatst bijgewerkt op 10 augustus 2026</span>
       </p>
       </div>
     </div>
@@ -200,17 +221,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="https://www.gegevensbeschermingsautoriteit.be" rel="nofollow">gegevensbeschermingsautoriteit.be</a>.</p>
 
       <h2 id="cookies">Cookies</h2>
-      <p>Via Google Tag Manager kunnen cookies geplaatst worden die het gebruik van onze site meten.
-      Je kan cookies altijd weigeren of verwijderen via de instellingen van je browser. Weiger je ze,
-      dan blijft de site gewoon werken.</p>
+      <p>Een cookie is een klein tekstbestand dat een website op je toestel zet. Wij plaatsen
+      alleen cookies die de site laten werken, tenzij je ons toestemming geeft voor meer. Die
+      toestemming vragen we via de banner die bij je eerste bezoek verschijnt.</p>
+
+      <h3>Zonder toestemming</h3>
+      <p>Voor je iets kiest, staan analytische en advertentiecookies uit. We werken met Google
+      Consent Mode v2: zolang je geen toestemming geeft, staan <code>analytics_storage</code>,
+      <code>ad_storage</code>, <code>ad_user_data</code>, <code>ad_personalization</code> en
+      <code>personalization_storage</code> op <em>denied</em>. Google ontvangt in dat geval
+      hoogstens geanonimiseerde signalen zonder cookies, en advertentie-identificatoren worden
+      verwijderd.</p>
+
+      <h3>Welke cookies we gebruiken</h3>
+      <div class="tabel-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Cookie</th>
+              <th scope="col">Categorie</th>
+              <th scope="col">Waarvoor</th>
+              <th scope="col">Bewaartermijn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>fp_consent</code></td>
+              <td>Noodzakelijk</td>
+              <td>Onthoudt welke categorieën je aanvaard of geweigerd hebt. Geplaatst door
+              Funpoints zelf.</td>
+              <td>6 maanden</td>
+            </tr>
+            <tr>
+              <td><code>_ga</code></td>
+              <td>Statistieken</td>
+              <td>Onderscheidt bezoekers van elkaar in Google Analytics. Geplaatst door Google,
+              via ons domein.</td>
+              <td>2 jaar</td>
+            </tr>
+            <tr>
+              <td><code>_ga_&lt;container&gt;</code></td>
+              <td>Statistieken</td>
+              <td>Houdt de sessiestatus bij in Google Analytics 4. Geplaatst door Google, via
+              ons domein.</td>
+              <td>2 jaar</td>
+            </tr>
+            <tr>
+              <td><code>_gcl_au</code></td>
+              <td>Marketing</td>
+              <td>Meet of een advertentieklik tot een aanvraag leidt. Geplaatst door Google, via
+              ons domein.</td>
+              <td>90 dagen</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">De cookies van Google verschijnen pas nadat je de bijbehorende categorie
+      aanvaard hebt. Weiger je alles, dan blijft enkel <code>fp_consent</code> staan.</p>
+
+      <h3>Je keuze wijzigen of intrekken</h3>
+      <p>Je kan je toestemming op elk moment aanpassen of intrekken via
+      <a href="#cookievoorkeuren" data-fpc-open>Cookievoorkeuren</a> — die link staat ook onderaan
+      elke pagina. Je nieuwe keuze geldt meteen. Daarnaast kan je cookies altijd verwijderen via de
+      instellingen van je browser. Weiger je alles, dan blijft de site gewoon werken; alleen zien we
+      dan niet welke pagina's gebruikt worden.</p>
+      <p>Na zes maanden vragen we je keuze opnieuw. Wijzigen we de categorieën, dan verschijnt de
+      banner meteen opnieuw.</p>
 
       <h2 id="wijzigingen">Wijzigingen</h2>
       <p>Passen we dit beleid aan, dan vind je de nieuwe versie op deze pagina met een bijgewerkte
       datum bovenaan.</p>
 
       <div class="answer">
-        <p style="margin:0;"><strong>Let op:</strong> deze tekst is opgesteld als vertrekpunt en is
-        geen juridisch advies. Laat hem nakijken door een jurist voor je hem als definitief
+        <p style="margin:0;"><strong>Nog aan te vullen:</strong> als verwerkingsverantwoordelijke
+        horen hier de juridische naam van de vennootschap, het maatschappelijk adres en het
+        ondernemingsnummer te staan. Controleer de cookietabel ook tegen je eigen GTM-container:
+        open de site in een privévenster, aanvaard alles, en kijk onder Applicatie → Cookies welke
+        er effectief geplaatst worden.</p>
+        <p style="margin:10px 0 0;"><strong>Let op:</strong> deze tekst is opgesteld als vertrekpunt
+        en is geen juridisch advies. Laat hem nakijken door een jurist voor je hem als definitief
         beschouwt, zeker zodra je klantgegevens van bezoekers via de app verwerkt — dat valt buiten
         wat hier beschreven staat.</p>
       </div>
@@ -245,6 +334,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/kennisbank/">Kennisbank</a>
       <a href="/magazine/">Magazine</a>
       <a href="/privacy.html">Privacybeleid</a>
+      <a href="#cookievoorkeuren" data-fpc-open>Cookievoorkeuren</a>
       <a href="mailto:info@funpoints.be">Contact</a>
     </div>
   </div>

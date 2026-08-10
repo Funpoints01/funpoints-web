@@ -3,6 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Consent Mode v2 — standaard alles geweigerd, zoals de EER vereist.
+     Dit blok moet vóór het bannerscript en vóór GTM staan. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  personalization_storage: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+gtag('set', 'ads_data_redaction', true);
+gtag('set', 'url_passthrough', true);
+</script>
+<!-- Cookiebanner. Bewust synchroon: een opgeslagen keuze moet doorgegeven zijn
+     vóór GTM zijn eerste tag afvuurt. Geen async, geen defer. -->
+<script src="/js/funpoints-consent.js"></script>
 <!-- Paginacontext voor Google Tag Manager (staat bewust vóór de GTM-snippet) -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -258,6 +279,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/kennisbank/">Kennisbank</a>
       <a href="/magazine/">Magazine</a>
       <a href="/privacy.html">Privacybeleid</a>
+      <a href="#cookievoorkeuren" data-fpc-open>Cookievoorkeuren</a>
       <a href="mailto:info@funpoints.be">Contact</a>
     </div>
   </div>

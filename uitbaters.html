@@ -3,6 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Consent Mode v2 — standaard alles geweigerd, zoals de EER vereist.
+     Dit blok moet vóór het bannerscript en vóór GTM staan. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  personalization_storage: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+gtag('set', 'ads_data_redaction', true);
+gtag('set', 'url_passthrough', true);
+</script>
+<!-- Cookiebanner. Bewust synchroon: een opgeslagen keuze moet doorgegeven zijn
+     vóór GTM zijn eerste tag afvuurt. Geen async, geen defer. -->
+<script src="/js/funpoints-consent.js"></script>
 <!-- Paginacontext voor Google Tag Manager (staat bewust vóór de GTM-snippet) -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -43,6 +64,199 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://funpoints.be/#organization",
+      "name": "Funpoints",
+      "url": "https://funpoints.be/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://funpoints.be/#logo",
+        "url": "https://funpoints.be/favicon.png",
+        "width": 256,
+        "height": 256,
+        "caption": "Funpoints"
+      },
+      "image": {
+        "@id": "https://funpoints.be/#logo"
+      },
+      "email": "info@funpoints.be",
+      "description": "Funpoints is het digitale spaarsysteem voor de kermis.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "België"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://funpoints.be/#website",
+      "url": "https://funpoints.be/",
+      "name": "Funpoints",
+      "inLanguage": "nl-BE",
+      "publisher": {
+        "@id": "https://funpoints.be/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://funpoints.be/uitbaters.html#webpage",
+      "url": "https://funpoints.be/uitbaters.html",
+      "name": "Loyaliteitssysteem voor kermis en lunapark",
+      "description": "Het spaarsysteem gebouwd voor de kermis: beheer je kramen, zet acties en vouchers op en bereik bezoekers in de buurt.",
+      "inLanguage": "nl-BE",
+      "isPartOf": {
+        "@id": "https://funpoints.be/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://funpoints.be/uitbaters.html#kruimels"
+      },
+      "dateModified": "2026-08-10"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://funpoints.be/uitbaters.html#kruimels",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Funpoints",
+          "item": "https://funpoints.be/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Voor uitbaters",
+          "item": "https://funpoints.be/uitbaters.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://funpoints.be/#loyaliteitsdienst",
+      "name": "Funpoints — loyaliteitssysteem voor de kermis",
+      "serviceType": "Loyaliteitsprogramma voor kermisuitbatingen",
+      "url": "https://funpoints.be/uitbaters.html",
+      "description": "Een digitaal spaar- en actiesysteem gebouwd voor kramen die van plein naar plein reizen: punten per beurt, acties en vouchers, en bereik bij bezoekers in de buurt — zonder kassa-koppeling.",
+      "provider": {
+        "@id": "https://funpoints.be/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "België"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Kermisuitbaters, foorreizigers en lunaparkuitbaters"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://app.funpoints.be",
+        "name": "Funpoints-dashboard"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Wat Funpoints voor een uitbater doet",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Dashboard en statistieken",
+              "description": "Alle kramen onder één account, met cijfers en grafieken per kraam en logins voor je medewerkers."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Acties en vouchers",
+              "description": "Extra punten, een gratis ritje of een eenmalige voucher, meteen zichtbaar bij de bezoekers in de app."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Meldingen met bereik",
+              "description": "Pushmeldingen naar bezoekers in een regio rond een postcode, met een live teller van je bereik."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://funpoints.be/#dashboard",
+      "name": "Funpoints-dashboard voor uitbaters",
+      "url": "https://app.funpoints.be",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Beheer je kramen, zet acties en vouchers op, bekijk statistieken per kraam en bereik bezoekers in de buurt met gerichte meldingen.",
+      "featureList": [
+        "Statistieken en grafieken per kraam",
+        "Meerdere kramen onder één account",
+        "Logins aanmaken voor medewerkers",
+        "Punten-bonus of eenmalige voucher als actie",
+        "Pushmeldingen met targeting op regio"
+      ],
+      "publisher": {
+        "@id": "https://funpoints.be/#organization"
+      },
+      "inLanguage": "nl-BE"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://funpoints.be/uitbaters.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Heb ik een kassasysteem nodig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. Funpoints werkt los van je kassa. Je medewerker scant de QR-code van de klant met een gewone smartphone of tablet — meer heb je niet nodig om punten te boeken."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ik meerdere kramen onder één account beheren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Je beheert al je kramen vanuit één dashboard, met statistieken en grafieken per kraam. Logins voor je medewerkers maak je zelf aan in enkele klikken."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Werkt het ook voor kramen zonder puntensysteem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Eetkramen en attracties die geen punten uitdelen, kunnen wel acties en vouchers opzetten — bijvoorbeeld een gratis ritje of een eenmalige voucher."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe bereik ik bezoekers in de buurt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Je kiest een regio rond een postcode, ziet live hoeveel bezoekers je daarmee bereikt en stuurt een pushmelding over je actie. Je betaalt met credits, enkel voor wie je effectief bereikt. Minderjarigen worden automatisch afgeschermd."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Van wie zijn de klantgegevens?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Van jou. De spaarders die je opbouwt zijn jouw klanten. Stop je ooit met Funpoints, dan neem je je gegevens mee."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -215,6 +429,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
+  <section style="padding-top:10px;">
+    <div class="container section-head">
+      <span class="kicker">Veelgestelde vragen</span>
+      <h2>Wat uitbaters ons vragen</h2>
+    </div>
+    <div class="container faq">
+      <details class="faq-item">
+        <summary>Heb ik een kassasysteem nodig?</summary>
+        <div class="faq-answer">
+          <p>Nee. Funpoints werkt los van je kassa. Je medewerker scant de QR-code van de klant met een gewone smartphone of tablet — meer heb je niet nodig om punten te boeken.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Kan ik meerdere kramen onder één account beheren?</summary>
+        <div class="faq-answer">
+          <p>Ja. Je beheert al je kramen vanuit één dashboard, met statistieken en grafieken per kraam. Logins voor je medewerkers maak je zelf aan in enkele klikken.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Werkt het ook voor kramen zonder puntensysteem?</summary>
+        <div class="faq-answer">
+          <p>Ja. Eetkramen en attracties die geen punten uitdelen, kunnen wel acties en vouchers opzetten — bijvoorbeeld een gratis ritje of een eenmalige voucher.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Hoe bereik ik bezoekers in de buurt?</summary>
+        <div class="faq-answer">
+          <p>Je kiest een regio rond een postcode, ziet live hoeveel bezoekers je daarmee bereikt en stuurt een pushmelding over je actie. Je betaalt met credits, enkel voor wie je effectief bereikt. Minderjarigen worden automatisch afgeschermd.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Van wie zijn de klantgegevens?</summary>
+        <div class="faq-answer">
+          <p>Van jou. De spaarders die je opbouwt zijn jouw klanten. Stop je ooit met Funpoints, dan neem je je gegevens mee.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <section>
     <div class="container">
       <div class="cta">
@@ -252,6 +505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/kennisbank/">Kennisbank</a>
       <a href="/magazine/">Magazine</a>
       <a href="/privacy.html">Privacybeleid</a>
+      <a href="#cookievoorkeuren" data-fpc-open>Cookievoorkeuren</a>
       <a href="mailto:info@funpoints.be">Contact</a>
     </div>
   </div>
