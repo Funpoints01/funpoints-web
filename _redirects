@@ -1,0 +1,4 @@
+# Werkt op Netlify, Cloudflare Pages en Vercel (via vercel.json-equivalent).
+# Op GitHub Pages doet dit bestand niets — daar zorgt de meta-refresh plus de
+# canonical op /foorkramers.html voor de doorverwijzing.
+/foorkramers.html   /uitbaters.html#aan-het-kraam   301

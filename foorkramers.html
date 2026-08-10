@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Deze pagina is samengevoegd met /uitbaters.html. De URL blijft bestaan zodat
+     bestaande links en indexatie niet verloren gaan; de canonical en de refresh
+     sturen alles door. Een echte 301 regel je bij je hosting (zie /_redirects). -->
+<meta http-equiv="refresh" content="0; url=/uitbaters.html#aan-het-kraam">
+<!-- fp:consent -->
 <!-- Google Consent Mode v2 — standaard alles geweigerd, zoals de EER vereist.
      Dit blok moet vóór het bannerscript en vóór GTM staan. -->
 <script>
@@ -24,17 +29,8 @@ gtag('set', 'url_passthrough', true);
 <!-- Cookiebanner. Bewust synchroon: een opgeslagen keuze moet doorgegeven zijn
      vóór GTM zijn eerste tag afvuurt. Geen async, geen defer. -->
 <script src="/js/funpoints-consent.js"></script>
-<!-- Paginacontext voor Google Tag Manager (staat bewust vóór de GTM-snippet) -->
-<script>
-window.dataLayer = window.dataLayer || [];
-window.dataLayer.push({
-  page_type: "doelgroep",
-  page_category: "product",
-  page_audience: "b2b",
-  page_name: "Voor foorkramers",
-  page_language: "nl-BE"
-});
-</script>
+<!-- /fp:consent -->
+<!-- fp:head-gtm -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -42,182 +38,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NKS4M9KK');</script>
 <!-- End Google Tag Manager -->
-<title>Foorkramers — Punten Scannen en Boeken | Funpoints</title>
-<meta name="description" content="Met Funpoints scan je als foorkramer de QR van je klant, boek je punten en wissel je vouchers in — snel, zonder papierwerk, op je eigen telefoon.">
-<link rel="canonical" href="https://funpoints.be/foorkramers.html">
-<link rel="alternate" hreflang="nl-BE" href="https://funpoints.be/foorkramers.html">
-<link rel="alternate" hreflang="x-default" href="https://funpoints.be/foorkramers.html">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://funpoints.be/foorkramers.html">
-<meta property="og:title" content="Foorkramers — Punten Scannen en Boeken | Funpoints">
-<meta property="og:description" content="Scan de QR van je klant, boek punten en wissel vouchers in. Snel, simpel, zonder papierwerk.">
-<meta property="og:locale" content="nl_BE">
-<meta property="og:image" content="https://funpoints.be/img/funpoints-digitale-spaarkaart-kermis.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Funpoints — het digitale spaarkaartje van de kermis">
-<meta property="og:site_name" content="Funpoints">
-<meta name="twitter:card" content="summary_large_image">
+<!-- /fp:head-gtm -->
+<title>Punten boeken aan het kraam — nu op Voor uitbaters | Funpoints</title>
+<meta name="description" content="Deze pagina is samengevoegd met de uitbaterspagina. Daar lees je hoe je met je telefoon punten boekt en vouchers inwisselt aan het kraam.">
+<link rel="canonical" href="https://funpoints.be/uitbaters.html">
+<meta name="robots" content="noindex,follow">
 <meta name="theme-color" content="#10B981">
 <link rel="icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://funpoints.be/#organization",
-      "name": "Funpoints",
-      "url": "https://funpoints.be/",
-      "logo": {
-        "@type": "ImageObject",
-        "@id": "https://funpoints.be/#logo",
-        "url": "https://funpoints.be/favicon.png",
-        "width": 256,
-        "height": 256,
-        "caption": "Funpoints"
-      },
-      "image": {
-        "@id": "https://funpoints.be/#logo"
-      },
-      "email": "info@funpoints.be",
-      "description": "Funpoints is het digitale spaarsysteem voor de kermis.",
-      "areaServed": {
-        "@type": "Country",
-        "name": "België"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://funpoints.be/#website",
-      "url": "https://funpoints.be/",
-      "name": "Funpoints",
-      "inLanguage": "nl-BE",
-      "publisher": {
-        "@id": "https://funpoints.be/#organization"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://funpoints.be/foorkramers.html#webpage",
-      "url": "https://funpoints.be/foorkramers.html",
-      "name": "Punten scannen en boeken met je telefoon",
-      "description": "Scan de QR van de klant, boek punten en wissel vouchers in — snel, zonder papierwerk.",
-      "inLanguage": "nl-BE",
-      "isPartOf": {
-        "@id": "https://funpoints.be/#website"
-      },
-      "breadcrumb": {
-        "@id": "https://funpoints.be/foorkramers.html#kruimels"
-      },
-      "dateModified": "2026-08-10"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://funpoints.be/foorkramers.html#kruimels",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Funpoints",
-          "item": "https://funpoints.be/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Voor uitbaters",
-          "item": "https://funpoints.be/uitbaters.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Aan het kraam",
-          "item": "https://funpoints.be/foorkramers.html"
-        }
-      ]
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://funpoints.be/#scanner",
-      "name": "Funpoints-scanner voor aan het kraam",
-      "url": "https://app.funpoints.be",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "description": "Scan de QR-code van de klant met je eigen telefoon, boek of trek punten af en wissel vouchers in. Werkt in de browser, zonder installatie.",
-      "featureList": [
-        "QR-code van de klant scannen met een gewone telefoon",
-        "Punten boeken en aftrekken",
-        "Vouchers inwisselen met groen-of-rood controle",
-        "Puntensaldo van de klant meteen zichtbaar"
-      ],
-      "publisher": {
-        "@id": "https://funpoints.be/#organization"
-      },
-      "isRelatedTo": {
-        "@id": "https://funpoints.be/#dashboard"
-      },
-      "inLanguage": "nl-BE"
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://funpoints.be/foorkramers.html#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Moet ik een app installeren?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Nee. Funpoints werkt gewoon in de browser van je telefoon. Je opent de pagina, logt in en kan scannen — er is niets zwaars te installeren."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Hoeveel tijd kost het per klant?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Een paar seconden. Scannen en boeken is één handeling. Een nieuwe klant registreren duurt ongeveer een halve minuut en gebeurt aan de balie, terwijl jij verder werkt."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Hoe zie ik of een voucher nog geldig is?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Aan de kleur. Je scant de voucher en het scherm wordt groen als hij geldig is, en rood als hij al gebruikt werd. Dubbel inwisselen kan dus niet."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Hoe krijg ik een login?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Van je uitbater. Die maakt jouw login aan vanuit zijn dashboard. Baat je zelf een kraam uit? Dan komen we langs op je standplaats en zetten we het samen op."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
 </head>
 <body>
+<!-- fp:body-gtm -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKS4M9KK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<!-- /fp:body-gtm -->
 
 <a class="skip-link" href="#main">Naar de inhoud</a>
 
+<!-- fp:header -->
 <header class="site-header">
 
   <nav class="subnav" aria-label="Kies je doelgroep">
     <div class="container subnav-inner">
       <a href="/bezoekers.html">Voor bezoekers</a>
-      <a href="/foorkramers.html">Voor foorkramers</a>
       <a href="/uitbaters.html">Voor uitbaters</a>
     </div>
   </nav>
@@ -230,134 +78,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <nav class="nav-links" id="hoofdmenu" aria-label="Hoofdnavigatie">
         <a href="/kermis/">Kermiskalender</a>
         <a href="/hoe-het-werkt.html">Punten sparen</a>
+        <a href="/kennisbank/">Kennisbank</a>
         <a href="/magazine/">Magazine</a>
-        <a href="/over-ons.html">Over Funpoints</a>
+        <a href="/over-ons.html">Over ons</a>
+        <a class="nav-alleen-mobiel" href="/demo/">Demo aanvragen</a>
       </nav>
+      <div class="nav-right">
+        <a class="btn btn-primary" href="/demo/">Vraag een demo</a>
+      </div>
     </div>
   </div>
 
 </header>
+<!-- /fp:header -->
 
 <main id="main">
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow">🎯 Voor foorkramers</span>
-      <h1>Punten scannen en boeken met je telefoon</h1>
-      <p>Geen puntenkaartjes meer afstempelen. Je scant de QR van de klant met je eigen telefoon en de punten staan meteen geboekt.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="container section-head">
-      <span class="kicker">Aan het kraam</span>
-      <h2>Wat je met Funpoints doet tijdens de kermis</h2>
-    </div>
-    <div class="container grid-2">
-      <div class="card linked">
-        <div class="ic tint-green">📷</div>
-        <h3>Scannen met je telefoon</h3>
-        <p>Open Funpoints op je telefoon, scan de QR van de klant en boek of trek punten af. Werkt gewoon in je browser — niets zwaars te installeren. Zie <a href="/hoe-het-werkt.html">hoe het werkt</a>.</p>
-      </div>
-      <div class="card">
-        <div class="ic tint-coral">🎟️</div>
-        <h3>Vouchers inwisselen</h3>
-        <p>Toont een klant een actie-voucher? Je scant 'm: het scherm wordt <strong>groen</strong> als hij geldig is, en <strong>rood</strong> als hij al gebruikt is. Fraude-vrij, in één oogopslag.</p>
-      </div>
-      <div class="card">
-        <div class="ic tint-violet">💯</div>
-        <h3>Saldo meteen zichtbaar</h3>
-        <p>Bij het scannen zie je meteen hoeveel punten de klant bij jouw kraam heeft, zodat inruilen voor een prijs vlot verloopt.</p>
-      </div>
-      <div class="card">
-        <div class="ic tint-amber">🗂️</div>
-        <h3>Geen papierwerk</h3>
-        <p>Alles wordt digitaal bijgehouden. Geen kaartjes die kwijtraken, geen dubbeltellingen — punten van jouw kraam blijven van jouw kraam.</p>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-top:0;">
-    <div class="container jump">
-      <a href="/kennisbank/klanten-laten-terugkomen/">
-        <b>📚 Klanten laten terugkomen op de kermis</b>
-        <span>Vijf manieren om van kermisbezoekers vaste klanten te maken.</span>
-      </a>
-      <a href="/kermis/">
-        <b>🗓️ Kermiskalender</b>
-        <span>Waar staan de kermissen met een Funpoints-kraam?</span>
-      </a>
-    </div>
-  </section>
-
-  <section style="padding-top:10px;">
-    <div class="container section-head">
-      <span class="kicker">Veelgestelde vragen</span>
-      <h2>Wat we het vaakst horen aan het kraam</h2>
-    </div>
-    <div class="container faq">
-      <details class="faq-item">
-        <summary>Moet ik een app installeren?</summary>
-        <div class="faq-answer">
-          <p>Nee. Funpoints werkt gewoon in de browser van je telefoon. Je opent de pagina, logt in en kan scannen — er is niets zwaars te installeren.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>Hoeveel tijd kost het per klant?</summary>
-        <div class="faq-answer">
-          <p>Een paar seconden. Scannen en boeken is één handeling. Een nieuwe klant registreren duurt ongeveer een halve minuut en gebeurt aan de balie, terwijl jij verder werkt.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>Hoe zie ik of een voucher nog geldig is?</summary>
-        <div class="faq-answer">
-          <p>Aan de kleur. Je scant de voucher en het scherm wordt groen als hij geldig is, en rood als hij al gebruikt werd. Dubbel inwisselen kan dus niet.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>Hoe krijg ik een login?</summary>
-        <div class="faq-answer">
-          <p>Van je uitbater. Die maakt jouw login aan vanuit zijn dashboard. Baat je zelf een kraam uit? Dan komen we langs op je standplaats en zetten we het samen op.</p>
-        </div>
-      </details>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="cta">
-        <h2>Sta jij binnenkort aan een kraam?</h2>
-        <p>Je uitbater regelt je login. Werk je zelf als uitbater? Dan komen we langs aan je kraam en zetten we het samen op.</p>
-        <a class="btn btn-ghost btn-lg" href="/demo/">Vraag een demo aan</a>
+      <span class="eyebrow">↪️ Verhuisd</span>
+      <h1>Deze pagina staat nu bij de uitbaters</h1>
+      <p>Punten boeken en vouchers inwisselen aan het kraam lees je voortaan op de uitbaterspagina.
+      Je wordt automatisch doorgestuurd.</p>
+      <div class="hero-cta" style="justify-content:center; margin-top:26px;">
+        <a class="btn btn-primary btn-lg" href="/uitbaters.html#aan-het-kraam">Naar aan het kraam</a>
+        <a class="btn btn-ghost btn-lg" href="/">Naar de homepagina</a>
       </div>
     </div>
   </section>
 </main>
 
+<!-- fp:footer -->
 <footer class="footer">
   <div class="container footer-grid">
     <div>
       <a class="brand" href="/"><span class="mark">F</span> Funpoints</a>
       <p class="tag">Digitale spaarpunten en acties voor de Belgische kermis.</p>
+      <a href="mailto:info@funpoints.be">info@funpoints.be</a>
     </div>
     <div>
-      <h4>Product</h4>
-      <a href="/hoe-het-werkt.html">Hoe het werkt</a>
-      <a href="/bezoekers.html">Voor bezoekers</a>
-      <a href="/foorkramers.html">Voor foorkramers</a>
-      <a href="/uitbaters.html">Voor uitbaters</a>
+      <h4>Voor bezoekers</h4>
+      <a href="/bezoekers.html">Zo spaar je punten</a>
+      <a href="/hoe-het-werkt.html">Hoe Funpoints werkt</a>
       <a href="/kermis/">Kermiskalender</a>
+      <a href="/magazine/">Kermismagazine</a>
     </div>
     <div>
-      <h4>Aan de slag</h4>
+      <h4>Voor uitbaters</h4>
+      <a href="/uitbaters.html">Wat Funpoints doet</a>
       <a href="/demo/">Demo aanvragen</a>
-      <a href="https://app.funpoints.be">Inloggen als uitbater</a>
-      <a href="/uitbaters.html">Word uitbater</a>
+      <a href="/kennisbank/">Kennisbank</a>
+      <a href="https://app.funpoints.be">Inloggen op het dashboard</a>
     </div>
     <div>
-      <h4>Info</h4>
-      <a href="/over-ons.html">Over Funpoints</a>
-      <a href="/kennisbank/">Kennisbank</a>
-      <a href="/magazine/">Magazine</a>
+      <h4>Funpoints</h4>
+      <a href="/over-ons.html">Over ons</a>
       <a href="/privacy.html">Privacybeleid</a>
       <a href="#cookievoorkeuren" data-fpc-open>Cookievoorkeuren</a>
       <a href="mailto:info@funpoints.be">Contact</a>
@@ -368,6 +142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span>Gemaakt voor de foor 🎪</span>
   </div>
 </footer>
+<!-- /fp:footer -->
 
 <script src="/tracking.js" defer></script>
 </body>

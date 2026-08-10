@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- fp:consent -->
 <!-- Google Consent Mode v2 — standaard alles geweigerd, zoals de EER vereist.
      Dit blok moet vóór het bannerscript en vóór GTM staan. -->
 <script>
@@ -24,6 +25,7 @@ gtag('set', 'url_passthrough', true);
 <!-- Cookiebanner. Bewust synchroon: een opgeslagen keuze moet doorgegeven zijn
      vóór GTM zijn eerste tag afvuurt. Geen async, geen defer. -->
 <script src="/js/funpoints-consent.js"></script>
+<!-- /fp:consent -->
 <!-- Paginacontext voor Google Tag Manager (staat bewust vóór de GTM-snippet) -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -35,6 +37,7 @@ window.dataLayer.push({
   page_language: "nl-BE"
 });
 </script>
+<!-- fp:head-gtm -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -42,8 +45,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NKS4M9KK');</script>
 <!-- End Google Tag Manager -->
+<!-- /fp:head-gtm -->
 <title>Funpoints — Het Digitale Spaarkaartje van de Kermis</title>
-<meta name="description" content="Funpoints vervangt de papieren puntenkaart op de kermis: bezoekers sparen punten bij elk kraam, foorkramers scannen met hun telefoon — zonder kassa.">
+<meta name="description" content="Funpoints vervangt de papieren puntenkaart op de kermis: bezoekers sparen punten bij elk kraam, uitbaters scannen met hun telefoon — zonder kassa.">
 <link rel="canonical" href="https://funpoints.be/">
 <link rel="alternate" hreflang="nl-BE" href="https://funpoints.be/">
 <link rel="alternate" hreflang="x-default" href="https://funpoints.be/">
@@ -92,7 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "url": "https://app.funpoints.be",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "description": "Digitale spaarkaart voor de kermis: bezoekers sparen punten per kraam, foorkramers scannen met hun telefoon, uitbaters beheren acties en bereik.",
+      "description": "Digitale spaarkaart voor de kermis: bezoekers sparen punten per kraam en uitbaters beheren hun kramen, acties en bereik.",
       "publisher": { "@id": "https://funpoints.be/#organization" }
     }
   ]
@@ -100,19 +104,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 </head>
 <body>
+<!-- fp:body-gtm -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKS4M9KK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<!-- /fp:body-gtm -->
 
 <a class="skip-link" href="#main">Naar de inhoud</a>
 
+<!-- fp:header -->
 <header class="site-header">
 
   <nav class="subnav" aria-label="Kies je doelgroep">
     <div class="container subnav-inner">
       <a href="/bezoekers.html">Voor bezoekers</a>
-      <a href="/foorkramers.html">Voor foorkramers</a>
       <a href="/uitbaters.html">Voor uitbaters</a>
     </div>
   </nav>
@@ -125,13 +131,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <nav class="nav-links" id="hoofdmenu" aria-label="Hoofdnavigatie">
         <a href="/kermis/">Kermiskalender</a>
         <a href="/hoe-het-werkt.html">Punten sparen</a>
+        <a href="/kennisbank/">Kennisbank</a>
         <a href="/magazine/">Magazine</a>
-        <a href="/over-ons.html">Over Funpoints</a>
+        <a href="/over-ons.html">Over ons</a>
+        <a class="nav-alleen-mobiel" href="/demo/">Demo aanvragen</a>
       </nav>
+      <div class="nav-right">
+        <a class="btn btn-primary" href="/demo/">Vraag een demo</a>
+      </div>
     </div>
   </div>
 
 </header>
+<!-- /fp:header -->
 
 <main id="main">
   <!-- Hero -->
@@ -166,7 +178,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container section-head">
       <span class="kicker">Wat is Funpoints</span>
       <h2>Alle spaarpunten van de foor, op één digitale spaarkaart</h2>
-      <p>Vroeger een papieren kaartje per kraam dat je kwijtraakte. Nu spaar je digitaal, zie je overal je saldo, en krijg je acties van kramen in je buurt. Simpel voor de bezoeker, slim voor de foorkramer.</p>
+      <p>Vroeger een papieren kaartje per kraam dat je kwijtraakte. Nu spaar je digitaal, zie je overal je saldo, en krijg je acties van kramen in je buurt. Simpel voor de bezoeker, slim voor de uitbater.</p>
     </div>
     <div class="container grid-3">
       <div class="card">
@@ -206,7 +218,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li class="flow-step">
           <div class="flow-marker">2</div>
           <h3>Laat je QR scannen</h3>
-          <p>Toon je persoonlijke QR aan de foorkramer. Je punten worden meteen bijgeschreven.</p>
+          <p>Toon je persoonlijke QR aan het kraam. Je punten worden meteen bijgeschreven.</p>
           <span class="flow-note">📱 Bij elk kraam</span>
         </li>
         <li class="flow-step">
@@ -223,26 +235,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section>
     <div class="container section-head">
       <span class="kicker">Voor wie</span>
-      <h2>Funpoints werkt voor de hele foor</h2>
+      <h2>Twee kanten van dezelfde foor</h2>
+      <p>Bezoekers sparen en ruilen in. Uitbaters boeken punten, zetten acties op en zien wat werkt.</p>
     </div>
-    <div class="container grid-3">
+    <div class="container grid-2">
       <div class="card linked">
         <div class="ic tint-coral">🎠</div>
-        <h3>Bezoekers</h3>
-        <p>Spaar punten, pak deals en neem je punten overal mee op de kermis.</p>
-        <a class="more" href="/bezoekers.html">Ontdek meer →</a>
-      </div>
-      <div class="card linked">
-        <div class="ic tint-green">🎯</div>
-        <h3>Foorkramers</h3>
-        <p>Scan kaartjes met je telefoon, boek punten en wissel vouchers in — geen papierwerk.</p>
-        <a class="more" href="/foorkramers.html">Ontdek meer →</a>
+        <h3>Voor bezoekers</h3>
+        <p>Spaar punten bij elk kraam, pak acties in je buurt en neem je punten mee naar de volgende kermis.</p>
+        <a class="more" href="/bezoekers.html">Zo spaar je punten →</a>
       </div>
       <div class="card linked">
         <div class="ic tint-violet">📊</div>
-        <h3>Uitbaters</h3>
-        <p>Beheer je kramen, zet acties op en bereik bezoekers in de buurt met gerichte meldingen.</p>
-        <a class="more" href="/uitbaters.html">Ontdek meer →</a>
+        <h3>Voor uitbaters</h3>
+        <p>Scan met je telefoon, beheer je kramen en acties, en bereik bezoekers in de buurt — zonder kassa.</p>
+        <a class="more" href="/uitbaters.html">Wat Funpoints doet →</a>
       </div>
     </div>
   </section>
@@ -271,38 +278,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="cta">
         <h2>Klaar om de foor digitaal te maken?</h2>
-        <p>Bezoekers sparen leuker, foorkramers werken sneller, en uitbaters bereiken hun klanten rechtstreeks. <a href="/over-ons.html" style="color:#fff;text-decoration:underline;">Lees wie er achter Funpoints zit</a>.</p>
+        <p>Bezoekers sparen leuker en uitbaters werken sneller én bereiken hun klanten rechtstreeks. <a href="/over-ons.html" style="color:#fff;text-decoration:underline;">Lees wie er achter Funpoints zit</a>.</p>
         <a class="btn btn-ghost btn-lg" href="/uitbaters.html">Word Funpoints-uitbater</a>
       </div>
     </div>
   </section>
 </main>
 
+<!-- fp:footer -->
 <footer class="footer">
   <div class="container footer-grid">
     <div>
       <a class="brand" href="/"><span class="mark">F</span> Funpoints</a>
       <p class="tag">Digitale spaarpunten en acties voor de Belgische kermis.</p>
+      <a href="mailto:info@funpoints.be">info@funpoints.be</a>
     </div>
     <div>
-      <h4>Product</h4>
-      <a href="/hoe-het-werkt.html">Hoe het werkt</a>
-      <a href="/bezoekers.html">Voor bezoekers</a>
-      <a href="/foorkramers.html">Voor foorkramers</a>
-      <a href="/uitbaters.html">Voor uitbaters</a>
+      <h4>Voor bezoekers</h4>
+      <a href="/bezoekers.html">Zo spaar je punten</a>
+      <a href="/hoe-het-werkt.html">Hoe Funpoints werkt</a>
       <a href="/kermis/">Kermiskalender</a>
+      <a href="/magazine/">Kermismagazine</a>
     </div>
     <div>
-      <h4>Aan de slag</h4>
+      <h4>Voor uitbaters</h4>
+      <a href="/uitbaters.html">Wat Funpoints doet</a>
       <a href="/demo/">Demo aanvragen</a>
-      <a href="https://app.funpoints.be">Inloggen als uitbater</a>
-      <a href="/uitbaters.html">Word uitbater</a>
+      <a href="/kennisbank/">Kennisbank</a>
+      <a href="https://app.funpoints.be">Inloggen op het dashboard</a>
     </div>
     <div>
-      <h4>Info</h4>
-      <a href="/over-ons.html">Over Funpoints</a>
-      <a href="/kennisbank/">Kennisbank</a>
-      <a href="/magazine/">Magazine</a>
+      <h4>Funpoints</h4>
+      <a href="/over-ons.html">Over ons</a>
       <a href="/privacy.html">Privacybeleid</a>
       <a href="#cookievoorkeuren" data-fpc-open>Cookievoorkeuren</a>
       <a href="mailto:info@funpoints.be">Contact</a>
@@ -313,6 +320,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span>Gemaakt voor de foor 🎪</span>
   </div>
 </footer>
+<!-- /fp:footer -->
 
 <script src="/tracking.js" defer></script>
 </body>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- fp:consent -->
 <!-- Google Consent Mode v2 — standaard alles geweigerd, zoals de EER vereist.
      Dit blok moet vóór het bannerscript en vóór GTM staan. -->
 <script>
@@ -24,19 +25,8 @@ gtag('set', 'url_passthrough', true);
 <!-- Cookiebanner. Bewust synchroon: een opgeslagen keuze moet doorgegeven zijn
      vóór GTM zijn eerste tag afvuurt. Geen async, geen defer. -->
 <script src="/js/funpoints-consent.js"></script>
-<!-- Paginacontext voor Google Tag Manager (staat bewust vóór de GTM-snippet) -->
-<script>
-window.dataLayer = window.dataLayer || [];
-window.dataLayer.push({
-  "page_type": "gemeente",
-  "page_category": "kermis",
-  "page_audience": "b2c",
-  "page_name": "Kermis Leerbeek",
-  "page_language": "nl-BE",
-  "kermis_gemeente": "Leerbeek",
-  "kermis_provincie": "Vlaams-Brabant"
-});
-</script>
+<!-- /fp:consent -->
+<!-- fp:head-gtm -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -44,6 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NKS4M9KK');</script>
 <!-- End Google Tag Manager -->
+<!-- /fp:head-gtm -->
 <title>Kermis in Leerbeek 2026 — data en spaaracties</title>
 <meta name="description" content="Wanneer is het kermis in Leerbeek? Alle 1 kermis van 2026 met data, uren en spaaracties. Registreer vooraf en spaar punten.">
 <link rel="canonical" href="https://funpoints.be/kermis/leerbeek/">
@@ -69,19 +60,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","url":"https://funpoints.be/kermis/leerbeek/","name":"Kermissen in Leerbeek","inLanguage":"nl-BE","description":"Wanneer is het kermis in Leerbeek? Alle 1 kermis van 2026 met data, uren en spaaracties. Registreer vooraf en spaar punten.","publisher":{"@id":"https://funpoints.be/#organization"},"about":{"@type":"Place","name":"Leerbeek","address":{"@type":"PostalAddress","addressLocality":"Leerbeek","postalCode":"1755","addressRegion":"Vlaams-Brabant","addressCountry":"BE"}}},{"@type":"ItemList","name":"Kermissen in Leerbeek 2026","numberOfItems":1,"itemListElement":[{"@type":"ListItem","position":1,"name":"Kermis Leerbeek","url":"https://funpoints.be/kermis/leerbeek/kermis-leerbeek/"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Funpoints","item":"https://funpoints.be/"},{"@type":"ListItem","position":2,"name":"Kermiskalender","item":"https://funpoints.be/kermis/"},{"@type":"ListItem","position":3,"name":"Vlaams-Brabant","item":"https://funpoints.be/kermis/provincie/vlaams-brabant/"},{"@type":"ListItem","position":4,"name":"Leerbeek","item":"https://funpoints.be/kermis/leerbeek/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wanneer is het kermis in Leerbeek?","acceptedAnswer":{"@type":"Answer","text":"De eerstvolgende kermis is Kermis Leerbeek, van 11 september 2026 tot en met 14 september 2026. In totaal staan er 1 kermis op de kalender van 2026."}},{"@type":"Question","name":"Is de kermis in Leerbeek gratis?","acceptedAnswer":{"@type":"Answer","text":"Ja, het terrein is vrij toegankelijk. Je betaalt per attractie, per spel of per portie."}},{"@type":"Question","name":"Hoeveel kermissen telt Leerbeek?","acceptedAnswer":{"@type":"Answer","text":"1 in 2026. Dorps- en wijkkermissen wisselen elkaar af over het seizoen, dat in België loopt van het voorjaar tot half november."}}]},{"@type":"Organization","@id":"https://funpoints.be/#organization","name":"Funpoints","url":"https://funpoints.be/","logo":{"@type":"ImageObject","url":"https://funpoints.be/favicon.png","width":256,"height":256},"email":"info@funpoints.be","description":"Funpoints is het digitale spaarsysteem voor de kermis.","areaServed":"BE"}]}</script>
 </head>
 <body>
+<!-- fp:body-gtm -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKS4M9KK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<!-- /fp:body-gtm -->
 
 <a class="skip-link" href="#main">Naar de inhoud</a>
 
+<!-- fp:header -->
 <header class="site-header">
 
   <nav class="subnav" aria-label="Kies je doelgroep">
     <div class="container subnav-inner">
       <a href="/bezoekers.html">Voor bezoekers</a>
-      <a href="/foorkramers.html">Voor foorkramers</a>
       <a href="/uitbaters.html">Voor uitbaters</a>
     </div>
   </nav>
@@ -94,13 +87,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <nav class="nav-links" id="hoofdmenu" aria-label="Hoofdnavigatie">
         <a href="/kermis/">Kermiskalender</a>
         <a href="/hoe-het-werkt.html">Punten sparen</a>
+        <a href="/kennisbank/">Kennisbank</a>
         <a href="/magazine/">Magazine</a>
-        <a href="/over-ons.html">Over Funpoints</a>
+        <a href="/over-ons.html">Over ons</a>
+        <a class="nav-alleen-mobiel" href="/demo/">Demo aanvragen</a>
       </nav>
+      <div class="nav-right">
+        <a class="btn btn-primary" href="/demo/">Vraag een demo</a>
+      </div>
     </div>
   </div>
 
 </header>
+<!-- /fp:header -->
 
 <main id="main">
   <section class="page-hero article-head">
@@ -205,31 +204,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 </main>
 
+<!-- fp:footer -->
 <footer class="footer">
   <div class="container footer-grid">
     <div>
       <a class="brand" href="/"><span class="mark">F</span> Funpoints</a>
       <p class="tag">Digitale spaarpunten en acties voor de Belgische kermis.</p>
+      <a href="mailto:info@funpoints.be">info@funpoints.be</a>
     </div>
     <div>
-      <h4>Product</h4>
-      <a href="/hoe-het-werkt.html">Hoe het werkt</a>
-      <a href="/bezoekers.html">Voor bezoekers</a>
-      <a href="/foorkramers.html">Voor foorkramers</a>
-      <a href="/uitbaters.html">Voor uitbaters</a>
+      <h4>Voor bezoekers</h4>
+      <a href="/bezoekers.html">Zo spaar je punten</a>
+      <a href="/hoe-het-werkt.html">Hoe Funpoints werkt</a>
       <a href="/kermis/">Kermiskalender</a>
+      <a href="/magazine/">Kermismagazine</a>
     </div>
     <div>
-      <h4>Aan de slag</h4>
+      <h4>Voor uitbaters</h4>
+      <a href="/uitbaters.html">Wat Funpoints doet</a>
       <a href="/demo/">Demo aanvragen</a>
-      <a href="https://app.funpoints.be">Inloggen als uitbater</a>
-      <a href="/uitbaters.html">Word uitbater</a>
+      <a href="/kennisbank/">Kennisbank</a>
+      <a href="https://app.funpoints.be">Inloggen op het dashboard</a>
     </div>
     <div>
-      <h4>Info</h4>
-      <a href="/over-ons.html">Over Funpoints</a>
-      <a href="/kennisbank/">Kennisbank</a>
-      <a href="/magazine/">Magazine</a>
+      <h4>Funpoints</h4>
+      <a href="/over-ons.html">Over ons</a>
       <a href="/privacy.html">Privacybeleid</a>
       <a href="#cookievoorkeuren" data-fpc-open>Cookievoorkeuren</a>
       <a href="mailto:info@funpoints.be">Contact</a>
@@ -240,6 +239,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span>Gemaakt voor de foor 🎪</span>
   </div>
 </footer>
+<!-- /fp:footer -->
 
 <script src="/kermis/status.js" defer></script>
 <script src="/tracking.js" defer></script>

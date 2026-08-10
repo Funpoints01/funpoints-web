@@ -15,6 +15,27 @@ Draaien:  python3 build_kermis.py [doelmap]
 import json, os, re, sys, html, unicodedata, datetime
 from collections import defaultdict
 
+# De gedeelde blokken staan één map hoger, in tools/partials/ — dezelfde bron
+# als tools/partials.py gebruikt voor de handgeschreven pagina's.
+PARTIALS = os.path.normpath(
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'partials'))
+
+
+def partial(sleutel, naam):
+    """De gedeelde blokken komen uit tools/partials/ — zelfde bron als de rest
+    van de site, zodat header en footer nooit uit elkaar lopen. De markers
+    eromheen laten tools/partials.py de blokken later terugvinden."""
+    with open(os.path.join(PARTIALS, naam), encoding='utf-8') as f:
+        return (f'<!-- fp:{sleutel} -->\n' + f.read().rstrip('\n')
+                + f'\n<!-- /fp:{sleutel} -->')
+
+
+CONSENT = partial('consent', 'head-consent.html')
+GTM_HEAD = partial('head-gtm', 'head-gtm.html')
+GTM_BODY = partial('body-gtm', 'body-gtm.html')
+HEADER = partial('header', 'header.html')
+FOOTER = partial('footer', 'footer.html')
+
 BRON = 'kermissen.json'
 DOEL = sys.argv[1] if len(sys.argv) > 1 else '.'
 BASIS = 'https://funpoints.be'
@@ -84,44 +105,15 @@ def kop(titel, beschrijving, canoniek, dl, extra_head='', jsonld=None, noindex=F
               + '</script>\n')
     robots = '<meta name="robots" content="noindex,follow">\n' if noindex else ''
     dlj = json.dumps(dl, ensure_ascii=False, indent=2)
+    consent, gtmhead, gtmbody, header = CONSENT, GTM_HEAD, GTM_BODY, HEADER
+    bodyklasse = ''
     return f'''<!DOCTYPE html>
 <html lang="nl-BE">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Google Consent Mode v2 — standaard alles geweigerd, zoals de EER vereist.
-     Dit blok moet vóór het bannerscript en vóór GTM staan. -->
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){{dataLayer.push(arguments);}}
-gtag('consent', 'default', {{
-  ad_storage: 'denied',
-  ad_user_data: 'denied',
-  ad_personalization: 'denied',
-  analytics_storage: 'denied',
-  personalization_storage: 'denied',
-  functionality_storage: 'granted',
-  security_storage: 'granted',
-  wait_for_update: 500
-}});
-gtag('set', 'ads_data_redaction', true);
-gtag('set', 'url_passthrough', true);
-</script>
-<!-- Cookiebanner. Bewust synchroon: een opgeslagen keuze moet doorgegeven zijn
-     vóór GTM zijn eerste tag afvuurt. Geen async, geen defer. -->
-<script src="/js/funpoints-consent.js"></script>
-<!-- Paginacontext voor Google Tag Manager (staat bewust vóór de GTM-snippet) -->
-<script>
-window.dataLayer = window.dataLayer || [];
-window.dataLayer.push({dlj});
-</script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
-new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-}})(window,document,'script','dataLayer','GTM-NKS4M9KK');</script>
-<!-- End Google Tag Manager -->
+{consent}
+{gtmhead}
 <title>{e(titel)}</title>
 <meta name="description" content="{e(beschrijving)}">
 {robots}<link rel="canonical" href="{canoniek}">
@@ -145,87 +137,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 {extra_head}{ld}</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKS4M9KK"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<body{bodyklasse}>
+{gtmbody}
 
 <a class="skip-link" href="#main">Naar de inhoud</a>
 
-<header class="site-header">
-
-  <nav class="subnav" aria-label="Kies je doelgroep">
-    <div class="container subnav-inner">
-      <a href="/bezoekers.html">Voor bezoekers</a>
-      <a href="/foorkramers.html">Voor foorkramers</a>
-      <a href="/uitbaters.html">Voor uitbaters</a>
-    </div>
-  </nav>
-
-  <div class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="/"><span class="mark">F</span> Funpoints</a>
-      <input class="nav-toggle-input" type="checkbox" id="navtoggle">
-      <label class="nav-toggle" for="navtoggle" aria-controls="hoofdmenu"><span class="bars"></span>Menu</label>
-      <nav class="nav-links" id="hoofdmenu" aria-label="Hoofdnavigatie">
-        <a href="/kermis/">Kermiskalender</a>
-        <a href="/hoe-het-werkt.html">Punten sparen</a>
-        <a href="/magazine/">Magazine</a>
-        <a href="/over-ons.html">Over Funpoints</a>
-      </nav>
-    </div>
-  </div>
-
-</header>
+{header}
 
 <main id="main">
 '''
 
 
-VOET = '''</main>
-
-<footer class="footer">
-  <div class="container footer-grid">
-    <div>
-      <a class="brand" href="/"><span class="mark">F</span> Funpoints</a>
-      <p class="tag">Digitale spaarpunten en acties voor de Belgische kermis.</p>
-    </div>
-    <div>
-      <h4>Product</h4>
-      <a href="/hoe-het-werkt.html">Hoe het werkt</a>
-      <a href="/bezoekers.html">Voor bezoekers</a>
-      <a href="/foorkramers.html">Voor foorkramers</a>
-      <a href="/uitbaters.html">Voor uitbaters</a>
-      <a href="/kermis/">Kermiskalender</a>
-    </div>
-    <div>
-      <h4>Aan de slag</h4>
-      <a href="/demo/">Demo aanvragen</a>
-      <a href="https://app.funpoints.be">Inloggen als uitbater</a>
-      <a href="/uitbaters.html">Word uitbater</a>
-    </div>
-    <div>
-      <h4>Info</h4>
-      <a href="/over-ons.html">Over Funpoints</a>
-      <a href="/kennisbank/">Kennisbank</a>
-      <a href="/magazine/">Magazine</a>
-      <a href="/privacy.html">Privacybeleid</a>
-      <a href="#cookievoorkeuren" data-fpc-open>Cookievoorkeuren</a>
-      <a href="mailto:info@funpoints.be">Contact</a>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 Funpoints</span>
-    <span>Gemaakt voor de foor 🎪</span>
-  </div>
-</footer>
+def voet(sticky=''):
+    return f'''</main>
+{sticky}
+{FOOTER}
 
 <script src="/kermis/status.js" defer></script>
 <script src="/tracking.js" defer></script>
 </body>
 </html>
 '''
+
+
+VOET = voet()
 
 ORG = {
     "@type": "Organization",

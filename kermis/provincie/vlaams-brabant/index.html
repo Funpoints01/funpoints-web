@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- fp:consent -->
 <!-- Google Consent Mode v2 — standaard alles geweigerd, zoals de EER vereist.
      Dit blok moet vóór het bannerscript en vóór GTM staan. -->
 <script>
@@ -24,18 +25,8 @@ gtag('set', 'url_passthrough', true);
 <!-- Cookiebanner. Bewust synchroon: een opgeslagen keuze moet doorgegeven zijn
      vóór GTM zijn eerste tag afvuurt. Geen async, geen defer. -->
 <script src="/js/funpoints-consent.js"></script>
-<!-- Paginacontext voor Google Tag Manager (staat bewust vóór de GTM-snippet) -->
-<script>
-window.dataLayer = window.dataLayer || [];
-window.dataLayer.push({
-  "page_type": "provincie",
-  "page_category": "kermis",
-  "page_audience": "b2c",
-  "page_name": "Kermissen Vlaams-Brabant",
-  "page_language": "nl-BE",
-  "kermis_provincie": "Vlaams-Brabant"
-});
-</script>
+<!-- /fp:consent -->
+<!-- fp:head-gtm -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -43,6 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NKS4M9KK');</script>
 <!-- End Google Tag Manager -->
+<!-- /fp:head-gtm -->
 <title>Kermissen in Vlaams-Brabant 2026 — volledige kalender</title>
 <meta name="description" content="Alle 85 kermissen in Vlaams-Brabant in 2026, per gemeente en op datum. Data, uren en spaaracties op één kalender.">
 <link rel="canonical" href="https://funpoints.be/kermis/provincie/vlaams-brabant/">
@@ -68,19 +60,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","url":"https://funpoints.be/kermis/provincie/vlaams-brabant/","name":"Kermissen in Vlaams-Brabant","inLanguage":"nl-BE","description":"Alle 85 kermissen in Vlaams-Brabant in 2026, per gemeente en op datum. Data, uren en spaaracties op één kalender.","publisher":{"@id":"https://funpoints.be/#organization"}},{"@type":"ItemList","name":"Kermissen in Vlaams-Brabant 2026","numberOfItems":85,"itemListElement":[{"@type":"ListItem","position":1,"name":"Zomerkermis — Scherpenheuvel","url":"https://funpoints.be/kermis/scherpenheuvel/zomerkermis/"},{"@type":"ListItem","position":2,"name":"Dorpskermis — Gelrode","url":"https://funpoints.be/kermis/gelrode/dorpskermis/"},{"@type":"ListItem","position":3,"name":"Kermis Bertem — Bertem","url":"https://funpoints.be/kermis/bertem/kermis-bertem/"},{"@type":"ListItem","position":4,"name":"Kermis Bierbeek-Bremt — Bierbeek-Bremt","url":"https://funpoints.be/kermis/bierbeek-bremt/kermis-bierbeek-bremt/"},{"@type":"ListItem","position":5,"name":"Bleregemkermis — Hekelgem","url":"https://funpoints.be/kermis/hekelgem/bleregemkermis/"},{"@type":"ListItem","position":6,"name":"Kermis Mazenzele — Mazenzele","url":"https://funpoints.be/kermis/mazenzele/kermis-mazenzele/"},{"@type":"ListItem","position":7,"name":"Kermis Neerlinter — Neerlinter","url":"https://funpoints.be/kermis/neerlinter/kermis-neerlinter/"},{"@type":"ListItem","position":8,"name":"Truckshow — Bekkevoort","url":"https://funpoints.be/kermis/bekkevoort/truckshow/"},{"@type":"ListItem","position":9,"name":"Halfoogstfeesten — Huldenberg","url":"https://funpoints.be/kermis/huldenberg/halfoogstfeesten/"},{"@type":"ListItem","position":10,"name":"Kermes Stoase — Landen","url":"https://funpoints.be/kermis/landen/kermes-stoase/"},{"@type":"ListItem","position":11,"name":"Hoebelfeesten — Vlezenbeek","url":"https://funpoints.be/kermis/vlezenbeek/hoebelfeesten/"},{"@type":"ListItem","position":12,"name":"Berg Kermis — Tielt-Winge","url":"https://funpoints.be/kermis/tielt-winge/berg-kermis/"},{"@type":"ListItem","position":13,"name":"Kermis Geetbets — Geetbets","url":"https://funpoints.be/kermis/geetbets/kermis-geetbets/"},{"@type":"ListItem","position":14,"name":"Zomerkermis — Lennik","url":"https://funpoints.be/kermis/lennik/zomerkermis/"},{"@type":"ListItem","position":15,"name":"Okkeziel Bruist — Nederokkerzeel","url":"https://funpoints.be/kermis/nederokkerzeel/okkeziel-bruist/"},{"@type":"ListItem","position":16,"name":"Kermis Pepingen — Pepingen","url":"https://funpoints.be/kermis/pepingen/kermis-pepingen/"},{"@type":"ListItem","position":17,"name":"Jaarmarktkermis — Wemmel","url":"https://funpoints.be/kermis/wemmel/jaarmarktkermis/"},{"@type":"ListItem","position":18,"name":"Rochuskermis — Werchter","url":"https://funpoints.be/kermis/werchter/rochuskermis/"},{"@type":"ListItem","position":19,"name":"Grote Kermis — Aarschot","url":"https://funpoints.be/kermis/aarschot/grote-kermis/"},{"@type":"ListItem","position":20,"name":"Kermis Berg-Kampenhout — Berg-Kampenhout","url":"https://funpoints.be/kermis/berg-kampenhout/kermis-berg-kampenhout/"},{"@type":"ListItem","position":21,"name":"Druivenfeesten — Overijse","url":"https://funpoints.be/kermis/overijse/druivenfeesten/"},{"@type":"ListItem","position":22,"name":"Kermis Groot-Bijgaarden — Groot-Bijgaarden","url":"https://funpoints.be/kermis/groot-bijgaarden/kermis-groot-bijgaarden/"},{"@type":"ListItem","position":23,"name":"Augustuskermis — Sint-Genesius-Rode","url":"https://funpoints.be/kermis/sint-genesius-rode/augustuskermis/"},{"@type":"ListItem","position":24,"name":"Augustuskermis — Tremelo","url":"https://funpoints.be/kermis/tremelo/augustuskermis/"},{"@type":"ListItem","position":25,"name":"Kermis Rummen — Rummen","url":"https://funpoints.be/kermis/rummen/kermis-rummen/"},{"@type":"ListItem","position":26,"name":"Kermis Waanrode — Waanrode","url":"https://funpoints.be/kermis/waanrode/kermis-waanrode/"},{"@type":"ListItem","position":27,"name":"Muggenbergkermis — Molenbeek","url":"https://funpoints.be/kermis/molenbeek/muggenbergkermis/"},{"@type":"ListItem","position":28,"name":"Septemberkermis — Leuven","url":"https://funpoints.be/kermis/leuven/septemberkermis/"},{"@type":"ListItem","position":29,"name":"Jaarmarktkermis — Grimbergen","url":"https://funpoints.be/kermis/grimbergen/jaarmarktkermis/"},{"@type":"ListItem","position":30,"name":"Septemberkermis — Halle","url":"https://funpoints.be/kermis/halle/septemberkermis/"},{"@type":"ListItem","position":31,"name":"Zomerkermis — Putte-Grasheide","url":"https://funpoints.be/kermis/putte-grasheide/zomerkermis/"},{"@type":"ListItem","position":32,"name":"Kermis Holsbeek — Holsbeek","url":"https://funpoints.be/kermis/holsbeek/kermis-holsbeek/"},{"@type":"ListItem","position":33,"name":"Kermis Leerbeek — Leerbeek","url":"https://funpoints.be/kermis/leerbeek/kermis-leerbeek/"},{"@type":"ListItem","position":34,"name":"Kermis Montenaken — Montenaken","url":"https://funpoints.be/kermis/montenaken/kermis-montenaken/"},{"@type":"ListItem","position":35,"name":"Kermis Bekkevoort — Bekkevoort","url":"https://funpoints.be/kermis/bekkevoort/kermis-bekkevoort/"},{"@type":"ListItem","position":36,"name":"Septemberkermis — Diegem","url":"https://funpoints.be/kermis/diegem/septemberkermis/"},{"@type":"ListItem","position":37,"name":"Kermis Kampenhout — Kampenhout","url":"https://funpoints.be/kermis/kampenhout/kermis-kampenhout/"},{"@type":"ListItem","position":38,"name":"Septemberkermis — Kapelle-op-den-Bos","url":"https://funpoints.be/kermis/kapelle-op-den-bos/septemberkermis/"},{"@type":"ListItem","position":39,"name":"Kermis Beersel — Beersel","url":"https://funpoints.be/kermis/beersel/kermis-beersel/"},{"@type":"ListItem","position":40,"name":"Druivenkermis — Hoeilaart","url":"https://funpoints.be/kermis/hoeilaart/druivenkermis/"},{"@type":"ListItem","position":41,"name":"Jaarmarktkermis — Schepdaal","url":"https://funpoints.be/kermis/schepdaal/jaarmarktkermis/"},{"@type":"ListItem","position":42,"name":"Kermis Asse — Asse","url":"https://funpoints.be/kermis/asse/kermis-asse/"},{"@type":"ListItem","position":43,"name":"Kermis Erps-Kwerps — Erps-Kwerps","url":"https://funpoints.be/kermis/erps-kwerps/kermis-erps-kwerps/"},{"@type":"ListItem","position":44,"name":"Kermis Leefdaal — Leefdaal","url":"https://funpoints.be/kermis/leefdaal/kermis-leefdaal/"},{"@type":"ListItem","position":45,"name":"Dorpskermis — Rillaar","url":"https://funpoints.be/kermis/rillaar/dorpskermis/"},{"@type":"ListItem","position":46,"name":"Kermis Strombeek-Bever — Strombeek-Bever","url":"https://funpoints.be/kermis/strombeek-bever/kermis-strombeek-bever/"},{"@type":"ListItem","position":47,"name":"Feest in de Vilvoordelaan — Zaventem","url":"https://funpoints.be/kermis/zaventem/feest-in-de-vilvoordelaan/"},{"@type":"ListItem","position":48,"name":"Kermis Zelem — Zelem","url":"https://funpoints.be/kermis/zelem/kermis-zelem/"},{"@type":"ListItem","position":49,"name":"Kapelkermis — Zoutleeuw","url":"https://funpoints.be/kermis/zoutleeuw/kapelkermis/"},{"@type":"ListItem","position":50,"name":"Septemberkermis — Gooik","url":"https://funpoints.be/kermis/gooik/septemberkermis/"},{"@type":"ListItem","position":51,"name":"Septemberkermis — Herne","url":"https://funpoints.be/kermis/herne/septemberkermis/"},{"@type":"ListItem","position":52,"name":"Septemberkermis — Rotselaar","url":"https://funpoints.be/kermis/rotselaar/septemberkermis/"},{"@type":"ListItem","position":53,"name":"Jaarmarktkermis — Sint-Genesius-Rode","url":"https://funpoints.be/kermis/sint-genesius-rode/jaarmarktkermis/"},{"@type":"ListItem","position":54,"name":"Septemberkermis — Keerbergen","url":"https://funpoints.be/kermis/keerbergen/septemberkermis/"},{"@type":"ListItem","position":55,"name":"Septemberkermis — Londerzeel","url":"https://funpoints.be/kermis/londerzeel/septemberkermis/"},{"@type":"ListItem","position":56,"name":"Winge Foor — Sint-Joris-Winge","url":"https://funpoints.be/kermis/sint-joris-winge/winge-foor/"},{"@type":"ListItem","position":57,"name":"Septemberkermis — Baal","url":"https://funpoints.be/kermis/baal/septemberkermis/"},{"@type":"ListItem","position":58,"name":"Jaarmarktkermis — Lot","url":"https://funpoints.be/kermis/lot/jaarmarktkermis/"},{"@type":"ListItem","position":59,"name":"Kermis Alsemberg — Alsemberg","url":"https://funpoints.be/kermis/alsemberg/kermis-alsemberg/"},{"@type":"ListItem","position":60,"name":"Jaarmarktkermis — Dilbeek","url":"https://funpoints.be/kermis/dilbeek/jaarmarktkermis/"},{"@type":"ListItem","position":61,"name":"Kermis Galmaarden — Galmaarden","url":"https://funpoints.be/kermis/galmaarden/kermis-galmaarden/"},{"@type":"ListItem","position":62,"name":"Kermis Opperstraat — Liedekerke","url":"https://funpoints.be/kermis/liedekerke/kermis-opperstraat/"},{"@type":"ListItem","position":63,"name":"Oktoberkermis — Haacht","url":"https://funpoints.be/kermis/haacht/oktoberkermis/"},{"@type":"ListItem","position":64,"name":"Kermis Kortenberg — Kortenberg","url":"https://funpoints.be/kermis/kortenberg/kermis-kortenberg/"},{"@type":"ListItem","position":65,"name":"Kermis Meise — Meise","url":"https://funpoints.be/kermis/meise/kermis-meise/"},{"@type":"ListItem","position":66,"name":"Kermis Wommersom — Wommersom","url":"https://funpoints.be/kermis/wommersom/kermis-wommersom/"},{"@type":"ListItem","position":67,"name":"Kermis Krokegem — Krokegem","url":"https://funpoints.be/kermis/krokegem/kermis-krokegem/"},{"@type":"ListItem","position":68,"name":"Oktoberkermis — Malderen","url":"https://funpoints.be/kermis/malderen/oktoberkermis/"},{"@type":"ListItem","position":69,"name":"Najaarskermis — Meerbeek","url":"https://funpoints.be/kermis/meerbeek/najaarskermis/"},{"@type":"ListItem","position":70,"name":"Jaarmarktkermis — Zellik","url":"https://funpoints.be/kermis/zellik/jaarmarktkermis/"},{"@type":"ListItem","position":71,"name":"Jaarmarktkermis — Ternat","url":"https://funpoints.be/kermis/ternat/jaarmarktkermis/"},{"@type":"ListItem","position":72,"name":"Jaarmarktkermis — Dworp","url":"https://funpoints.be/kermis/dworp/jaarmarktkermis/"},{"@type":"ListItem","position":73,"name":"Jaarmarktkermis — Lembeek","url":"https://funpoints.be/kermis/lembeek/jaarmarktkermis/"},{"@type":"ListItem","position":74,"name":"Kermis Winksele — Winksele","url":"https://funpoints.be/kermis/winksele/kermis-winksele/"},{"@type":"ListItem","position":75,"name":"Winterkermis — Drogenbos","url":"https://funpoints.be/kermis/drogenbos/winterkermis/"},{"@type":"ListItem","position":76,"name":"Kermis Sterrebeek — Sterrebeek","url":"https://funpoints.be/kermis/sterrebeek/kermis-sterrebeek/"},{"@type":"ListItem","position":77,"name":"Winterkermis — Tervuren","url":"https://funpoints.be/kermis/tervuren/winterkermis/"},{"@type":"ListItem","position":78,"name":"Winterkermis — Vlezenbeek","url":"https://funpoints.be/kermis/vlezenbeek/winterkermis/"},{"@type":"ListItem","position":79,"name":"Winterkermis — Everberg","url":"https://funpoints.be/kermis/everberg/winterkermis/"},{"@type":"ListItem","position":80,"name":"Kermis Melsbroek — Melsbroek","url":"https://funpoints.be/kermis/melsbroek/kermis-melsbroek/"},{"@type":"ListItem","position":81,"name":"Kermis Engsbergen — Engsbergen","url":"https://funpoints.be/kermis/engsbergen/kermis-engsbergen/"},{"@type":"ListItem","position":82,"name":"Jaarmarktkermis — Rijmenam","url":"https://funpoints.be/kermis/rijmenam/jaarmarktkermis/"},{"@type":"ListItem","position":83,"name":"Winterkermis — Hoeilaart","url":"https://funpoints.be/kermis/hoeilaart/winterkermis/"},{"@type":"ListItem","position":84,"name":"Jaarmarktkermis — Lennik","url":"https://funpoints.be/kermis/lennik/jaarmarktkermis/"},{"@type":"ListItem","position":85,"name":"Winterkermis — Duisburg","url":"https://funpoints.be/kermis/duisburg/winterkermis/"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Funpoints","item":"https://funpoints.be/"},{"@type":"ListItem","position":2,"name":"Kermiskalender","item":"https://funpoints.be/kermis/"},{"@type":"ListItem","position":3,"name":"Vlaams-Brabant","item":"https://funpoints.be/kermis/provincie/vlaams-brabant/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hoeveel kermissen zijn er in Vlaams-Brabant?","acceptedAnswer":{"@type":"Answer","text":"85 in 2026, verspreid over 80 gemeenten — van dorpskermissen van een weekend tot stadsforen die weken duren."}},{"@type":"Question","name":"Wanneer loopt het kermisseizoen in Vlaams-Brabant?","acceptedAnswer":{"@type":"Answer","text":"De eerste kermis van 2026 start op 24 juli 2026, de laatste loopt tot 30 november 2026."}}]},{"@type":"Organization","@id":"https://funpoints.be/#organization","name":"Funpoints","url":"https://funpoints.be/","logo":{"@type":"ImageObject","url":"https://funpoints.be/favicon.png","width":256,"height":256},"email":"info@funpoints.be","description":"Funpoints is het digitale spaarsysteem voor de kermis.","areaServed":"BE"}]}</script>
 </head>
 <body>
+<!-- fp:body-gtm -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKS4M9KK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<!-- /fp:body-gtm -->
 
 <a class="skip-link" href="#main">Naar de inhoud</a>
 
+<!-- fp:header -->
 <header class="site-header">
 
   <nav class="subnav" aria-label="Kies je doelgroep">
     <div class="container subnav-inner">
       <a href="/bezoekers.html">Voor bezoekers</a>
-      <a href="/foorkramers.html">Voor foorkramers</a>
       <a href="/uitbaters.html">Voor uitbaters</a>
     </div>
   </nav>
@@ -93,13 +87,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <nav class="nav-links" id="hoofdmenu" aria-label="Hoofdnavigatie">
         <a href="/kermis/">Kermiskalender</a>
         <a href="/hoe-het-werkt.html">Punten sparen</a>
+        <a href="/kennisbank/">Kennisbank</a>
         <a href="/magazine/">Magazine</a>
-        <a href="/over-ons.html">Over Funpoints</a>
+        <a href="/over-ons.html">Over ons</a>
+        <a class="nav-alleen-mobiel" href="/demo/">Demo aanvragen</a>
       </nav>
+      <div class="nav-right">
+        <a class="btn btn-primary" href="/demo/">Vraag een demo</a>
+      </div>
     </div>
   </div>
 
 </header>
+<!-- /fp:header -->
 
 <main id="main">
   <section class="page-hero article-head">
@@ -250,31 +250,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 </main>
 
+<!-- fp:footer -->
 <footer class="footer">
   <div class="container footer-grid">
     <div>
       <a class="brand" href="/"><span class="mark">F</span> Funpoints</a>
       <p class="tag">Digitale spaarpunten en acties voor de Belgische kermis.</p>
+      <a href="mailto:info@funpoints.be">info@funpoints.be</a>
     </div>
     <div>
-      <h4>Product</h4>
-      <a href="/hoe-het-werkt.html">Hoe het werkt</a>
-      <a href="/bezoekers.html">Voor bezoekers</a>
-      <a href="/foorkramers.html">Voor foorkramers</a>
-      <a href="/uitbaters.html">Voor uitbaters</a>
+      <h4>Voor bezoekers</h4>
+      <a href="/bezoekers.html">Zo spaar je punten</a>
+      <a href="/hoe-het-werkt.html">Hoe Funpoints werkt</a>
       <a href="/kermis/">Kermiskalender</a>
+      <a href="/magazine/">Kermismagazine</a>
     </div>
     <div>
-      <h4>Aan de slag</h4>
+      <h4>Voor uitbaters</h4>
+      <a href="/uitbaters.html">Wat Funpoints doet</a>
       <a href="/demo/">Demo aanvragen</a>
-      <a href="https://app.funpoints.be">Inloggen als uitbater</a>
-      <a href="/uitbaters.html">Word uitbater</a>
+      <a href="/kennisbank/">Kennisbank</a>
+      <a href="https://app.funpoints.be">Inloggen op het dashboard</a>
     </div>
     <div>
-      <h4>Info</h4>
-      <a href="/over-ons.html">Over Funpoints</a>
-      <a href="/kennisbank/">Kennisbank</a>
-      <a href="/magazine/">Magazine</a>
+      <h4>Funpoints</h4>
+      <a href="/over-ons.html">Over ons</a>
       <a href="/privacy.html">Privacybeleid</a>
       <a href="#cookievoorkeuren" data-fpc-open>Cookievoorkeuren</a>
       <a href="mailto:info@funpoints.be">Contact</a>
@@ -285,6 +285,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span>Gemaakt voor de foor 🎪</span>
   </div>
 </footer>
+<!-- /fp:footer -->
 
 <script src="/kermis/status.js" defer></script>
 <script src="/tracking.js" defer></script>
