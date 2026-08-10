@@ -278,6 +278,27 @@ dl.woordenboek dd { color: var(--muted); margin-left: 0; }
 }
 .cal-empty b { color: var(--ink); }
 
+/* Gemeentelijst op een provinciepagina: veel namen, weinig ruimte. */
+.gemeentelijst {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px 14px; margin: 0 0 20px;
+}
+.gemeentelijst a {
+  display: flex; justify-content: space-between; gap: 8px; align-items: baseline;
+  padding: 9px 13px; border-radius: 11px; background: var(--card);
+  border: 1px solid var(--line); font-weight: 600; font-size: 15px;
+  color: var(--ink); text-decoration: none;
+}
+.gemeentelijst a:hover { border-color: rgba(36,27,58,0.22); box-shadow: var(--shadow); }
+.gemeentelijst a span { color: var(--muted); font-size: 13px; font-weight: 700; }
+
+/* Statuslabel van een kermis; /kermis/status.js houdt de tekst actueel. */
+.kermis-status { white-space: nowrap; }
+.article td .kermis-status {
+  display: inline-block; font-size: 12.5px; font-weight: 800;
+  letter-spacing: .3px; color: var(--muted);
+}
+
 /* ---------- Demo-landingspagina ---------- */
 .lp-hero { position: relative; overflow: hidden; padding: 56px 0 60px; }
 .lp-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: start; }

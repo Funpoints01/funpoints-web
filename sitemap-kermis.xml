@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://funpoints.be/kermis/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://funpoints.be/kermis/provincie/antwerpen/</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://funpoints.be/kermis/provincie/brussel/</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://funpoints.be/kermis/provincie/limburg/</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://funpoints.be/kermis/provincie/oost-vlaanderen/</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://funpoints.be/kermis/provincie/vlaams-brabant/</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://funpoints.be/kermis/provincie/west-vlaanderen/</loc>
+    <lastmod>2026-08-10</lastmod>
   </url>
 </urlset>

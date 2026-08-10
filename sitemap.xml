@@ -2,18 +2,42 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://funpoints.be/sitemap-core.xml</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://funpoints.be/sitemap-kermis.xml</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://funpoints.be/sitemap-kermis-antwerpen.xml</loc>
+    <lastmod>2026-08-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://funpoints.be/sitemap-kermis-brussel.xml</loc>
+    <lastmod>2026-08-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://funpoints.be/sitemap-kermis-limburg.xml</loc>
+    <lastmod>2026-08-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://funpoints.be/sitemap-kermis-oost-vlaanderen.xml</loc>
+    <lastmod>2026-08-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://funpoints.be/sitemap-kermis-vlaams-brabant.xml</loc>
+    <lastmod>2026-08-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://funpoints.be/sitemap-kermis-west-vlaanderen.xml</loc>
+    <lastmod>2026-08-10</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://funpoints.be/sitemap-kennisbank.xml</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://funpoints.be/sitemap-magazine.xml</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </sitemap>
 </sitemapindex>
