@@ -335,6 +335,23 @@ section.aansluitend-strak { padding-top: 0; }
 .balk > i { display: block; height: 100%; border-radius: 999px; background: var(--green); }
 .balk.paars > i { background: var(--violet); }
 
+/* Schermmock: het dashboard van een uitbater, nagebouwd in HTML zodat er geen
+   screenshot nodig is die bij elke wijziging veroudert. */
+.scherm {
+  background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+  box-shadow: var(--shadow); overflow: hidden;
+}
+.scherm-balk {
+  display: flex; align-items: center; gap: 6px; padding: 12px 16px;
+  border-bottom: 1px solid var(--line); background: rgba(36,27,58,0.025);
+}
+.scherm-balk i { width: 10px; height: 10px; border-radius: 50%; background: rgba(36,27,58,0.14); }
+.scherm-balk span { margin-left: 10px; font-size: 12.5px; font-weight: 700; color: var(--muted); }
+.scherm-inhoud { padding: 20px; }
+.scherm-kop { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.scherm-kop b { font-size: 16px; font-weight: 800; }
+.scherm-kop span { font-size: 12.5px; color: var(--muted); font-weight: 700; }
+
 /* Voorbeeldgrafiekje in een paneel — puur illustratief */
 .mini-grafiek { display: flex; gap: 8px; align-items: flex-end; height: 110px; margin-top: 20px; }
 .mini-grafiek i { flex: 1; border-radius: 8px 8px 0 0; background: rgba(139,92,246,0.4); }
