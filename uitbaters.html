@@ -47,14 +47,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <!-- /fp:head-gtm -->
 <title>Loyaliteitssysteem voor Kermis &amp; Lunapark | Funpoints</title>
-<meta name="description" content="Het spaarsysteem gebouwd voor de kermis: beheer je kramen, zet acties en vouchers op en bereik bezoekers in de buurt. Geen kassa-koppeling nodig.">
+<meta name="description" content="Spaarsysteem gebouwd voor de kermis: scan met je telefoon, zie wie je spaarders zijn en haal ze terug met acties. Zonder kassa, credits van 25 cent.">
 <link rel="canonical" href="https://funpoints.be/uitbaters.html">
 <link rel="alternate" hreflang="nl-BE" href="https://funpoints.be/uitbaters.html">
 <link rel="alternate" hreflang="x-default" href="https://funpoints.be/uitbaters.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://funpoints.be/uitbaters.html">
 <meta property="og:title" content="Loyaliteitssysteem voor Kermis &amp; Lunapark | Funpoints">
-<meta property="og:description" content="Beheer je kramen, zet acties op en bereik bezoekers in de buurt met gerichte pushmeldingen. Het uitbater-dashboard van Funpoints.">
+<meta property="og:description" content="Bouw een klantenbestand op de foor: scannen zonder kassa, zien waar je spaarders wonen, en acties opzetten met credits van 25 cent.">
 <meta property="og:locale" content="nl_BE">
 <meta property="og:image" content="https://funpoints.be/img/funpoints-digitale-spaarkaart-kermis.png">
 <meta property="og:image:width" content="1200">
@@ -110,7 +110,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@id": "https://funpoints.be/uitbaters.html#webpage",
       "url": "https://funpoints.be/uitbaters.html",
       "name": "Loyaliteitssysteem voor kermis en lunapark",
-      "description": "Het spaarsysteem gebouwd voor de kermis: beheer je kramen, zet acties en vouchers op en bereik bezoekers in de buurt.",
+      "description": "Bouw een klantenbestand op de foor: scannen zonder kassa, inzicht in je spaarders, en acties met credits van 25 cent.",
       "inLanguage": "nl-BE",
       "isPartOf": {
         "@id": "https://funpoints.be/#website"
@@ -118,7 +118,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "breadcrumb": {
         "@id": "https://funpoints.be/uitbaters.html#kruimels"
       },
-      "dateModified": "2026-08-10"
+      "dateModified": "2026-08-10",
+      "primaryImageOfPage": {
+        "@id": "https://funpoints.be/#logo"
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -144,7 +147,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "name": "Funpoints — loyaliteitssysteem voor de kermis",
       "serviceType": "Loyaliteitsprogramma voor kermisuitbatingen",
       "url": "https://funpoints.be/uitbaters.html",
-      "description": "Een digitaal spaar- en actiesysteem gebouwd voor kramen die van plein naar plein reizen: punten per beurt, acties en vouchers, en bereik bij bezoekers in de buurt — zonder kassa-koppeling.",
+      "description": "Een digitaal spaar- en actiesysteem gebouwd voor kramen die van plein naar plein reizen: punten per beurt, een kaartje voor wie de app nog niet heeft, inzicht in je spaarders, en acties met bereik — zonder kassa-koppeling.",
       "provider": {
         "@id": "https://funpoints.be/#organization"
       },
@@ -161,6 +164,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         "serviceUrl": "https://app.funpoints.be",
         "name": "Funpoints-dashboard"
       },
+      "offers": {
+        "@type": "Offer",
+        "name": "Credits voor acties en bereik",
+        "description": "Acties, boosts, superster en pushmeldingen betaal je met credits. Punten uitdelen en je kramen beheren zit er zonder extra kosten bij.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://funpoints.be/uitbaters.html",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "0.25",
+          "priceCurrency": "EUR",
+          "unitText": "credit",
+          "referenceQuantity": {
+            "@type": "QuantitativeValue",
+            "value": 1,
+            "unitText": "credit"
+          }
+        }
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Wat Funpoints voor een uitbater doet",
@@ -170,15 +191,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "itemOffered": {
               "@type": "Service",
               "name": "Aan het kraam scannen",
-              "description": "Punten boeken en vouchers inwisselen door de QR-code van de klant te scannen met een gewone telefoon, zonder kassa."
+              "description": "Punten boeken en vouchers inwisselen door de QR-code van de klant of een kaartje te scannen met een gewone telefoon, zonder kassa."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Dashboard en statistieken",
-              "description": "Alle kramen onder één account, met cijfers en grafieken per kraam en logins voor je medewerkers."
+              "name": "Dashboard en inzicht",
+              "description": "Cijfers per kraam: waar je spaarders wonen, hun gemiddelde leeftijd en hoeveel punten er openstaan."
             }
           },
           {
@@ -186,15 +207,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "itemOffered": {
               "@type": "Service",
               "name": "Acties en vouchers",
-              "description": "Extra punten, een gratis ritje of een eenmalige voucher, meteen zichtbaar bij de bezoekers in de app."
+              "description": "Extra punten, een gratis ritje of een eenmalige voucher, met eigen geldigheidsdata en gericht op iedereen, bestaande spaarders of enkel nieuwe spaarders."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Meldingen met bereik",
-              "description": "Pushmeldingen naar bezoekers in een regio rond een postcode, met een live teller van je bereik."
+              "name": "Bereik: boost, superster en pushmelding",
+              "description": "Je actie bovenaan zetten, een aantal uur op de startpagina rond een postcode, of een pushmelding naar een regio."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Agenda en kermiskalender",
+              "description": "Je kermissen per kraam beheren; elke stop krijgt een eigen pagina op de publieke kermiskalender."
             }
           }
         ]
@@ -207,13 +236,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "url": "https://app.funpoints.be",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "description": "Beheer je kramen, zet acties en vouchers op, bekijk statistieken per kraam en bereik bezoekers in de buurt met gerichte meldingen.",
+      "description": "Beheer je kramen, stel de hoofdprijs en de snelknoppen in, maak logins voor je medewerkers, zet je kermissen in de agenda en bereik spaarders met acties.",
       "featureList": [
-        "Statistieken en grafieken per kraam",
         "Meerdere kramen onder één account",
+        "Hoofdprijs per kraam instellen",
+        "Snelknoppen voor de puntentelling instellen",
         "Logins aanmaken voor medewerkers",
-        "Punten-bonus of eenmalige voucher als actie",
-        "Pushmeldingen met targeting op regio"
+        "Agenda met de kermissen per kraam",
+        "Statistieken per kraam: woonplaats, leeftijd en openstaande punten",
+        "Acties, boosts, superster en pushmeldingen met credits"
       ],
       "publisher": {
         "@id": "https://funpoints.be/#organization"
@@ -227,12 +258,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "url": "https://app.funpoints.be",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "description": "Scan de QR-code van de klant met je eigen telefoon, boek of trek punten af en wissel vouchers in. Werkt in de browser, zonder installatie.",
+      "description": "Scan de QR-code van de klant of het kaartje met je eigen telefoon, boek punten met de snelknoppen en wissel vouchers in. Werkt in de browser, zonder installatie.",
       "featureList": [
-        "QR-code van de klant scannen met een gewone telefoon",
-        "Punten boeken en aftrekken",
+        "QR-code van de klant of van een kaartje scannen",
+        "Punten boeken en aftrekken met snelknoppen",
         "Vouchers inwisselen met groen-of-rood controle",
-        "Puntensaldo van de klant meteen zichtbaar"
+        "Puntensaldo en voortgang naar de hoofdprijs meteen zichtbaar"
       ],
       "publisher": {
         "@id": "https://funpoints.be/#organization"
@@ -256,10 +287,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
         {
           "@type": "Question",
+          "name": "Wat kost het?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Punten uitdelen en je kramen beheren kost je niets extra. Je betaalt enkel wanneer je klanten wil bereiken met een actie, een boost, een superster of een pushmelding. Dat gaat met credits van 25 cent per stuk. Hoeveel credits iets kost, hangt af van wat je inzet en hoe groot je bereik is; je ziet het bedrag voor je bevestigt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Moet mijn klant de app installeren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Niet om te beginnen. Wie de app nog niet heeft, krijgt een kaartje van je en spaart meteen mee. Thuis scant hij de achterkant, maakt hij een account aan en staan de punten die jij gaf er al op. Wie de app wél al heeft, toont gewoon zijn QR-code."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ik zelf een account aanmaken?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Je kan meteen zelf starten op app.funpoints.be. Wil je liever dat we langskomen en het samen opzetten aan je kraam, dan vraag je een demo aan. Dat kost je niets."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Kan ik meerdere kramen onder één account beheren?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ja. Je beheert al je kramen vanuit één dashboard, met statistieken en grafieken per kraam. Logins voor je medewerkers maak je zelf aan in enkele klikken."
+            "text": "Ja. Al je kramen staan onder één account, met eigen cijfers per kraam. Logins voor je medewerkers maak je zelf aan, in enkele klikken."
           }
         },
         {
@@ -272,10 +327,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
         {
           "@type": "Question",
-          "name": "Hoe bereik ik bezoekers in de buurt?",
+          "name": "Vervallen de punten van mijn klanten?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Je kiest een regio rond een postcode, ziet live hoeveel bezoekers je daarmee bereikt en stuurt een pushmelding over je actie. Je betaalt met credits, enkel voor wie je effectief bereikt. Minderjarigen worden automatisch afgeschermd."
+            "text": "Dat bepaal je zelf. Je stelt per kraam in of punten na een bepaalde periode vervallen, of dat ze blijven staan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat gebeurt er met de punten als ik stop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Neemt iemand anders je kraam over, dan gaan de punten mee naar de nieuwe uitbater — je klanten merken er niets van. Stop je met Funpoints, dan worden er geen punten meer bijgeschreven, maar kunnen je spaarders hun openstaande punten nog verzilveren."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vanaf welke leeftijd kan iemand sparen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vanaf 13 jaar. Jongere kinderen kunnen geen account maken, en je acties en meldingen bereiken hen dus ook niet."
           }
         },
         {
@@ -338,92 +409,95 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow">📊 Voor uitbaters</span>
-      <h1>Een loyaliteitssysteem gemaakt voor de kermis</h1>
-      <p>Beheer je kramen, zet acties op en bereik je klanten rechtstreeks — allemaal vanuit één dashboard, zonder kassa-koppeling.</p>
+      <h1>Bouw een klantenbestand op de foor</h1>
+      <p>Je klanten sparen punten bij jouw kraam, ook wanneer ze de app nog niet hebben.
+      Jij ziet wie ze zijn, waar ze wonen en wanneer ze terugkomen — zonder kassa,
+      met de telefoon die je al hebt.</p>
       <div class="hero-cta" style="justify-content:center; margin-top:26px;">
-        <a class="btn btn-primary btn-lg" href="/demo/">Vraag een demo aan</a>
-        <a class="btn btn-ghost btn-lg" href="https://app.funpoints.be">Inloggen als uitbater</a>
+        <a class="btn btn-primary btn-lg" href="/demo/">Vraag een demo aan je kraam</a>
+        <a class="btn btn-ghost btn-lg" href="https://app.funpoints.be">Zelf een account maken</a>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container feature">
-      <div>
-        <span class="kicker">Overzicht</span>
-        <h2>Alles wat er in je kramen gebeurt, in één blik</h2>
-        <p>Van openstaande punten tot je drukste dagen — het dashboard toont je cijfers en grafieken zodat je weet wat werkt.</p>
-        <ul>
-          <li>Statistieken en grafieken per kraam</li>
-          <li>Meerdere kramen onder één account</li>
-          <li>Maak <a href="#aan-het-kraam">logins voor je medewerkers</a> in enkele klikken</li>
-        </ul>
-      </div>
-      <div class="panel">
-        <div class="phone-stat" style="border-radius:16px;">
-          <div><b>1.240</b><span>punten uitgedeeld</span></div>
-          <div><b>318</b><span>bezoekers</span></div>
-        </div>
-        <div style="display:flex; gap:8px; align-items:flex-end; height:120px; margin-top:20px;">
-          <div style="flex:1;background:rgba(139,92,246,.25);height:40%;border-radius:8px 8px 0 0;"></div>
-          <div style="flex:1;background:rgba(139,92,246,.4);height:65%;border-radius:8px 8px 0 0;"></div>
-          <div style="flex:1;background:rgba(139,92,246,.55);height:50%;border-radius:8px 8px 0 0;"></div>
-          <div style="flex:1;background:var(--violet);height:90%;border-radius:8px 8px 0 0;"></div>
-          <div style="flex:1;background:rgba(139,92,246,.5);height:70%;border-radius:8px 8px 0 0;"></div>
-          <div style="flex:1;background:rgba(139,92,246,.35);height:55%;border-radius:8px 8px 0 0;"></div>
-          <div style="flex:1;background:rgba(139,92,246,.6);height:80%;border-radius:8px 8px 0 0;"></div>
-        </div>
-      </div>
+      <p class="hero-note">Je kan meteen zelf starten, of ons laten langskomen op je standplaats.</p>
     </div>
   </section>
 
   <section style="padding-top:10px;">
-    <div class="container feature rev">
+    <div class="container article">
+      <div class="answer">
+        <p style="margin:0;">Funpoints is een digitaal spaarsysteem dat gemaakt is voor kramen die
+        van plein naar plein reizen. Je medewerker scant de QR-code van de klant met een gewone
+        telefoon en boekt punten — zonder kassa en zonder extra toestel. Bezoekers die de app nog
+        niet hebben, krijgen een kaartje en sparen meteen mee. In je dashboard zie je per kraam wie
+        je spaarders zijn, en zet je acties op om ze terug te halen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Het instapvoordeel -->
+  <section style="padding-top:10px;">
+    <div class="container feature">
       <div>
-        <span class="kicker">Acties &amp; deals</span>
-        <h2>Zet acties op die bezoekers naar je kraam trekken</h2>
-        <p>Geef extra punten, een gratis ritje of een eenmalige voucher. Je actie verschijnt meteen bij de bezoekers in de app.</p>
+        <span class="kicker">Het verschil</span>
+        <h2>Je verliest geen klant aan "ik installeer dat later wel"</h2>
+        <p>Elk ander spaarsysteem begint met een download. Bij Funpoints niet. Wie nog niets heeft,
+        krijgt een kaartje in de hand en spaart meteen mee — de app komt later, of nooit.</p>
         <ul>
-          <li>Punten-bonus of eenmalige voucher</li>
-          <li>Boost je actie met credits om bovenaan te staan</li>
-          <li>Ook voor kramen zonder punten (eetkramen, attracties)</li>
+          <li>Geen wachtrij aan je kraam terwijl iemand staat te installeren</li>
+          <li>Ook de klant zonder data of zonder zin in een app spaart mee</li>
+          <li>Zijn punten staan er al vóór hij een account heeft</li>
         </ul>
       </div>
       <div class="panel">
         <div class="card" style="box-shadow:none;border:1px solid var(--line);margin-bottom:12px;">
-          <strong>10% extra punten dit weekend</strong>
-          <p style="color:var(--muted);font-size:14px;margin-top:4px;">Schietkraam Bavikhove · ⭐ uitgelicht</p>
+          <strong>1 · Je geeft een kaartje</strong>
+          <p style="color:var(--muted);font-size:14.5px;margin-top:6px;">Aan iemand die Funpoints nog
+          niet gebruikt. Kost je een paar seconden.</p>
+        </div>
+        <div class="card" style="box-shadow:none;border:1px solid var(--line);margin-bottom:12px;">
+          <strong>2 · Je scant en boekt</strong>
+          <p style="color:var(--muted);font-size:14.5px;margin-top:6px;">Je scant de code van het
+          kaartje en zet er meteen punten op.</p>
         </div>
         <div class="card" style="box-shadow:none;border:1px solid var(--line);">
-          <strong>3 gratis oliebollen 🎟️</strong>
-          <p style="color:var(--muted);font-size:14px;margin-top:4px;">Oliebollen Delforge · voucher</p>
+          <strong>3 · Thuis maakt hij een account</strong>
+          <p style="color:var(--muted);font-size:14.5px;margin-top:6px;">Hij scant de achterkant van
+          het kaartje. De punten die jij gaf, staan er al op.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:10px;">
-    <div class="container feature">
-      <div>
-        <span class="kicker">Bereik</span>
-        <h2>Stuur een melding naar bezoekers in de buurt</h2>
-        <p>Kies een regio rond een postcode, zie live hoeveel bezoekers je bereikt, en stuur een pushmelding over je actie. Je betaalt per bereikte bezoeker met credits.</p>
-        <ul>
-          <li>Targeting op regio, live teller van je bereik</li>
-          <li>Credits: betaal enkel voor wie je bereikt</li>
-          <li>Minderjarigen worden automatisch afgeschermd</li>
-        </ul>
+  <!-- Opzetten -->
+  <section>
+    <div class="container section-head">
+      <span class="kicker">Opzetten</span>
+      <h2>In een halfuur staat je kraam erop</h2>
+      <p>Je hoeft niets te installeren en niets te koppelen. Alles gebeurt in het dashboard op
+      <a href="https://app.funpoints.be">app.funpoints.be</a>.</p>
+    </div>
+    <div class="container steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Je kramen aanmaken</h3>
+        <p>Geef je kraam een naam — "Viskraam Baetens" — en zeg wat voor kraam het is. Heb je er
+        meerdere, dan staan ze allemaal onder één account.</p>
       </div>
-      <div class="panel">
-        <div style="text-align:center;padding:10px 0;">
-          <div style="font-size:13px;font-weight:700;color:var(--muted);">Bezoekers in dit bereik</div>
-          <div style="font-size:44px;font-weight:900;color:var(--violet);">312</div>
-          <a class="btn btn-green" style="margin-top:10px;" href="https://app.funpoints.be">📣 Verstuur melding</a>
-        </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Hoofdprijs en snelknoppen</h3>
+        <p>Kies de hoofdprijs waar je klanten naartoe sparen, en stel de snelknoppen in waarmee je
+        medewerker punten boekt. Eén tik per beurt.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Logins en agenda</h3>
+        <p>Maak een login voor wie aan het kraam staat, en zet je kermissen in de agenda. Dat laatste
+        zorgt er meteen voor dat je stops <a href="/kermis/">op de kermiskalender</a> verschijnen.</p>
       </div>
     </div>
   </section>
 
+  <!-- Aan het kraam -->
   <section style="padding-top:10px;" id="aan-het-kraam">
     <div class="container section-head">
       <span class="kicker">Aan het kraam</span>
@@ -434,9 +508,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container grid-2">
       <div class="card">
         <div class="ic tint-green">📷</div>
-        <h3>Scannen met je telefoon</h3>
-        <p>Open Funpoints, scan de QR van de klant en boek of trek punten af. Werkt in je browser —
-        niets zwaars te installeren. Zie <a href="/hoe-het-werkt.html">hoe het werkt</a>.</p>
+        <h3>Scannen en boeken</h3>
+        <p>Open Funpoints, scan de QR van de klant en boek punten met de snelknoppen die jij
+        instelde. Punten aftrekken kan ook. Zie <a href="/hoe-het-werkt.html">hoe het werkt</a>.</p>
       </div>
       <div class="card">
         <div class="ic tint-coral">🎟️</div>
@@ -447,8 +521,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="card">
         <div class="ic tint-violet">💯</div>
         <h3>Saldo meteen zichtbaar</h3>
-        <p>Bij het scannen zie je meteen hoeveel punten de klant bij jouw kraam heeft, zodat inruilen
-        voor een prijs vlot verloopt.</p>
+        <p>Bij het scannen zie je hoeveel punten de klant bij jóúw kraam heeft en hoe ver hij van de
+        hoofdprijs staat. Inruilen verloopt zonder discussie.</p>
       </div>
       <div class="card">
         <div class="ic tint-amber">🗂️</div>
@@ -459,33 +533,270 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
+  <!-- Inzicht -->
   <section>
-    <div class="container section-head">
-      <span class="kicker">Voor elke uitbating</span>
-      <h2>Digitale klantenkaart, spaarkaart of stempelkaart gezocht?</h2>
-      <p>Hoe je het ook noemt — Funpoints is de klantenkaart-app die niet voor winkels gemaakt is, maar voor kramen die van plein naar plein reizen.</p>
-    </div>
-    <div class="container grid-2">
-      <div class="card">
-        <h3>Digitale klantenkaart voor de kermis</h3>
-        <p>Retail-klantenkaarten hangen vast aan een kassa en een vast adres. Funpoints werkt per kraam en verhuist gewoon mee naar je volgende standplaats — je klantenbestand blijft van jou.</p>
+    <div class="container feature rev">
+      <div>
+        <span class="kicker">Inzicht</span>
+        <h2>Voor het eerst zie je wie er aan je kraam staat</h2>
+        <p>Een kraam op de foor kent zijn klanten niet. Je ziet gezichten, geen namen, en wie
+        wegloopt is weg. Funpoints draait dat om: per kraam zie je wie er spaart, waar ze wonen en
+        hoe oud ze gemiddeld zijn.</p>
+        <ul>
+          <li>Waar je spaarders wonen — welke gemeenten je publiek zijn</li>
+          <li>De gemiddelde leeftijd, zodat je weet op wie je richt</li>
+          <li>Openstaande punten per kraam: bezoek dat nog moet komen</li>
+          <li>Statistieken en grafieken per kraam, en over al je kramen samen</li>
+        </ul>
       </div>
-      <div class="card">
-        <h3>Digitale spaarkaart zonder kassa</h3>
-        <p>Geen kassasysteem of dure hardware nodig: je medewerker scant de QR-code van de klant met een gewone smartphone en de punten staan meteen geboekt. Lees <a href="/kennisbank/digitale-klantenkaart-kiezen/">waarop je aanbieders moet vergelijken</a>.</p>
-      </div>
-      <div class="card">
-        <h3>Digitale stempelkaart-app</h3>
-        <p>Het papieren stempelkaartje raakt kwijt of belandt in de wasmachine. Met Funpoints worden stempels punten op naam: per beurt bijgeschreven, nooit meer kwijt. Zo <a href="/kennisbank/klanten-laten-terugkomen/">laat je klanten terugkomen</a>.</p>
-      </div>
-      <div class="card">
-        <h3>Spaarsysteem voor kermis en lunapark</h3>
-        <p>Eén spaarsysteem voor al je attracties en spelkramen: punten per beurt, prijzen aan het kraam, en acties die bezoekers terug naar jouw plein halen.</p>
+      <div class="panel">
+        <div class="phone-stat" style="border-radius:16px;">
+          <div><b>1.240</b><span>punten uitgedeeld</span></div>
+          <div><b>318</b><span>spaarders</span></div>
+        </div>
+        <div style="display:flex; gap:8px; align-items:flex-end; height:120px; margin-top:20px;">
+          <div style="flex:1;background:rgba(139,92,246,.25);height:40%;border-radius:8px 8px 0 0;"></div>
+          <div style="flex:1;background:rgba(139,92,246,.4);height:65%;border-radius:8px 8px 0 0;"></div>
+          <div style="flex:1;background:rgba(139,92,246,.55);height:50%;border-radius:8px 8px 0 0;"></div>
+          <div style="flex:1;background:var(--violet);height:90%;border-radius:8px 8px 0 0;"></div>
+          <div style="flex:1;background:rgba(139,92,246,.5);height:70%;border-radius:8px 8px 0 0;"></div>
+          <div style="flex:1;background:rgba(139,92,246,.35);height:55%;border-radius:8px 8px 0 0;"></div>
+          <div style="flex:1;background:rgba(139,92,246,.6);height:80%;border-radius:8px 8px 0 0;"></div>
+        </div>
+        <p class="note" style="margin-top:16px;">Voorbeeldweergave. Je eigen cijfers staan in het dashboard.</p>
       </div>
     </div>
   </section>
 
+  <!-- Openstaande punten, apart uitgelicht -->
   <section style="padding-top:0;">
+    <div class="container">
+      <div class="uitgelicht">
+        <h2>Openstaande punten zijn bezoek dat nog moet komen</h2>
+        <p>Elke punt die je uitdeelt en die nog niet ingeruild is, is een reden voor die klant om
+        terug te komen. Je ziet per kraam hoeveel er openstaan — en of dat aantal groeit of krimpt.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Acties en bereik -->
+  <section>
+    <div class="container section-head">
+      <span class="kicker">Acties &amp; bereik</span>
+      <h2>Haal klanten terug wanneer jij dat wil</h2>
+      <p>Je zet acties op met credits. Eén credit kost <strong>25 cent</strong>. Hoeveel credits iets
+      kost, hangt af van wat je inzet en hoe groot je bereik is — je ziet het altijd vóór je bevestigt.</p>
+    </div>
+
+    <div class="container article" style="max-width:920px;">
+      <div class="tabel-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Wat je inzet</th>
+              <th scope="col">Wat het doet</th>
+              <th scope="col">Wie het ziet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Actie</th>
+              <td>Bijvoorbeeld "2 punten gratis bij aankoop". Je kiest zelf de geldigheidsdata.</td>
+              <td>Iedereen in de regio die je kiest, in de actielijst van de app.</td>
+            </tr>
+            <tr>
+              <th scope="row">Boost</th>
+              <td>Zet je actie een aantal dagen bovenaan bij de uitgelichte acties.</td>
+              <td>Dezelfde mensen, maar veel eerder in beeld.</td>
+            </tr>
+            <tr>
+              <th scope="row">Superster</th>
+              <td>Een aantal uur lang je actie op de startpagina van de app, rond een postcode die je
+              zelf kiest met een straal errond.</td>
+              <td>Iedereen binnen die straal, meteen bij het openen van de app.</td>
+            </tr>
+            <tr>
+              <th scope="row">Pushmelding</th>
+              <td>Een melding op de telefoon, gericht op een postcode en de regio errond.</td>
+              <td>Iedereen in dat gebied die meldingen aan heeft staan.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Superster is bedoeld voor het moment zelf: je staat op een plein, het is rustig,
+      en je zet hem vier uur aan voor de gemeenten errond.</p>
+    </div>
+
+    <div class="container grid-2" style="margin-top:26px;">
+      <div class="card">
+        <div class="ic tint-green">🎯</div>
+        <h3>Kies wie je actie ziet</h3>
+        <p>Iedereen, alleen je bestaande spaarders, of juist alleen wie nog nooit bij je spaarde.
+        Zo geef je geen korting weg aan mensen die toch al terugkomen.</p>
+      </div>
+      <div class="card">
+        <div class="ic tint-violet">📍</div>
+        <h3>Kies hoe ver je gaat</h3>
+        <p>Je eigen provincie, de buurprovincie, het hele gewest of heel het land. Voor superster en
+        pushmeldingen werk je fijner: een postcode met een straal errond.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agenda en kalender -->
+  <section style="padding-top:10px;">
+    <div class="container feature">
+      <div>
+        <span class="kicker">Je route</span>
+        <h2>Je agenda zet je kramen op de kaart</h2>
+        <p>Zet je kermissen per kraam in de agenda en elke stop van je route krijgt een eigen pagina
+        op onze <a href="/kermis/">kermiskalender</a> — vindbaar voor iedereen die zoekt wanneer het
+        kermis is in zijn gemeente.</p>
+        <ul>
+          <li>Je data, je attracties en je spaaractie op één pagina per kermis</li>
+          <li>Je spaarders zien in de app waar je de komende weken staat</li>
+          <li>Wie op "kermis in jouw gemeente" zoekt, komt bij jouw kraam uit</li>
+        </ul>
+        <a class="more" href="/kermis/">Bekijk de kermiskalender →</a>
+      </div>
+      <div class="panel">
+        <div class="card" style="box-shadow:none;border:1px solid var(--line);margin-bottom:12px;">
+          <strong>Septemberkermis · Wetteren</strong>
+          <p style="color:var(--muted);font-size:14px;margin-top:4px;">18 – 22 september · Viskraam Baetens</p>
+        </div>
+        <div class="card" style="box-shadow:none;border:1px solid var(--line);margin-bottom:12px;">
+          <strong>Jaarmarktkermis · Lokeren</strong>
+          <p style="color:var(--muted);font-size:14px;margin-top:4px;">2 – 5 oktober · Viskraam Baetens</p>
+        </div>
+        <div class="card" style="box-shadow:none;border:1px solid var(--line);">
+          <strong>Winterkermis · Sint-Niklaas</strong>
+          <p style="color:var(--muted);font-size:14px;margin-top:4px;">28 november – 6 december · Viskraam Baetens</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Zoektermen -->
+  <section>
+    <div class="container section-head">
+      <span class="kicker">Voor elke uitbating</span>
+      <h2>Digitale klantenkaart, spaarkaart of stempelkaart gezocht?</h2>
+      <p>Hoe je het ook noemt — Funpoints is de klantenkaart-app die niet voor winkels gemaakt is,
+      maar voor kramen die van plein naar plein reizen.</p>
+    </div>
+    <div class="container grid-2">
+      <div class="card">
+        <h3>Digitale klantenkaart voor de kermis</h3>
+        <p>Retail-klantenkaarten hangen vast aan een kassa en een vast adres. Funpoints werkt per
+        kraam en verhuist gewoon mee naar je volgende standplaats — je klantenbestand blijft van jou.</p>
+      </div>
+      <div class="card">
+        <h3>Digitale spaarkaart zonder kassa</h3>
+        <p>Geen kassasysteem of dure hardware nodig: je medewerker scant de QR-code van de klant met
+        een gewone smartphone en de punten staan meteen geboekt. Lees
+        <a href="/kennisbank/digitale-klantenkaart-kiezen/">waarop je aanbieders moet vergelijken</a>.</p>
+      </div>
+      <div class="card">
+        <h3>Digitale stempelkaart-app</h3>
+        <p>Het papieren stempelkaartje raakt kwijt of belandt in de wasmachine. Met Funpoints worden
+        stempels punten op naam: per beurt bijgeschreven, nooit meer kwijt. Zo
+        <a href="/kennisbank/klanten-laten-terugkomen/">laat je klanten terugkomen</a>.</p>
+      </div>
+      <div class="card">
+        <h3>Spaarsysteem voor kermis en lunapark</h3>
+        <p>Eén spaarsysteem voor al je kramen en attracties: punten per beurt, prijzen aan het kraam,
+        en acties die bezoekers terug naar jouw plein halen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding-top:10px;">
+    <div class="container section-head">
+      <span class="kicker">Veelgestelde vragen</span>
+      <h2>Wat uitbaters ons vragen</h2>
+    </div>
+    <div class="container faq">
+      <details class="faq-item">
+        <summary>Heb ik een kassasysteem nodig?</summary>
+        <div class="faq-answer">
+          <p>Nee. Funpoints werkt los van je kassa. Je medewerker scant de QR-code van de klant met
+          een gewone smartphone of tablet — meer heb je niet nodig om punten te boeken.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Wat kost het?</summary>
+        <div class="faq-answer">
+          <p>Punten uitdelen en je kramen beheren kost je niets extra. Je betaalt enkel wanneer je
+          klanten wil bereiken met een actie, een boost, een superster of een pushmelding. Dat gaat
+          met credits van 25 cent per stuk. Hoeveel credits iets kost, hangt af van wat je inzet en
+          hoe groot je bereik is; je ziet het bedrag voor je bevestigt.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Moet mijn klant de app installeren?</summary>
+        <div class="faq-answer">
+          <p>Niet om te beginnen. Wie de app nog niet heeft, krijgt een kaartje van je en spaart
+          meteen mee. Thuis scant hij de achterkant, maakt hij een account aan en staan de punten die
+          jij gaf er al op. Wie de app wél al heeft, toont gewoon zijn QR-code.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Kan ik zelf een account aanmaken?</summary>
+        <div class="faq-answer">
+          <p>Ja. Je kan meteen zelf starten op <a href="https://app.funpoints.be">app.funpoints.be</a>.
+          Wil je liever dat we langskomen en het samen opzetten aan je kraam, dan
+          <a href="/demo/">vraag je een demo aan</a>. Dat kost je niets.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Kan ik meerdere kramen onder één account beheren?</summary>
+        <div class="faq-answer">
+          <p>Ja. Al je kramen staan onder één account, met eigen cijfers per kraam. Logins voor je
+          medewerkers maak je zelf aan, in enkele klikken.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Werkt het ook voor kramen zonder puntensysteem?</summary>
+        <div class="faq-answer">
+          <p>Ja. Eetkramen en attracties die geen punten uitdelen, kunnen wel acties en vouchers
+          opzetten — bijvoorbeeld een gratis ritje of een eenmalige voucher.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Vervallen de punten van mijn klanten?</summary>
+        <div class="faq-answer">
+          <p>Dat bepaal je zelf. Je stelt per kraam in of punten na een bepaalde periode vervallen,
+          of dat ze blijven staan.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Wat gebeurt er met de punten als ik stop?</summary>
+        <div class="faq-answer">
+          <p>Neemt iemand anders je kraam over, dan gaan de punten mee naar de nieuwe uitbater — je
+          klanten merken er niets van. Stop je met Funpoints, dan worden er geen punten meer
+          bijgeschreven, maar kunnen je spaarders hun openstaande punten nog verzilveren.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Vanaf welke leeftijd kan iemand sparen?</summary>
+        <div class="faq-answer">
+          <p>Vanaf 13 jaar. Jongere kinderen kunnen geen account maken, en je acties en meldingen
+          bereiken hen dus ook niet.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Van wie zijn de klantgegevens?</summary>
+        <div class="faq-answer">
+          <p>Van jou. De spaarders die je opbouwt zijn jouw klanten. Stop je ooit met Funpoints, dan
+          neem je je gegevens mee.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Doorsteek -->
+  <section style="padding-top:10px;">
     <div class="container section-head">
       <span class="kicker">Lees verder</span>
       <h2>Voor je beslist</h2>
@@ -497,51 +808,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
       <a href="/hoe-het-werkt.html">
         <b>⚙️ Hoe Funpoints werkt</b>
-        <span>Van registreren aan de balie tot de prijs uit de kast — en waarom je geen kassa nodig hebt.</span>
+        <span>Van het kaartje aan de balie tot de prijs uit de kast — en waarom je geen kassa nodig hebt.</span>
       </a>
-      <a href="/kermis/">
-        <b>🗓️ Je stops op de kermiskalender</b>
-        <span>Elke kermis van je route krijgt een eigen pagina, vindbaar voor wie op die gemeente zoekt.</span>
+      <a href="/kennisbank/">
+        <b>📚 Kennisbank voor uitbaters</b>
+        <span>Klanten laten terugkomen, stockbeheer van je prijzenkast en je winterdossier op orde.</span>
       </a>
-    </div>
-  </section>
-
-  <section style="padding-top:10px;">
-    <div class="container section-head">
-      <span class="kicker">Veelgestelde vragen</span>
-      <h2>Wat uitbaters ons vragen</h2>
-    </div>
-    <div class="container faq">
-      <details class="faq-item">
-        <summary>Heb ik een kassasysteem nodig?</summary>
-        <div class="faq-answer">
-          <p>Nee. Funpoints werkt los van je kassa. Je medewerker scant de QR-code van de klant met een gewone smartphone of tablet — meer heb je niet nodig om punten te boeken.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>Kan ik meerdere kramen onder één account beheren?</summary>
-        <div class="faq-answer">
-          <p>Ja. Je beheert al je kramen vanuit één dashboard, met statistieken en grafieken per kraam. Logins voor je medewerkers maak je zelf aan in enkele klikken.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>Werkt het ook voor kramen zonder puntensysteem?</summary>
-        <div class="faq-answer">
-          <p>Ja. Eetkramen en attracties die geen punten uitdelen, kunnen wel acties en vouchers opzetten — bijvoorbeeld een gratis ritje of een eenmalige voucher.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>Hoe bereik ik bezoekers in de buurt?</summary>
-        <div class="faq-answer">
-          <p>Je kiest een regio rond een postcode, ziet live hoeveel bezoekers je daarmee bereikt en stuurt een pushmelding over je actie. Je betaalt met credits, enkel voor wie je effectief bereikt. Minderjarigen worden automatisch afgeschermd.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>Van wie zijn de klantgegevens?</summary>
-        <div class="faq-answer">
-          <p>Van jou. De spaarders die je opbouwt zijn jouw klanten. Stop je ooit met Funpoints, dan neem je je gegevens mee.</p>
-        </div>
-      </details>
     </div>
   </section>
 
@@ -549,11 +821,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="cta">
         <h2>Zet je kraam op Funpoints</h2>
-        <p>Meer bezoekers, meer herhaalbezoek, en een directe lijn naar je klanten. Wij komen langs op je standplaats en zetten het samen op.</p>
+        <p>Meer herhaalbezoek, een klantenbestand dat van jou is, en een directe lijn naar je klanten.
+        Start zelf, of laat ons langskomen op je standplaats.</p>
         <a class="btn btn-ghost btn-lg" href="/demo/">Vraag een demo aan je kraam</a>
       </div>
     </div>
   </section>
+</main>
 </main>
 
 <div class="sticky-cta">

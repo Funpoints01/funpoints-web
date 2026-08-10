@@ -155,8 +155,9 @@ section { padding: 70px 0; }
 .card .ic { width: 54px; height: 54px; border-radius: 15px; display: grid; place-items: center; font-size: 26px; margin-bottom: 16px; }
 .card h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
 .card p { color: var(--muted); font-size: 15px; }
-.card a.more { display: inline-block; margin-top: 14px; color: var(--coral-d); font-weight: 700; font-size: 14.5px; }
-.card a.more:hover { text-decoration: underline; }
+/* Ook buiten een kaart bruikbaar, bv. onderaan een feature-blok. */
+a.more { display: inline-block; margin-top: 14px; color: var(--coral-d); font-weight: 700; font-size: 14.5px; }
+a.more:hover { text-decoration: underline; }
 .card.linked { transition: transform .18s ease, box-shadow .18s ease; }
 .card.linked:hover { transform: translateY(-3px); box-shadow: 0 24px 48px rgba(36,27,58,0.14); }
 
