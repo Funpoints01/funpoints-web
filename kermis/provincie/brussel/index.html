@@ -57,6 +57,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<script src="/kermis/filter.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","url":"https://funpoints.be/kermis/provincie/brussel/","name":"Kermissen in Brussel","inLanguage":"nl-BE","description":"Alle 3 kermissen in Brussel in 2026, per gemeente en op datum. Data, uren en spaaracties op één kalender.","publisher":{"@id":"https://funpoints.be/#organization"}},{"@type":"ItemList","name":"Kermissen in Brussel 2026","numberOfItems":3,"itemListElement":[{"@type":"ListItem","position":1,"name":"Zuidfoor Foire du Midi — Brussel","url":"https://funpoints.be/kermis/brussel/zuidfoor-foire-du-midi/"},{"@type":"ListItem","position":2,"name":"Maria-Christinawijkkermis — Brussel (Bruxelles)","url":"https://funpoints.be/kermis/brussel-bruxelles/maria-christinawijkkermis/"},{"@type":"ListItem","position":3,"name":"Jaarmarktkermis — Jette","url":"https://funpoints.be/kermis/jette/jaarmarktkermis/"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Funpoints","item":"https://funpoints.be/"},{"@type":"ListItem","position":2,"name":"Kermiskalender","item":"https://funpoints.be/kermis/"},{"@type":"ListItem","position":3,"name":"Brussel","item":"https://funpoints.be/kermis/provincie/brussel/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hoeveel kermissen zijn er in Brussel?","acceptedAnswer":{"@type":"Answer","text":"3 in 2026, verspreid over 3 gemeenten — van dorpskermissen van een weekend tot stadsforen die weken duren."}},{"@type":"Question","name":"Wanneer loopt het kermisseizoen in Brussel?","acceptedAnswer":{"@type":"Answer","text":"De eerste kermis van 2026 start op 18 juli 2026, de laatste loopt tot 23 september 2026."}}]},{"@type":"Organization","@id":"https://funpoints.be/#organization","name":"Funpoints","url":"https://funpoints.be/","logo":{"@type":"ImageObject","url":"https://funpoints.be/favicon.png","width":256,"height":256},"email":"info@funpoints.be","description":"Funpoints is het digitale spaarsysteem voor de kermis.","areaServed":"BE"}]}</script>
 </head>
 <body>
@@ -111,31 +112,82 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section style="padding-top:10px;">
-    <div class="container article">
+  <section class="aansluitend">
+    <div class="container smal">
       <div class="answer">
         <p style="margin:0;">In Brussel staan er 3 kermissen op de kalender van 2026, verspreid over 3 gemeenten. De eerstvolgende is Zuidfoor Foire du Midi in Brussel, van 18 juli 2026 tot en met 23 augustus 2026.</p>
       </div>
+    </div>
+  </section>
 
-      <h2 id="eerstvolgende">Eerstvolgende kermissen</h2>
-      <div class="tabel-scroll"><table><thead><tr><th scope="col">Kermis</th><th scope="col">Gemeente</th><th scope="col">Wanneer</th></tr></thead><tbody>
-          <tr class="kermis-rij" data-start="2026-07-18" data-eind="2026-08-23"><td><a href="/kermis/brussel/zuidfoor-foire-du-midi/">Zuidfoor Foire du Midi</a></td><td><a href="/kermis/brussel/">Brussel</a></td><td>18 juli – 23 augustus</td></tr>
-          <tr class="kermis-rij" data-start="2026-08-25" data-eind="2026-09-23"><td><a href="/kermis/brussel-bruxelles/maria-christinawijkkermis/">Maria-Christinawijkkermis</a></td><td><a href="/kermis/brussel-bruxelles/">Brussel (Bruxelles)</a></td><td>25 augustus – 23 september</td></tr>
-          <tr class="kermis-rij" data-start="2026-08-28" data-eind="2026-08-31"><td><a href="/kermis/jette/jaarmarktkermis/">Jaarmarktkermis</a></td><td><a href="/kermis/jette/">Jette</a></td><td>28 augustus – 31 augustus</td></tr>
-</tbody></table></div>
+  <section class="aansluitend">
+    <div class="container">
+      <div class="kal-cijfers">
+        <div><b>3</b><span>kermissen in 2026</span></div>
+        <div><b>3</b><span>gemeenten</span></div>
+        <div><b>3</b><span>nog te gaan</span></div>
+        <div><b>1</b><span>nu aan de gang</span></div>
+      </div>
+    </div>
+  </section>
 
-      <h2 id="gemeenten">Alle gemeenten in Brussel</h2>
-      <div class="gemeentelijst">
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Eerstvolgende</span>
+      <h2 id="eerstvolgende">Kermis in Brussel deze weken</h2>
+      <p>De 3 kermissen die er als eerste aankomen. Klik door voor de data,
+      wat er staat en de spaaractie.</p>
+    </div>
+    <div class="container">
+      <div class="kal-lijst">
+        <p class="kal-maand">juli 2026</p>
+        <a class="kal-item nu" href="/kermis/brussel/zuidfoor-foire-du-midi/" data-start="2026-07-18" data-eind="2026-08-23">
+          <span class="kal-datum"><b>18</b><span>jul</span></span>
+          <span class="kal-tekst"><b>Zuidfoor Foire du Midi</b><span>Brussel · 18 juli – 23 augustus · 37 dagen</span></span>
+          <span class="kal-pil nu">Nu bezig</span>
+        </a>
+        <p class="kal-maand">augustus 2026</p>
+        <a class="kal-item" href="/kermis/brussel-bruxelles/maria-christinawijkkermis/" data-start="2026-08-25" data-eind="2026-09-23">
+          <span class="kal-datum"><b>25</b><span>aug</span></span>
+          <span class="kal-tekst"><b>Maria-Christinawijkkermis</b><span>Brussel (Bruxelles) · 25 augustus – 23 september · 30 dagen</span></span>
+          <span class="kal-pil komt">Nog te komen</span>
+        </a>
+        <a class="kal-item" href="/kermis/jette/jaarmarktkermis/" data-start="2026-08-28" data-eind="2026-08-31">
+          <span class="kal-datum"><b>28</b><span>aug</span></span>
+          <span class="kal-tekst"><b>Jaarmarktkermis</b><span>Jette · 28 augustus – 31 augustus · 4 dagen</span></span>
+          <span class="kal-pil komt">Nog te komen</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Alle gemeenten</span>
+      <h2 id="gemeenten">Zoek je gemeente in Brussel</h2>
+      <p>3 gemeenten met een kermis op de kalender. Typ de eerste letters om te filteren.</p>
+      <div class="kal-zoek" style="margin-bottom:6px;">
+        <label class="sr-only" for="gem-filter">Filter de gemeenten</label>
+        <input id="gem-filter" type="search" autocomplete="off" spellcheck="false"
+               data-filtert="gemeentelijst" placeholder="Filter op naam…">
+      </div>
+    </div>
+    <div class="container">
+      <div class="gemeentelijst" id="gemeentelijst">
         <a href="/kermis/brussel/">Brussel <span>(1)</span></a>
         <a href="/kermis/brussel-bruxelles/">Brussel (Bruxelles) <span>(1)</span></a>
         <a href="/kermis/jette/">Jette <span>(1)</span></a>
       </div>
-
-      <h2 id="veelgestelde-vragen">Veelgestelde vragen</h2>
+      <p class="note gem-leeg" hidden>Geen gemeente met die naam in Brussel.
+      <a href="/kermis/">Zoek in heel België</a>.</p>
     </div>
   </section>
 
-  <section style="padding-top:0;">
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Veelgestelde vragen</span>
+      <h2>Vragen over kermissen in Brussel</h2>
+    </div>
 <div class="container faq">
       <details class="faq-item">
         <summary>Hoeveel kermissen zijn er in Brussel?</summary>
@@ -201,6 +253,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- /fp:footer -->
 
 <script src="/kermis/status.js" defer></script>
+<script src="/js/funpoints-social.js" defer></script>
 <script src="/tracking.js" defer></script>
 </body>
 </html>

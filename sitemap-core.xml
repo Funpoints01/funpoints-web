@@ -29,8 +29,20 @@
     <loc>https://funpoints.be/hoe-het-werkt.html</loc>
     <lastmod>2026-08-10</lastmod>
     <image:image>
+      <image:loc>https://funpoints.be/img/puntensaldo-per-kraam-funpoints-app.jpg</image:loc>
+      <image:title>Puntensaldo per kraam in de Funpoints-app</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://funpoints.be/img/spaardoel-voortgang-funpoints-app.jpg</image:loc>
       <image:title>Je spaardoel en voortgang in de Funpoints-app</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://funpoints.be/img/kermiskalender-in-de-funpoints-app.jpg</image:loc>
+      <image:title>De kermiskalender in de Funpoints-app</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://funpoints.be/img/vrienden-en-ranglijst-funpoints-app.jpg</image:loc>
+      <image:title>Vrienden en ranglijst in de Funpoints-app</image:title>
     </image:image>
   </url>
   <url>

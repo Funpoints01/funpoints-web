@@ -83,6 +83,12 @@ img { max-width: 100%; display: block; }
 .nav-toggle-input:checked ~ .nav-toggle .bars:before { transform: translateY(6px) rotate(45deg); }
 .nav-toggle-input:checked ~ .nav-toggle .bars:after { transform: translateY(-6px) rotate(-45deg); }
 
+/* Alleen voor schermlezers: label dat visueel overbodig is maar wel nodig */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
 /* Toegankelijkheid: zichtbare focus + skip-link */
 :focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; border-radius: 6px; }
 .nav-toggle-input:focus-visible ~ .nav-toggle { outline: 3px solid var(--violet); outline-offset: 3px; }
@@ -455,6 +461,175 @@ section.aansluitend-strak { padding-top: 0; }
 .demo-step h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
 .demo-step p { color: var(--muted); font-size: 15px; }
 
+/* ================================================================
+   KALENDER — de kermiskalender toont honderden data. Een tabel leest
+   traag op een telefoon, dus tonen we elke kermis als een regel met
+   een datumblok links: scanbaar op datum, klikbaar over de hele rij.
+   ================================================================ */
+
+/* Zoekbalk boven de kalender */
+.kal-zoek { position: relative; max-width: 520px; margin: 26px auto 0; }
+.kal-zoek input {
+  width: 100%; font: inherit; font-size: 16.5px; font-weight: 600;
+  padding: 16px 18px 16px 50px; border-radius: 16px; background: var(--card);
+  border: 1px solid var(--line); box-shadow: var(--shadow); color: var(--ink);
+}
+.kal-zoek input::placeholder { color: var(--muted); font-weight: 500; }
+.kal-zoek input:focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; }
+.kal-zoek:before {
+  content: "🔎"; position: absolute; left: 17px; top: 50%; transform: translateY(-50%);
+  font-size: 18px; pointer-events: none;
+}
+.kal-treffers {
+  position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + 8px);
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  box-shadow: 0 24px 48px rgba(36,27,58,0.16); overflow: hidden; display: none;
+  max-height: 340px; overflow-y: auto; text-align: left;
+}
+.kal-treffers.open { display: block; }
+.kal-treffers a {
+  display: flex; justify-content: space-between; gap: 12px; align-items: baseline;
+  padding: 12px 18px; font-weight: 700; font-size: 15.5px; border-bottom: 1px solid var(--line);
+}
+.kal-treffers a:last-child { border-bottom: none; }
+.kal-treffers a:hover, .kal-treffers a:focus-visible { background: rgba(139,92,246,0.10); outline: none; }
+.kal-treffers a span { color: var(--muted); font-size: 13px; font-weight: 700; }
+.kal-treffers .leeg { padding: 14px 18px; color: var(--muted); font-size: 14.5px; }
+
+/* Cijferbalk: alleen getallen die uit de kalender zelf komen */
+.kal-cijfers {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px 26px; box-shadow: var(--shadow);
+}
+.kal-cijfers div { text-align: center; }
+.kal-cijfers b { display: block; font-size: 27px; font-weight: 900; line-height: 1.1; letter-spacing: -.5px; }
+.kal-cijfers b.tekst { font-size: 17px; letter-spacing: 0; padding-top: 7px; }
+.kal-cijfers span { display: block; font-size: 13px; color: var(--muted); font-weight: 600; margin-top: 3px; }
+
+/* De kalenderlijst zelf */
+.kal-lijst { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.kal-lijst.een { grid-template-columns: 1fr; }
+.kal-item {
+  display: grid; grid-template-columns: 62px 1fr auto; align-items: center; gap: 16px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  padding: 14px 18px 14px 14px; color: var(--ink); text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.kal-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: rgba(36,27,58,0.2); }
+.kal-item:focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; }
+.kal-datum {
+  background: rgba(139,92,246,0.10); border-radius: 13px; padding: 8px 4px; text-align: center;
+}
+.kal-datum b { display: block; font-size: 21px; font-weight: 900; line-height: 1.05; }
+.kal-datum span {
+  display: block; font-size: 11px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: .6px; color: var(--muted);
+}
+.kal-item.nu .kal-datum { background: rgba(16,185,129,0.14); }
+.kal-item.voorbij { opacity: .62; }
+.kal-tekst { min-width: 0; }
+.kal-tekst b { display: block; font-size: 16px; font-weight: 800; line-height: 1.3; }
+.kal-tekst span {
+  display: block; color: var(--muted); font-size: 13.5px; margin-top: 2px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.kal-pil {
+  font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px;
+  padding: 5px 11px; border-radius: 999px; white-space: nowrap;
+  background: rgba(36,27,58,0.06); color: var(--muted);
+}
+.kal-pil.nu { background: rgba(16,185,129,0.16); color: var(--green-d); }
+.kal-pil.komt { background: rgba(139,92,246,0.13); color: #6D3BE0; }
+
+/* Maandkop binnen een lijst */
+.kal-maand {
+  grid-column: 1 / -1; font-size: 12.5px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--muted); margin: 14px 0 0; display: flex;
+  align-items: center; gap: 12px;
+}
+.kal-maand:first-child { margin-top: 0; }
+.kal-maand:after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+/* Meer-knop onder een ingekorte lijst */
+.kal-meer { text-align: center; margin-top: 22px; }
+
+/* Provinciekaarten met een balkje dat het aandeel toont */
+.prov-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.prov-grid a {
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+  padding: 20px 22px; color: var(--ink); text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.prov-grid a:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.prov-grid b { display: block; font-size: 17px; font-weight: 800; }
+.prov-grid span { display: block; color: var(--muted); font-size: 14px; margin-top: 3px; }
+
+/* Feitenblok op een kermispagina: dl in plaats van een tabel */
+.feiten { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 20px; }
+.feiten > div {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 19px;
+}
+.feiten dt {
+  font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .7px;
+  color: var(--muted); margin-bottom: 4px;
+}
+.feiten dd { margin: 0; font-size: 15.5px; font-weight: 600; line-height: 1.45; }
+.feiten .breed { grid-column: 1 / -1; }
+.feiten .breed dd { font-weight: 500; color: var(--muted); font-size: 15px; }
+
+/* Datumkop in de hero van een kermispagina */
+.kermis-kop { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 6px; }
+.kermis-kop .blok {
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+  padding: 12px 20px; text-align: center; box-shadow: var(--shadow);
+}
+.kermis-kop .blok b { display: block; font-size: 26px; font-weight: 900; line-height: 1.05; }
+.kermis-kop .blok span {
+  display: block; font-size: 11.5px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: .7px; color: var(--muted);
+}
+.kermis-kop .tot { font-size: 14px; color: var(--muted); font-weight: 700; }
+
+/* Citaatkaart voor reviews van uitbaters */
+.card.citaat { display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
+.card.citaat blockquote { margin: 0; }
+.card.citaat blockquote p {
+  font-size: 16.5px; font-weight: 600; line-height: 1.55; color: var(--ink);
+}
+.card.citaat figcaption { border-top: 1px solid var(--line); padding-top: 14px; }
+.card.citaat figcaption b { display: block; font-size: 15.5px; font-weight: 800; }
+.card.citaat figcaption span { display: block; color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+
+/* ================================================================
+   SOCIAL PROOF — melding linksonder. De inhoud komt uit
+   /data/activiteit.json; er staat niets in dat niet klopt.
+   ================================================================ */
+.fp-melding {
+  position: fixed; left: 18px; bottom: 18px; z-index: 60; max-width: 330px;
+  display: flex; align-items: center; gap: 13px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  padding: 13px 15px; box-shadow: 0 22px 44px rgba(36,27,58,0.18);
+  transform: translateY(16px); opacity: 0; pointer-events: none;
+  transition: transform .35s cubic-bezier(.2,.9,.3,1), opacity .35s ease;
+}
+.fp-melding.zichtbaar { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.fp-melding .ic {
+  width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
+  font-size: 20px; background: rgba(16,185,129,0.14); flex: 0 0 auto;
+}
+.fp-melding .tk { min-width: 0; padding-right: 16px; }
+.fp-melding b { display: block; font-size: 14px; font-weight: 800; line-height: 1.35; }
+.fp-melding span { display: block; font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+.fp-melding .sluit {
+  position: absolute; top: 6px; right: 8px; border: none; background: none; cursor: pointer;
+  font-size: 15px; line-height: 1; color: var(--muted); padding: 4px;
+}
+.fp-melding .sluit:hover { color: var(--ink); }
+
+/* Blijft weg zolang de sticky CTA onderaan staat */
+body.heeft-sticky .fp-melding { bottom: 84px; }
+
 /* ---------- Telefoonframe met een echte schermafbeelding ---------- */
 .device {
   width: 260px; margin: 0 auto; background: #fff; border-radius: 34px;
@@ -651,6 +826,14 @@ section.aansluitend-strak { padding-top: 0; }
   .article p, .article ul, .article ol { font-size: 16px; }
 
   .rolerow { grid-template-columns: 1fr; gap: 12px; }
+
+  /* Kalender: één kolom is op een telefoon leesbaarder dan twee smalle */
+  .kal-lijst { grid-template-columns: 1fr; }
+  .prov-grid { grid-template-columns: 1fr 1fr; }
+  .kal-cijfers { grid-template-columns: 1fr 1fr; gap: 18px 14px; padding: 20px; }
+  .feiten { grid-template-columns: 1fr; }
+  .fp-melding { left: 12px; right: 12px; bottom: 12px; max-width: none; }
+  body.heeft-sticky .fp-melding { bottom: 78px; }
 }
 @media (max-width: 620px) {
   /* Pas hier naar één kolom: op een tablet blijven twee kolommen leesbaar. */
@@ -728,4 +911,12 @@ section.aansluitend-strak { padding-top: 0; }
   .faq-item summary { font-size: 15.5px; padding: 16px 46px 16px 18px; }
   .faq-item summary:after { right: 18px; }
   .faq-answer { padding: 0 18px 18px; font-size: 15px; }
+
+  .prov-grid { grid-template-columns: 1fr; }
+  .kal-item { grid-template-columns: 54px 1fr; gap: 13px; padding: 12px 14px; }
+  .kal-item .kal-pil { grid-column: 2; justify-self: start; margin-top: 2px; }
+  .kal-datum b { font-size: 19px; }
+  .kal-zoek input { font-size: 16px; padding: 14px 16px 14px 46px; }
+  .kermis-kop .blok { padding: 10px 16px; }
+  .kermis-kop .blok b { font-size: 22px; }
 }

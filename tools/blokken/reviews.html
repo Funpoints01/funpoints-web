@@ -1,0 +1,72 @@
+<!-- ===========================================================================
+     BLOK: wat uitbaters ervan vinden
+     Plaats: uitbaters.html, tussen het prijzenblok en de FAQ.
+     Vul {{ }} in met échte quotes van uitbaters die schriftelijk akkoord gaven.
+     Verwijder de kaarten die je niet gebruikt — twee is beter dan zes verzonnen.
+     =========================================================================== -->
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Van het plein</span>
+      <h2>Wat uitbaters ervan zeggen</h2>
+      <p>Geen marketingpraat, maar wat de mensen die er elke week mee werken erover kwijt willen.</p>
+    </div>
+    <div class="container grid-3">
+
+      <figure class="card citaat">
+        <blockquote>
+          <p>“{{ letterlijke quote — laat de spreektaal staan, dat leest echter }}”</p>
+        </blockquote>
+        <figcaption>
+          <b>{{ Naam van het kraam }}</b>
+          <span>{{ Soort kraam }} · {{ regio of route }} · klant sinds {{ maand jaar }}</span>
+        </figcaption>
+      </figure>
+
+      <figure class="card citaat">
+        <blockquote>
+          <p>“{{ quote 2 }}”</p>
+        </blockquote>
+        <figcaption>
+          <b>{{ Naam van het kraam }}</b>
+          <span>{{ Soort kraam }} · {{ regio of route }} · klant sinds {{ maand jaar }}</span>
+        </figcaption>
+      </figure>
+
+      <figure class="card citaat">
+        <blockquote>
+          <p>“{{ quote 3 }}”</p>
+        </blockquote>
+        <figcaption>
+          <b>{{ Naam van het kraam }}</b>
+          <span>{{ Soort kraam }} · {{ regio of route }} · klant sinds {{ maand jaar }}</span>
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+<!-- ===========================================================================
+     SCHEMA — pas aanzetten als er minstens twee ECHTE reviews staan.
+     Voeg de objecten toe aan de bestaande @graph van uitbaters.html, als
+     "review" op de Service met @id .../uitbaters.html#loyaliteitsdienst.
+
+     Laat aggregateRating weg zolang je minder dan een handvol reviews hebt:
+     een gemiddelde van 5,0 uit 1 beoordeling ziet Google als een signaal om
+     de rich result níét te tonen.
+
+  "review": [
+    {
+      "@type": "Review",
+      "author": {"@type": "Organization", "name": "{{ Naam van het kraam }}"},
+      "datePublished": "{{ JJJJ-MM-DD }}",
+      "reviewBody": "{{ letterlijke quote }}",
+      "reviewRating": {"@type": "Rating", "ratingValue": "{{ 1-5 }}", "bestRating": "5"}
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ gemiddelde }}",
+    "reviewCount": "{{ aantal }}",
+    "bestRating": "5"
+  }
+     =========================================================================== -->

@@ -75,3 +75,47 @@ gewoon rechtstreeks.
 
 **Niet** met de hand aanpassen: iets tussen `<!-- fp:… -->` en `<!-- /fp:… -->`,
 en niets onder `/kermis/`. Bij de volgende build is dat weg.
+
+## De kalender: wat er nu allemaal uitkomt
+
+`tools/kermis/build_kermis.py` schrijft niet alleen pagina's. Één run levert:
+
+| Uitvoer | Wat |
+|---|---|
+| `/kermis/**` | 1 hub, 11 provincie-, 574 gemeente- en 633 kermispagina's |
+| `/kermis/status.js` | herrekent "nu bezig / nog te komen / voorbij" in de browser |
+| `/kermis/zoek.js` | het zoekveld op de hub |
+| `/kermis/filter.js` | het filterveld in de gemeentelijst van een provincie |
+| `/kermis/gemeenten.json` | zoekindex, ± 20 kB, wordt pas opgehaald bij het eerste teken |
+| `/data/activiteit.json` | voer voor de meldingen linksonder |
+| `sitemap-kermis*.xml` | sitemaps per provincie plus de index |
+
+Draai het script **vanuit `tools/kermis/`**, anders vindt het `../partials` niet:
+
+```
+cd tools/kermis && python3 build_kermis.py ../..
+```
+
+## De meldingen linksonder
+
+`js/funpoints-social.js` toont om de zoveel seconden een melding linksonder.
+De inhoud komt uit `/data/activiteit.json` en bestaat **uitsluitend uit
+kermissen die volgens onze eigen kalender bezig zijn of eraan komen**.
+
+Er staan geen verzonnen gebruikers, downloads of aantallen in, en dat is geen
+kieskeurigheid: verzonnen gebruikersactiviteit tonen is een oneerlijke
+handelspraktijk onder Boek VI van het Wetboek van Economisch Recht, en het is
+precies het soort claim waar een concurrent of de Economische Inspectie op kan
+aankloppen. Zodra er échte cijfers zijn (aanmeldingen, aangesloten kramen), kan
+`activiteit.json` daarmee aangevuld worden — het script toont ze dan mee.
+
+Het script staat op de bezoekerspagina's, het magazine, de kennisbank en alle
+kalenderpagina's. Niet op `/demo/` (daar mag niets van het formulier afleiden)
+en niet op `uitbaters.html`.
+
+## blokken/
+
+`tools/blokken/` bevat twee stukken HTML die klaarstaan maar bewust nog niet
+online staan: `reviews.html` (quotes van uitbaters) en `cases.html` (gemeenten).
+Ze wachten op echte inhoud — zie `tools/blokken/README.md` voor wat ik precies
+nodig heb om ze te kunnen invullen.

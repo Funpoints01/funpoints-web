@@ -1,0 +1,101 @@
+<!-- ===========================================================================
+     BLOK A — GEMEENTEN DIE MEEDOEN
+     Gebruik dit alleen voor gemeenten die effectief met Funpoints werken én
+     schriftelijk akkoord gaven om vermeld te worden.
+     Plaats: over-ons.html, of een nieuwe pagina /gemeenten/.
+     =========================================================================== -->
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Samen met gemeenten</span>
+      <h2>Waar de kermis al digitaal spaart</h2>
+      <p>Gemeenten en foorcommissies die Funpoints op hun kermis inzetten.</p>
+    </div>
+    <div class="container grid-3">
+
+      <div class="card">
+        <div class="ic tint-green">🏛️</div>
+        <h3>{{ Gemeente }}</h3>
+        <p>{{ Wat er gebeurde: welke kermis, hoeveel kramen, sinds wanneer. Eén zin
+        met een cijfer erin is sterker dan drie zonder. }}</p>
+        <a class="more" href="/kermis/{{ gemeente-slug }}/">De kermiskalender van {{ Gemeente }} →</a>
+      </div>
+
+      <div class="card">
+        <div class="ic tint-coral">🏛️</div>
+        <h3>{{ Gemeente }}</h3>
+        <p>{{ … }}</p>
+        <a class="more" href="/kermis/{{ gemeente-slug }}/">De kermiskalender van {{ Gemeente }} →</a>
+      </div>
+
+      <div class="card">
+        <div class="ic tint-violet">🏛️</div>
+        <h3>{{ Gemeente }}</h3>
+        <p>{{ … }}</p>
+        <a class="more" href="/kermis/{{ gemeente-slug }}/">De kermiskalender van {{ Gemeente }} →</a>
+      </div>
+
+    </div>
+  </section>
+
+
+<!-- ===========================================================================
+     BLOK B — HET AANBOD AAN GEMEENTEN
+     Dit blok kan vandaag al online: het belooft niets over wie er meedoet, maar
+     laat wel zien dat je met gemeenten werkt. Zolang blok A niet ingevuld kan
+     worden, is dit de eerlijke versie ervan.
+     De cijfers hieronder komen uit de kalender en kloppen — pas ze aan wanneer
+     de dataset verandert (tools/kermis/build_kermis.py drukt ze bij elke build af).
+     =========================================================================== -->
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Voor gemeenten en foorcommissies</span>
+      <h2>Wat een gemeente aan Funpoints heeft</h2>
+      <p>De kermis is een van de weinige evenementen waar een gemeente achteraf niet
+      weet hoeveel volk er stond. Dat hoeft niet zo te blijven.</p>
+    </div>
+    <div class="container">
+      <div class="kal-cijfers">
+        <div><b>633</b><span>kermissen op de kalender</span></div>
+        <div><b>574</b><span>gemeenten gedekt</span></div>
+        <div><b>11</b><span>provincies</span></div>
+        <div><b>0 €</b><span>voor de gemeente</span></div>
+      </div>
+    </div>
+    <div class="container grid-3" style="margin-top:26px;">
+      <div class="card">
+        <div class="ic tint-green">📈</div>
+        <h3>Zien wat er gebeurt</h3>
+        <p>Hoeveel bezoekers er spaarden, uit welke gemeenten ze kwamen en hoe vaak ze
+        terugkwamen. Cijfers die er vandaag gewoon niet zijn.</p>
+      </div>
+      <div class="card">
+        <div class="ic tint-coral">🗓️</div>
+        <h3>Je kermis vindbaar maken</h3>
+        <p>Elke kermis krijgt een eigen pagina met de data en de kramen die er staan —
+        precies wat inwoners googelen in de week ervoor.</p>
+      </div>
+      <div class="card linked">
+        <div class="ic tint-violet">🤝</div>
+        <h3>Je foorkramers ondersteunen</h3>
+        <p>Wie terugkomende klanten heeft, schrijft zich makkelijker opnieuw in bij de
+        verpachting. Een volle kermis begint bij kramen die willen blijven komen.</p>
+        <a class="more" href="/kermis/">Bekijk de kermiskalender →</a>
+      </div>
+    </div>
+    <div class="container" style="margin-top:34px;">
+      <div class="cta">
+        <h2>Bent u gemeente of foorcommissie?</h2>
+        <p>We komen graag eens uitleggen wat het voor uw kermis zou betekenen — zonder
+        dat het de gemeente iets kost.</p>
+        <a class="btn btn-ghost btn-lg" href="/demo/">Plan een gesprek</a>
+      </div>
+    </div>
+  </section>
+
+
+<!-- ===========================================================================
+     WAT JE NIET MOET DOEN
+     "Gemeente X toonde interesse" publiceren zonder hun akkoord. Het mag dan
+     waar zijn, het is hun naam en hun beslissing. Eén schepen die dat op de
+     site ziet staan zonder gevraagd te zijn, is één deur die dichtgaat.
+     =========================================================================== -->

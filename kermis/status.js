@@ -26,11 +26,39 @@
       el.textContent = label(el.getAttribute('data-start'), el.getAttribute('data-eind'));
     });
 
-  /* Statuskolom in een kalendertabel */
+  /* Statuskolom in een oudere kalendertabel */
   Array.prototype.forEach.call(
     document.querySelectorAll('.kermis-rij[data-start]'), function (rij) {
       var badge = rij.querySelector('.kermis-status');
       if (badge) badge.textContent = label(rij.getAttribute('data-start'),
                                            rij.getAttribute('data-eind'));
+    });
+
+  /* Kalenderregels: pil bijwerken en de regel dimmen als ze voorbij is */
+  Array.prototype.forEach.call(
+    document.querySelectorAll('.kal-item[data-start]'), function (rij) {
+      var start = rij.getAttribute('data-start');
+      var eind = rij.getAttribute('data-eind');
+      var s = new Date(start + 'T00:00:00');
+      var t = new Date(eind + 'T00:00:00');
+      var pil = rij.querySelector('.kal-pil');
+      rij.classList.remove('nu', 'voorbij');
+      if (pil) pil.classList.remove('nu', 'komt');
+      if (vandaag > t) {
+        rij.classList.add('voorbij');
+        if (pil) pil.textContent = 'Voorbij';
+      } else if (vandaag < s) {
+        var dagen = Math.round((s - vandaag) / 86400000);
+        if (pil) {
+          pil.classList.add('komt');
+          pil.textContent = dagen === 0 ? 'Start vandaag'
+            : dagen === 1 ? 'Morgen'
+            : dagen <= 14 ? 'Over ' + dagen + ' dagen'
+            : 'Nog te komen';
+        }
+      } else {
+        rij.classList.add('nu');
+        if (pil) { pil.classList.add('nu'); pil.textContent = 'Nu bezig'; }
+      }
     });
 })();

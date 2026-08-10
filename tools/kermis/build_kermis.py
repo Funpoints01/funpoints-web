@@ -154,6 +154,7 @@ def voet(sticky=''):
 {FOOTER}
 
 <script src="/kermis/status.js" defer></script>
+<script src="/js/funpoints-social.js" defer></script>
 <script src="/tracking.js" defer></script>
 </body>
 </html>
@@ -202,6 +203,60 @@ def faq_html(paren):
     return '\n'.join(out)
 
 
+# ------------------------------------------------------- kalenderonderdelen
+MND_KORT = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun',
+            'jul', 'aug', 'sep', 'okt', 'nov', 'dec']
+
+PIL = {'binnenkort': ('komt', 'Nog te komen'),
+       'open': ('nu', 'Nu bezig'),
+       'voorbij': ('', 'Voorbij')}
+
+
+def kal_item(p, toon_gemeente=True, toon_provincie=False):
+    """Eén regel in de kalender: datumblok links, naam en plaats in het midden,
+    status rechts. De hele regel is klikbaar — op een telefoon is dat een veel
+    ruimer doel dan een link in een tabelcel."""
+    st = status(p['start'], p['eind'])
+    klasse, tekst = PIL[st]
+    d = datetime.date.fromisoformat(p['start'])
+    n = duur(p['start'], p['eind'])
+    onder = []
+    if toon_gemeente:
+        onder.append(e(p['gemeente']))
+    if toon_provincie:
+        onder.append(e(p['provincie']))
+    onder.append(f'{datum_kort(p["start"])} – {datum_kort(p["eind"])}')
+    onder.append(f'{n} {"dag" if n == 1 else "dagen"}')
+    rijklasse = ' ' + ('nu' if st == 'open' else 'voorbij' if st == 'voorbij' else '')
+    return (f'''        <a class="kal-item{rijklasse.rstrip()}" href="{p["pad"]}/" '''
+            f'''data-start="{p["start"]}" data-eind="{p["eind"]}">
+          <span class="kal-datum"><b>{d.day}</b><span>{MND_KORT[d.month - 1]}</span></span>
+          <span class="kal-tekst"><b>{e(p["naam"])}</b><span>{" · ".join(onder)}</span></span>
+          <span class="kal-pil {klasse}">{tekst}</span>
+        </a>''')
+
+
+def kal_lijst(lijst, toon_gemeente=True, toon_provincie=False, maanden=False,
+              een_kolom=False):
+    """Een reeks kalenderregels, optioneel met maandkoppen ertussen."""
+    klasse = 'kal-lijst een' if een_kolom else 'kal-lijst'
+    uit = [f'      <div class="{klasse}">']
+    vorige = None
+    for p in lijst:
+        if maanden:
+            d = datetime.date.fromisoformat(p['start'])
+            if (d.year, d.month) != vorige:
+                vorige = (d.year, d.month)
+                uit.append(f'        <p class="kal-maand">{MANDEN_KOP(d)}</p>')
+        uit.append(kal_item(p, toon_gemeente, toon_provincie))
+    uit.append('      </div>')
+    return '\n'.join(uit)
+
+
+def MANDEN_KOP(d):
+    return f'{MAANDEN[d.month - 1]} {d.year}'
+
+
 # ----------------------------------------------------------------- laden
 data = json.load(open(BRON, encoding='utf-8'))
 paginas = data['paginas']
@@ -246,19 +301,26 @@ def bouw_kermis(p):
              if p['start'] <= iso <= p['eind']]
 
     # ---- praktische tabel
-    rijen = [
-        ('Wanneer', f'{dagnaam(p["start"])} {datum(p["start"])} t.e.m. '
-                    f'{dagnaam(p["eind"])} {datum(p["eind"])}'),
+    dstart = datetime.date.fromisoformat(p['start'])
+    deind = datetime.date.fromisoformat(p['eind'])
+
+    feiten_kort = [
+        ('Wanneer', f'{dagnaam(p["start"])} {datum_kort(p["start"])} t.e.m. '
+                    f'{dagnaam(p["eind"])} {datum_kort(p["eind"])} {JAAR}'),
         ('Hoe lang', f'{n} {"dag" if n == 1 else "dagen"}'),
         ('Waar', f'{e(p["gemeente"])} ({e(p["postcode"])}), {e(prov)}'),
-        ('Toegang', 'Gratis — je betaalt per attractie of per spel'),
+        ('Toegang', 'Gratis — je betaalt per attractie'),
+    ]
+    if feest:
+        feiten_kort.append(('Feestdag', ' en '.join(feest) + ' valt erin'))
+    feiten_breed = [
         ('Openingsuren', 'Doordeweeks vanaf de namiddag, in het weekend vanaf de middag. '
                          'De exacte uren verschillen per kraam.'),
     ]
-    if feest:
-        rijen.insert(2, ('Feestdag', ' en '.join(feest) + ' valt in deze periode'))
     tabel = '\n'.join(
-        f'          <tr><th scope="row">{k}</th><td>{v}</td></tr>' for k, v in rijen)
+        f'        <div><dt>{k}</dt><dd>{v}</dd></div>' for k, v in feiten_kort)
+    tabel += '\n' + '\n'.join(
+        f'        <div class="breed"><dt>{k}</dt><dd>{v}</dd></div>' for k, v in feiten_breed)
 
     # ---- lokale hoek
     uniek = '\n'.join(f'        <li>{e(u)}</li>' for u in p['uniek'])
@@ -376,6 +438,12 @@ def bouw_kermis(p):
       <p class="crumbs"><a href="/">Funpoints</a> › <a href="/kermis/">Kermiskalender</a> › <a href="/kermis/provincie/{ps}/">{e(prov)}</a> › <a href="/kermis/{p["gemeente_slug"]}/">{e(p["gemeente"])}</a> › {e(p["naam"])}</p>
       <span class="eyebrow kermis-status" data-start="{p['start']}" data-eind="{p['eind']}">{BADGE[st]}</span>
       <h1>{e(p["h1"])}</h1>
+      <div class="kermis-kop">
+        <div class="blok"><b>{dstart.day}</b><span>{MND_KORT[dstart.month - 1]}</span></div>
+        <span class="tot">t.e.m.</span>
+        <div class="blok"><b>{deind.day}</b><span>{MND_KORT[deind.month - 1]}</span></div>
+        <span class="tot">{n} {"dag" if n == 1 else "dagen"} · {e(p["gemeente"])}</span>
+      </div>
       </div>
     </div>
   </section>
@@ -387,14 +455,9 @@ def bouw_kermis(p):
       </div>
 
       <h2 id="praktisch">Praktisch</h2>
-      <div class="tabel-scroll">
-        <table>
-          <caption class="note">{e(p["naam"])} in {e(p["gemeente"])} — editie {JAAR}</caption>
-          <tbody>
+      <dl class="feiten">
 {tabel}
-          </tbody>
-        </table>
-      </div>
+      </dl>
 
       <h2 id="wat-staat-er">Wat staat er op het plein?</h2>
       <div class="cal-empty">
@@ -476,14 +539,9 @@ def bouw_gemeente(slug):
                     f'van {datum(eerst["start"])} tot en met {datum(eerst["eind"])}. '
                     f'De data van de volgende editie komen op deze pagina zodra ze bekend zijn.')
 
-    rijen = []
-    for p in lijst:
-        st = status(p['start'], p['eind'])
-        rijen.append(
-            f'          <tr class="kermis-rij" data-start="{p["start"]}" data-eind="{p["eind"]}">'
-            f'<td><a href="{p["pad"]}/">{e(p["naam"])}</a></td>'
-            f'<td>{datum_kort(p["start"])} – {datum_kort(p["eind"])}</td>'
-            f'<td><span class="kermis-status">{BADGE[st]}</span></td></tr>')
+    kalender = kal_lijst(lijst, toon_gemeente=False, maanden=aantal > 3,
+                         een_kolom=aantal <= 2)
+    komend_n = len(komend)
 
     # buurgemeenten: uit de linkstructuur van de kermissen
     buurt, gezien = [], {slug}
@@ -504,13 +562,19 @@ def bouw_gemeente(slug):
             f'          <div class="d">{len(per_gemeente[b["gemeente_slug"]])} '
             f'{"kermis" if len(per_gemeente[b["gemeente_slug"]]) == 1 else "kermissen"} in {JAAR}</div>\n'
             f'        </a>' for b in buurt[:6])
-        buurt_html = f'''
-      <div class="related">
-        <h2 id="in-de-buurt">Kermissen in de buurt van {e(g["naam"])}</h2>
-        <div class="related-grid">
+        buurt_html = f'''  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">In de buurt</span>
+      <h2 id="in-de-buurt">Kermissen rond {e(g["naam"])}</h2>
+      <p>Niets te doen dit weekend? De buurgemeenten hebben hun eigen kalender.</p>
+    </div>
+    <div class="container">
+      <div class="related-grid">
 {kaarten}
-        </div>
-      </div>'''
+      </div>
+    </div>
+  </section>
+'''
 
     vragen = [
         (f'Wanneer is het kermis in {g["naam"]}?',
@@ -556,42 +620,74 @@ def bouw_gemeente(slug):
     </div>
   </section>
 
-  <section style="padding-top:10px;">
-    <div class="container article">
+  <section class="aansluitend">
+    <div class="container smal">
       <div class="answer">
         <p style="margin:0;">{e(antwoord)}</p>
       </div>
-
-      <h2 id="kalender">De kermiskalender van {e(g["naam"])}</h2>
-      <div class="tabel-scroll">
-        <table>
-          <thead><tr><th scope="col">Kermis</th><th scope="col">Wanneer</th><th scope="col">Status</th></tr></thead>
-          <tbody>
-{chr(10).join(rijen)}
-          </tbody>
-        </table>
-      </div>
-      <p class="note">Data zoals opgegeven door de gemeenten. Openingsuren en attracties
-      verschijnen per kermis zodra de uitbater ze doorgeeft.</p>
-
-      <h2 id="punten-sparen">Punten sparen in {e(g["naam"])}</h2>
-      <p>Met Funpoints spaar je op elke deelnemende kermis punten met dezelfde QR-code op je
-      telefoon. Je punten blijven staan tussen twee kermissen door, dus wat je in het voorjaar
-      spaart, kan je in het najaar inruilen. <a href="/hoe-het-werkt.html">Zo werkt het</a>.</p>
-
-      <h2 id="veelgestelde-vragen">Veelgestelde vragen</h2>
     </div>
   </section>
 
-  <section style="padding-top:0;">
+  <section class="aansluitend">
+    <div class="container">
+      <div class="kal-cijfers">
+        <div><b>{aantal}</b><span>{woord} in {JAAR}</span></div>
+        <div><b>{komend_n}</b><span>nog te gaan</span></div>
+        <div><b class="tekst">{e(g["postcode"])}</b><span>postcode</span></div>
+        <div><b class="tekst">{e(prov)}</b><span>provincie</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">De kalender</span>
+      <h2 id="kalender">Alle kermissen in {e(g["naam"])}</h2>
+      <p>Data zoals opgegeven door de gemeente. Openingsuren en attracties verschijnen per
+      kermis zodra de uitbater ze doorgeeft.</p>
+    </div>
+    <div class="container">
+{kalender}
+    </div>
+  </section>
+
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Punten sparen</span>
+      <h2>Sparen op de kermis in {e(g["naam"])}</h2>
+      <p>Eén QR-code op je telefoon, bij elk deelnemend kraam. Je punten blijven staan tussen
+      twee kermissen door — wat je in het voorjaar spaart, ruil je in het najaar in.
+      <a href="/hoe-het-werkt.html">Zo werkt punten sparen</a>.</p>
+    </div>
+    <div class="container grid-3">
+      <div class="card">
+        <div class="ic tint-green">🎟️</div>
+        <h3>Eén code voor alles</h3>
+        <p>Elk aangesloten kraam scant dezelfde code. Je punten komen bij dàt kraam terecht.</p>
+      </div>
+      <div class="card">
+        <div class="ic tint-coral">🎁</div>
+        <h3>Naar een prijs toe</h3>
+        <p>Je ziet per kraam hoeveel punten je nog nodig hebt voor de prijs uit de kast.</p>
+      </div>
+      <div class="card linked">
+        <div class="ic tint-violet">🧭</div>
+        <h3>Je punten reizen mee</h3>
+        <p>Staat het kraam volgende maand elders? Je saldo staat er nog.</p>
+        <a class="more" href="/bezoekers.html">Zo spaar je punten →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Veelgestelde vragen</span>
+      <h2>Vragen over de kermis in {e(g["naam"])}</h2>
+    </div>
 {faq_html(vragen)}
   </section>
 
-  <section style="padding-top:0;">
-    <div class="container article">{buurt_html}
-    </div>
-  </section>
-
+{buurt_html}
   <section>
     <div class="container">
       <div class="cta">
@@ -627,13 +723,14 @@ def bouw_provincie(naam):
                    if komend else 'Het seizoen is hier afgelopen; de data van volgend jaar '
                                   'komen op deze pagina zodra ze bekend zijn.'))
 
-    volgende = komend[:12]
-    rijen = '\n'.join(
-        f'          <tr class="kermis-rij" data-start="{p["start"]}" data-eind="{p["eind"]}">'
-        f'<td><a href="{p["pad"]}/">{e(p["naam"])}</a></td>'
-        f'<td><a href="/kermis/{p["gemeente_slug"]}/">{e(p["gemeente"])}</a></td>'
-        f'<td>{datum_kort(p["start"])} – {datum_kort(p["eind"])}</td></tr>'
-        for p in volgende)
+    volgende = komend[:16]
+    if volgende:
+        kalender = kal_lijst(volgende, maanden=True)
+    else:
+        kalender = ('      <div class="cal-empty"><p><b>Het seizoen is hier afgelopen.</b></p>'
+                    '<p>De data van volgend jaar komen op deze pagina zodra de gemeenten ze '
+                    'vastleggen.</p></div>')
+    bezig_n = len([p for p in lijst if status(p['start'], p['eind']) == 'open'])
 
     kolommen = '\n'.join(
         f'        <a href="/kermis/{s}/">{e(gemeenten[s]["naam"])} '
@@ -676,25 +773,62 @@ def bouw_provincie(naam):
     </div>
   </section>
 
-  <section style="padding-top:10px;">
-    <div class="container article">
+  <section class="aansluitend">
+    <div class="container smal">
       <div class="answer">
         <p style="margin:0;">{e(antwoord)}</p>
       </div>
-
-      <h2 id="eerstvolgende">Eerstvolgende kermissen</h2>
-      {'<div class="tabel-scroll"><table><thead><tr><th scope="col">Kermis</th><th scope="col">Gemeente</th><th scope="col">Wanneer</th></tr></thead><tbody>' + chr(10) + rijen + chr(10) + '</tbody></table></div>' if volgende else '<div class="cal-empty"><p><b>Het seizoen is hier afgelopen.</b></p><p>De data van volgend jaar komen op deze pagina zodra de gemeenten ze vastleggen.</p></div>'}
-
-      <h2 id="gemeenten">Alle gemeenten in {e(naam)}</h2>
-      <div class="gemeentelijst">
-{kolommen}
-      </div>
-
-      <h2 id="veelgestelde-vragen">Veelgestelde vragen</h2>
     </div>
   </section>
 
-  <section style="padding-top:0;">
+  <section class="aansluitend">
+    <div class="container">
+      <div class="kal-cijfers">
+        <div><b>{len(lijst)}</b><span>kermissen in {JAAR}</span></div>
+        <div><b>{len(gems)}</b><span>gemeenten</span></div>
+        <div><b>{len(komend)}</b><span>nog te gaan</span></div>
+        <div><b>{bezig_n}</b><span>nu aan de gang</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Eerstvolgende</span>
+      <h2 id="eerstvolgende">Kermis in {e(naam)} deze weken</h2>
+      <p>De {len(volgende)} kermissen die er als eerste aankomen. Klik door voor de data,
+      wat er staat en de spaaractie.</p>
+    </div>
+    <div class="container">
+{kalender}
+    </div>
+  </section>
+
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Alle gemeenten</span>
+      <h2 id="gemeenten">Zoek je gemeente in {e(naam)}</h2>
+      <p>{len(gems)} gemeenten met een kermis op de kalender. Typ de eerste letters om te filteren.</p>
+      <div class="kal-zoek" style="margin-bottom:6px;">
+        <label class="sr-only" for="gem-filter">Filter de gemeenten</label>
+        <input id="gem-filter" type="search" autocomplete="off" spellcheck="false"
+               data-filtert="gemeentelijst" placeholder="Filter op naam…">
+      </div>
+    </div>
+    <div class="container">
+      <div class="gemeentelijst" id="gemeentelijst">
+{kolommen}
+      </div>
+      <p class="note gem-leeg" hidden>Geen gemeente met die naam in {e(naam)}.
+      <a href="/kermis/">Zoek in heel België</a>.</p>
+    </div>
+  </section>
+
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Veelgestelde vragen</span>
+      <h2>Vragen over kermissen in {e(naam)}</h2>
+    </div>
 {faq_html(vragen)}
   </section>
 
@@ -709,7 +843,9 @@ def bouw_provincie(naam):
   </section>
 '''
     schrijf(f'/kermis/provincie/{ps}/index.html',
-            kop(title, descr, url, dl, jsonld=ld, noindex=noindex) + body + VOET)
+            kop(title, descr, url, dl, jsonld=ld, noindex=noindex,
+                extra_head='<script src="/kermis/filter.js" defer></script>\n')
+            + body + VOET)
 
 
 # ------------------------------------------------------------ hub
@@ -727,17 +863,23 @@ def bouw_hub():
                 'verwachten en welke spaaractie er loopt. De toegang tot een kermisterrein is '
                 'in België altijd gratis — je betaalt per attractie.')
 
-    rijen = '\n'.join(
-        f'          <tr class="kermis-rij" data-start="{p["start"]}" data-eind="{p["eind"]}">'
-        f'<td><a href="{p["pad"]}/">{e(p["naam"])}</a></td>'
-        f'<td><a href="/kermis/{p["gemeente_slug"]}/">{e(p["gemeente"])}</a></td>'
-        f'<td>{datum_kort(p["start"])} – {datum_kort(p["eind"])}</td></tr>'
-        for p in komend[:20])
+    # ---- lijsten: nu bezig, deze maand, daarna
+    nu = sorted(bezig, key=lambda p: p['eind'])
+    straks = [p for p in komend if status(p['start'], p['eind']) == 'binnenkort']
+    binnen_maand = [p for p in straks
+                    if (datetime.date.fromisoformat(p['start']) - VANDAAG).days <= 31]
+    rest = [p for p in straks if p not in binnen_maand]
+
+    lijst_nu = kal_lijst(nu[:8]) if nu else ''
+    lijst_straks = kal_lijst(binnen_maand[:12] if binnen_maand else straks[:12],
+                             maanden=True)
+    kop_straks = ('Kermis in de komende weken' if binnen_maand
+                  else 'Verderop in het seizoen')
 
     provkaarten = '\n'.join(
         f'''      <a href="/kermis/provincie/{prov_slug[n]}/">
         <b>{e(n)}</b>
-        <span>{provincies[n]["aantal"]} kermissen in {len(provincies[n]["gemeenten"])} gemeenten</span>
+        <span>{provincies[n]["aantal"]} kermissen · {len(provincies[n]["gemeenten"])} gemeenten</span>
       </a>''' for n in sorted(provincies, key=lambda n: -provincies[n]['aantal']))
 
     vragen = [
@@ -745,6 +887,9 @@ def bouw_hub():
          f'Op deze kalender staan er {len(paginas)} voor {JAAR}, in {len(gemeenten)} gemeenten. '
          'Het werkelijke aantal ligt hoger: veel kleine wijkkermissen worden nergens centraal '
          'bijgehouden.'),
+        ('Wanneer is het kermis in mijn gemeente?',
+         'Typ je gemeente in het zoekveld bovenaan deze pagina. Je komt op de kalender van die '
+         'gemeente, met elke kermis van dit jaar en de exacte data erbij.'),
         ('Wanneer loopt het kermisseizoen in België?',
          'Het klassieke seizoen loopt van het vroege voorjaar tot half november, met '
          'Wapenstilstand (11 november) als traditionele afsluiter. Rond carnaval en de '
@@ -753,10 +898,23 @@ def bouw_hub():
          'Het terrein wel. Je betaalt per attractie, per spel of per portie. Hoeveel dat kost '
          'lees je in <a href="/magazine/wat-kost-een-dagje-kermis/">wat kost een dagje kermis</a>.'),
         ('Staat mijn gemeente op de kalender?',
-         f'We dekken {len(gemeenten)} gemeenten. Kies je provincie hierboven en zoek je gemeente '
-         'in de lijst. Ontbreekt ze? Dan hebben we er nog geen data voor — laat het weten via '
+         f'We dekken {len(gemeenten)} gemeenten. Vind je de jouwe niet in het zoekveld, dan '
+         'hebben we er nog geen data voor — laat het weten via '
          '<a href="mailto:info@funpoints.be">info@funpoints.be</a>.'),
     ]
+
+    blok_nu = ''
+    if nu:
+        blok_nu = ('\n  <section class="aansluitend">\n'
+                   '    <div class="container section-head">\n'
+                   '      <span class="kicker">Op dit moment</span>\n'
+                   '      <h2>Deze kermissen zijn nu bezig</h2>\n'
+                   '      <p>Nog een paar dagen open — je kan er vanavond nog heen.</p>\n'
+                   '    </div>\n'
+                   '    <div class="container">\n'
+                   + lijst_nu + '\n'
+                   '    </div>\n'
+                   '  </section>\n')
 
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "CollectionPage", "url": url, "name": f'Kermiskalender België {JAAR}',
@@ -766,7 +924,7 @@ def bouw_hub():
                    "url": f"{BASIS}/img/funpoints-digitale-spaarkaart-kermis.png",
                    "width": 1200, "height": 630,
                    "caption": "Funpoints — het digitale spaarkaartje van de kermis"}},
-        {"@type": "ItemList", "name": f'Kermissen in België per provincie',
+        {"@type": "ItemList", "name": 'Kermissen in België per provincie',
          "numberOfItems": len(provincies),
          "itemListElement": [
              {"@type": "ListItem", "position": i + 1, "name": n,
@@ -779,56 +937,69 @@ def bouw_hub():
           "page_name": "Kermiskalender", "page_language": "nl-BE"}
 
     body = f'''  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">🗓️ {len(paginas)} kermissen · {len(gemeenten)} gemeenten</span>
-      <h1>Kermiskalender België</h1>
-      <p>Wanneer staat de kermis in jouw gemeente? Data, uren en de spaaractie per kermis —
-      van dorpskermis tot stadsfoor.</p>
+    <div class="container smal" style="text-align:center;">
+      <span class="eyebrow">🗓️ Kermiskalender {JAAR}</span>
+      <h1>Wanneer is het kermis in jouw gemeente?</h1>
+      <p>Alle {len(paginas)} kermissen van België op één kalender, met de data erbij.
+      Typ je gemeente en je weet het meteen.</p>
+      <form class="kal-zoek" role="search" onsubmit="return false;">
+        <label class="sr-only" for="kal-q">Zoek een gemeente</label>
+        <input id="kal-q" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Zoek je gemeente…"
+               aria-controls="kal-treffers" aria-expanded="false">
+        <div class="kal-treffers" id="kal-treffers" role="listbox" aria-label="Gevonden gemeenten"></div>
+      </form>
     </div>
   </section>
 
-  <section style="padding-top:10px;">
-    <div class="container article">
+  <section class="aansluitend">
+    <div class="container">
+      <div class="kal-cijfers">
+        <div><b>{len(paginas)}</b><span>kermissen in {JAAR}</span></div>
+        <div><b>{len(gemeenten)}</b><span>gemeenten</span></div>
+        <div><b>{len(provincies)}</b><span>provincies</span></div>
+        <div><b>{len(bezig)}</b><span>nu aan de gang</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aansluitend">
+    <div class="container smal">
       <div class="answer">
         <p style="margin:0;">{e(antwoord)}</p>
       </div>
     </div>
   </section>
-
-  <section style="padding-top:10px;">
+{blok_nu}
+  <section class="aansluitend">
     <div class="container section-head">
-      <span class="kicker">Kies je provincie</span>
-      <h2>Kermissen per provincie</h2>
+      <span class="kicker">Eerstvolgende</span>
+      <h2>{kop_straks}</h2>
+      <p>{len(straks)} kermissen staan er nog op de kalender van {JAAR}. Klik door voor de
+      data, wat er staat en de spaaractie.</p>
     </div>
-    <div class="container jump">
-{provkaarten}
+    <div class="container">
+{lijst_straks}
     </div>
   </section>
 
-  <section style="padding-top:10px;">
+  <section class="aansluitend">
     <div class="container section-head">
-      <span class="kicker">Eerstvolgende</span>
-      <h2>Kermissen die eraan komen</h2>
-      <p>{len(bezig)} kermissen zijn nu bezig, {len(komend)} staan er nog op de kalender van {JAAR}.</p>
+      <span class="kicker">Kies je provincie</span>
+      <h2>Blader per provincie</h2>
+      <p>Elke provincie heeft een eigen kalender met alle gemeenten op een rij.</p>
     </div>
-    <div class="container article">
-      <div class="tabel-scroll">
-        <table>
-          <thead><tr><th scope="col">Kermis</th><th scope="col">Gemeente</th><th scope="col">Wanneer</th></tr></thead>
-          <tbody>
-{rijen}
-          </tbody>
-        </table>
+    <div class="container">
+      <div class="prov-grid">
+{provkaarten}
       </div>
     </div>
   </section>
 
-  <section style="padding-top:10px;">
+  <section class="aansluitend">
     <div class="container section-head">
-      <span class="kicker">Zoek je gemeente</span>
-      <h2>Jouw kermis op deze kalender?</h2>
-      <p>Elke kermis krijgt een eigen pagina. Staat er een Funpoints-uitbater, dan komen daar
-      de attracties, de openingsuren en de spaaractie bij te staan.</p>
+      <span class="kicker">Wat je op een kermispagina vindt</span>
+      <h2>Meer dan alleen een datum</h2>
     </div>
     <div class="container grid-3">
       <div class="card">
@@ -844,20 +1015,21 @@ def bouw_hub():
       <div class="card linked">
         <div class="ic tint-violet">🎁</div>
         <h3>De spaaractie</h3>
-        <p>Welke prijzen je kan sparen en hoe je vooraf registreert.</p>
+        <p>Welke prijzen je kan sparen en hoe je met één QR-code begint.</p>
         <a class="more" href="/bezoekers.html">Zo spaar je punten →</a>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:10px;">
-    <div class="container article">
-      <h2 id="veelgestelde-vragen">Veelgestelde vragen</h2>
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Veelgestelde vragen</span>
+      <h2>Vragen over de kermiskalender</h2>
     </div>
 {faq_html(vragen)}
   </section>
 
-  <section style="padding-top:10px;">
+  <section class="aansluitend">
     <div class="container jump">
       <a href="/magazine/wat-kost-een-dagje-kermis/">
         <b>💶 Wat kost een dagje kermis?</b>
@@ -882,7 +1054,9 @@ def bouw_hub():
   </section>
 '''
     schrijf('/kermis/index.html',
-            kop(title, descr, url, dl, jsonld=ld) + body + VOET)
+            kop(title, descr, url, dl, jsonld=ld,
+                extra_head='<script src="/kermis/zoek.js" defer></script>\n')
+            + body + VOET)
 
 
 # ------------------------------------------------------------ sitemaps
@@ -962,15 +1136,216 @@ STATUS_JS = '''/* Houdt de kermisstatus actueel zonder server: de pagina wordt s
       el.textContent = label(el.getAttribute('data-start'), el.getAttribute('data-eind'));
     });
 
-  /* Statuskolom in een kalendertabel */
+  /* Statuskolom in een oudere kalendertabel */
   Array.prototype.forEach.call(
     document.querySelectorAll('.kermis-rij[data-start]'), function (rij) {
       var badge = rij.querySelector('.kermis-status');
       if (badge) badge.textContent = label(rij.getAttribute('data-start'),
                                            rij.getAttribute('data-eind'));
     });
+
+  /* Kalenderregels: pil bijwerken en de regel dimmen als ze voorbij is */
+  Array.prototype.forEach.call(
+    document.querySelectorAll('.kal-item[data-start]'), function (rij) {
+      var start = rij.getAttribute('data-start');
+      var eind = rij.getAttribute('data-eind');
+      var s = new Date(start + 'T00:00:00');
+      var t = new Date(eind + 'T00:00:00');
+      var pil = rij.querySelector('.kal-pil');
+      rij.classList.remove('nu', 'voorbij');
+      if (pil) pil.classList.remove('nu', 'komt');
+      if (vandaag > t) {
+        rij.classList.add('voorbij');
+        if (pil) pil.textContent = 'Voorbij';
+      } else if (vandaag < s) {
+        var dagen = Math.round((s - vandaag) / 86400000);
+        if (pil) {
+          pil.classList.add('komt');
+          pil.textContent = dagen === 0 ? 'Start vandaag'
+            : dagen === 1 ? 'Morgen'
+            : dagen <= 14 ? 'Over ' + dagen + ' dagen'
+            : 'Nog te komen';
+        }
+      } else {
+        rij.classList.add('nu');
+        if (pil) { pil.classList.add('nu'); pil.textContent = 'Nu bezig'; }
+      }
+    });
 })();
 '''
+
+
+ZOEK_JS = """/* Zoeken in de kermiskalender zonder server: de lijst van gemeenten staat
+   in /kermis/gemeenten.json (± 20 kB) en wordt pas opgehaald zodra iemand het
+   zoekveld gebruikt. Zo kost de zoekfunctie niets voor wie ze niet nodig heeft. */
+(function () {
+  'use strict';
+  var veld = document.getElementById('kal-q');
+  var bak = document.getElementById('kal-treffers');
+  if (!veld || !bak) return;
+
+  var lijst = null, bezig = false, wacht = null;
+
+  function plat(t) {
+    return t.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '');
+  }
+
+  function laden(daarna) {
+    if (lijst) { daarna(); return; }
+    if (bezig) return;
+    bezig = true;
+    fetch('/kermis/gemeenten.json')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        lijst = d.map(function (g) { return { n: g[0], s: g[1], p: g[2], a: g[3], z: plat(g[0]) }; });
+        bezig = false;
+        daarna();
+      })
+      .catch(function () { bezig = false; });
+  }
+
+  function toon() {
+    var q = plat(veld.value.trim());
+    if (q.length < 2) { sluit(); return; }
+    laden(function () {
+      if (!lijst) return;
+      var begint = [], bevat = [];
+      for (var i = 0; i < lijst.length && begint.length + bevat.length < 40; i++) {
+        var g = lijst[i];
+        if (g.z.indexOf(q) === 0) begint.push(g);
+        else if (g.z.indexOf(q) > 0) bevat.push(g);
+      }
+      var res = begint.concat(bevat).slice(0, 8);
+      if (!res.length) {
+        bak.innerHTML = '<p class="leeg">Geen gemeente gevonden. Staat de jouwe er niet bij? Mail ' +
+          '<a href="mailto:info@funpoints.be">info@funpoints.be</a>.</p>';
+      } else {
+        bak.innerHTML = res.map(function (g) {
+          var woord = g.a === 1 ? 'kermis' : 'kermissen';
+          return '<a role="option" href="/kermis/' + g.s + '/">' +
+                 '<b>Kermis in ' + g.n + '</b>' +
+                 '<span>' + g.a + ' ' + woord + ' \\u00b7 ' + g.p + '</span></a>';
+        }).join('');
+      }
+      bak.classList.add('open');
+      veld.setAttribute('aria-expanded', 'true');
+    });
+  }
+
+  function sluit() {
+    bak.classList.remove('open');
+    veld.setAttribute('aria-expanded', 'false');
+  }
+
+  veld.addEventListener('input', function () {
+    clearTimeout(wacht);
+    wacht = setTimeout(toon, 90);
+  });
+  veld.addEventListener('focus', function () { if (veld.value.trim().length > 1) toon(); });
+  veld.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape') { sluit(); return; }
+    if (ev.key === 'ArrowDown') {
+      var eerste = bak.querySelector('a');
+      if (eerste) { ev.preventDefault(); eerste.focus(); }
+    }
+    if (ev.key === 'Enter') {
+      var t = bak.querySelector('a');
+      if (t) { ev.preventDefault(); window.location.href = t.getAttribute('href'); }
+    }
+  });
+  bak.addEventListener('keydown', function (ev) {
+    var items = Array.prototype.slice.call(bak.querySelectorAll('a'));
+    var i = items.indexOf(document.activeElement);
+    if (ev.key === 'ArrowDown' && i < items.length - 1) { ev.preventDefault(); items[i + 1].focus(); }
+    if (ev.key === 'ArrowUp') { ev.preventDefault(); (i > 0 ? items[i - 1] : veld).focus(); }
+    if (ev.key === 'Escape') { sluit(); veld.focus(); }
+  });
+  document.addEventListener('click', function (ev) {
+    if (!bak.contains(ev.target) && ev.target !== veld) sluit();
+  });
+})();
+"""
+
+
+FILTER_JS = """/* Filtert de gemeentelijst op een provinciepagina. Alles staat al in de
+   HTML — dit verbergt enkel wat niet past, zodat de pagina zonder JavaScript
+   volledig blijft werken en zoekmachines alle links zien. */
+(function () {
+  'use strict';
+  var veld = document.getElementById('gem-filter');
+  var lijst = document.getElementById('gemeentelijst');
+  if (!veld || !lijst) return;
+  var leeg = document.querySelector('.gem-leeg');
+  var items = Array.prototype.slice.call(lijst.querySelectorAll('a'));
+  var namen = items.map(function (a) {
+    return a.textContent.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '');
+  });
+
+  veld.addEventListener('input', function () {
+    var q = veld.value.trim().toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '');
+    var raak = 0;
+    for (var i = 0; i < items.length; i++) {
+      var toon = !q || namen[i].indexOf(q) !== -1;
+      items[i].hidden = !toon;
+      if (toon) raak++;
+    }
+    if (leeg) leeg.hidden = raak !== 0;
+  });
+})();
+"""
+
+
+def bouw_zoekindex():
+    """Compacte index voor het zoekveld: arrays in plaats van objecten scheelt
+    ongeveer de helft aan bytes."""
+    rijen = [[gemeenten[s]['naam'], s, gemeenten[s]['provincie'], len(per_gemeente[s])]
+             for s in sorted(gemeenten, key=lambda s: gemeenten[s]['naam'])]
+    schrijf('/kermis/gemeenten.json',
+            json.dumps(rijen, ensure_ascii=False, separators=(',', ':')))
+
+
+# --------------------------------------------------- activiteitsbestand
+def bouw_activiteit():
+    """Voer voor de meldingen linksonder op de site.
+
+    Belangrijk: hier staat alleen wat aantoonbaar klopt — kermissen die
+    volgens de kalender bezig zijn of eraan komen, met een link naar de
+    pagina waar diezelfde data staat. Er staan geen verzonnen gebruikers,
+    downloads of aantallen in. Zodra er echte aanmeldingen te tonen zijn,
+    kan dat bestand hier aangevuld worden met dezelfde structuur.
+    """
+    # Een spreiding over het seizoen: per week de langstlopende kermissen,
+    # zodat er het hele jaar door iets te tonen valt zonder het bestand
+    # onnodig groot te maken.
+    per_week = defaultdict(list)
+    for p in paginas:
+        if p['noindex']:
+            continue
+        d = datetime.date.fromisoformat(p['start'])
+        per_week[d.isocalendar()[:2]].append(p)
+
+    gekozen = []
+    for sleutel in sorted(per_week):
+        week = sorted(per_week[sleutel],
+                      key=lambda p: (-duur(p['start'], p['eind']), p['gemeente']))
+        gekozen.extend(week[:4])
+
+    meldingen = [{
+        'n': p['naam'],
+        'g': p['gemeente'],
+        'p': p['provincie'],
+        's': p['start'],
+        'e': p['eind'],
+        'u': p['pad'] + '/',
+    } for p in gekozen]
+
+    schrijf('/data/activiteit.json', json.dumps({
+        'bron': 'kermiskalender funpoints.be',
+        'bijgewerkt': VANDAAG.isoformat(),
+        'toelichting': ('Enkel kermissen uit de kalender. Geen gebruikersgegevens, '
+                        'geen verzonnen activiteit.'),
+        'kermissen': meldingen,
+    }, ensure_ascii=False, separators=(',', ':')))
 
 
 # ------------------------------------------------------------ uitvoeren
@@ -983,6 +1358,10 @@ if __name__ == '__main__':
         bouw_provincie(n)
     bouw_hub()
     schrijf('/kermis/status.js', STATUS_JS)
+    schrijf('/kermis/zoek.js', ZOEK_JS)
+    schrijf('/kermis/filter.js', FILTER_JS)
+    bouw_zoekindex()
+    bouw_activiteit()
     idx = bouw_sitemaps()
 
     print(f'{len(geschreven)} bestanden geschreven in {DOEL}')
