@@ -68,8 +68,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -90,6 +89,66 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     },
     {
+      "@type": "ItemList",
+      "name": "Artikels in het kermismagazine",
+      "numberOfItems": 6,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Wat kost een dagje kermis in 2026?",
+          "url": "https://funpoints.be/magazine/wat-kost-een-dagje-kermis/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Alle kermisattracties van A tot Z",
+          "url": "https://funpoints.be/magazine/kermisattracties-van-a-tot-z/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "De grootste kermissen van België",
+          "url": "https://funpoints.be/magazine/grootste-kermissen-van-belgie/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Zo win je (echt) aan het spelkraam",
+          "url": "https://funpoints.be/magazine/winnen-aan-het-spelkraam/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "De kermis als Unesco-erfgoed",
+          "url": "https://funpoints.be/magazine/unesco-kermiscultuur/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Waarom heet het eigenlijk \"kermis\"?",
+          "url": "https://funpoints.be/magazine/waarom-heet-het-kermis/"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Funpoints",
+          "item": "https://funpoints.be/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kermismagazine",
+          "item": "https://funpoints.be/magazine/"
+        }
+      ]
+    },
+    {
       "@type": "Organization",
       "@id": "https://funpoints.be/#organization",
       "name": "Funpoints",
@@ -105,8 +164,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "areaServed": "BE"
     }
   ]
-}
-</script>
+}</script>
 </head>
 <body>
 <!-- fp:body-gtm -->
@@ -151,72 +209,137 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main id="main">
   <section class="page-hero">
-    <div class="container">
+    <div class="container smal" style="text-align:center;">
       <span class="eyebrow">🎪 Verhalen van de foor</span>
       <h1>Het kermismagazine</h1>
-      <p>Wat een dagje kermis kost, hoe de attracties werken, waar het woord vandaan komt en waarom de kermis sinds kort erkend erfgoed is.</p>
+      <p>Wat een dagje kermis kost, hoe de attracties werken, waar het woord vandaan komt en
+      waarom de foor sinds kort erkend erfgoed is. Zes artikels, geschreven met de mensen die
+      er staan.</p>
     </div>
   </section>
 
-  <section style="padding-top:16px;">
-    <div class="container" style="max-width:820px;">
-      <a class="uitgelicht" href="/magazine/wat-kost-een-dagje-kermis/">
-        <span class="vlag">Meest gelezen</span>
-        <h2>Wat kost een dagje kermis in 2026?</h2>
-        <p>De toegang is gratis, maar wat betaal je per attractie, per spel en aan het smoutebollenkraam? Richtprijzen, een rekenvoorbeeld voor een gezin en tips om meer uit je budget te halen.</p>
-        <span class="meta"><span>⏱️ 2 min lezen</span><span class="meer">Lees het artikel →</span></span>
+  <section class="aansluitend">
+    <div class="container">
+      <a class="uitgelicht breed" href="/magazine/wat-kost-een-dagje-kermis/">
+        <span class="kop">💶</span>
+        <span class="body">
+          <span class="vlag">Meest gelezen</span>
+          <h2>Wat kost een dagje kermis in 2026?</h2>
+          <p>De toegang is gratis, maar wat betaal je per attractie, per spel en aan het
+          smoutebollenkraam? Richtprijzen, een rekenvoorbeeld voor een gezin en hoe je meer uit
+          je budget haalt.</p>
+          <span class="meta"><span>⏱️ 2 min lezen</span><span class="meer">Lees het artikel →</span></span>
+        </span>
       </a>
-      <div class="artikellijst">
-        <a href="/magazine/kermisattracties-van-a-tot-z/">
-          <span class="ic tint-violet">🎡</span>
-          <span class="tekst">
+    </div>
+  </section>
+
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Alles op een rij</span>
+      <h2>De rest van het magazine</h2>
+      <p>Van praktische richtprijzen tot de geschiedenis van het woord "kermis".</p>
+    </div>
+    <div class="container">
+      <div class="artikelgrid">
+
+        <a class="artikelkaart" href="/magazine/kermisattracties-van-a-tot-z/">
+          <span class="kop">🎡</span>
+          <span class="body">
+            <span class="cat">Naslag</span>
             <b>Alle kermisattracties van A tot Z</b>
             <p>Hoe ze werken, waar ze vandaan komen en vanaf welke leeftijd kinderen mee mogen.</p>
             <span class="duur">⏱️ 4 min lezen</span>
           </span>
         </a>
-        <a href="/magazine/grootste-kermissen-van-belgie/">
-          <span class="ic tint-coral">🏆</span>
-          <span class="tekst">
+
+        <a class="artikelkaart koraal" href="/magazine/grootste-kermissen-van-belgie/">
+          <span class="kop">🏆</span>
+          <span class="body">
+            <span class="cat">Cijfers</span>
             <b>De grootste kermissen van België</b>
-            <p>Bijna 1,5 miljoen bezoekers in Luik, ruim een miljoen op de Zuidfoor. Met cijfers en bronnen.</p>
+            <p>Bijna 1,5 miljoen bezoekers in Luik, ruim een miljoen op de Zuidfoor. Met cijfers
+            en bronnen erbij.</p>
             <span class="duur">⏱️ 3 min lezen</span>
           </span>
         </a>
-        <a href="/magazine/winnen-aan-het-spelkraam/">
-          <span class="ic tint-green">🎯</span>
-          <span class="tekst">
+
+        <a class="artikelkaart groen" href="/magazine/winnen-aan-het-spelkraam/">
+          <span class="kop">🎯</span>
+          <span class="body">
+            <span class="cat">Praktisch</span>
             <b>Zo win je (echt) aan het spelkraam</b>
-            <p>Waar zit vaardigheid en waar puur geluk? Eerlijke tips over grijpkraan en schietkraam.</p>
+            <p>Waar zit vaardigheid en waar puur geluk? Eerlijke tips over de grijpkraan en het
+            schietkraam.</p>
             <span class="duur">⏱️ 4 min lezen</span>
           </span>
         </a>
-        <a href="/magazine/unesco-kermiscultuur/">
-          <span class="ic tint-amber">🏅</span>
-          <span class="tekst">
+
+        <a class="artikelkaart amber" href="/magazine/unesco-kermiscultuur/">
+          <span class="kop">🏅</span>
+          <span class="body">
+            <span class="cat">Achtergrond</span>
             <b>De kermis als Unesco-erfgoed</b>
-            <p>Eind 2024 kwam de kermiscultuur op de erfgoedlijst. Wat er precies erkend is.</p>
+            <p>Eind 2024 kwam de kermiscultuur op de erfgoedlijst. Wat er precies erkend is, en
+            wat dat verandert.</p>
             <span class="duur">⏱️ 3 min lezen</span>
           </span>
         </a>
-        <a href="/magazine/waarom-heet-het-kermis/">
-          <span class="ic tint-violet">📖</span>
-          <span class="tekst">
+
+        <a class="artikelkaart lucht" href="/magazine/waarom-heet-het-kermis/">
+          <span class="kop">📖</span>
+          <span class="body">
+            <span class="cat">Achtergrond</span>
             <b>Waarom heet het eigenlijk "kermis"?</b>
-            <p>Van kerkmis tot botsauto's, plus een woordenboek vol foortaal.</p>
+            <p>Van kerkmis tot botsauto's, plus een woordenboek vol foortaal om mee te kunnen
+            praten op het plein.</p>
             <span class="duur">⏱️ 3 min lezen</span>
           </span>
         </a>
+
+        <a class="artikelkaart" href="/kennisbank/">
+          <span class="kop">📚</span>
+          <span class="body">
+            <span class="cat">Voor uitbaters</span>
+            <b>De kennisbank</b>
+            <p>Geen verhalen maar handleidingen: verpachting en standplaatsen, je prijzenkast op
+            peil houden, klanten laten terugkomen.</p>
+            <span class="duur">🔧 7 artikels</span>
+          </span>
+        </a>
+
       </div>
+    </div>
+  </section>
+
+  <section class="aansluitend">
+    <div class="container section-head">
+      <span class="kicker">Verder lezen</span>
+      <h2>Waar wil je heen?</h2>
+    </div>
+    <div class="container jump drie">
+      <a href="/kermis/">
+        <b>🗓️ De kermiskalender</b>
+        <span>633 Belgische kermissen met hun data, per gemeente en per provincie.</span>
+      </a>
+      <a href="/hoe-het-werkt.html">
+        <b>🎟️ Punten sparen op de kermis</b>
+        <span>Hoe je begint met een kaartje aan het kraam, en wat je ermee kan.</span>
+      </a>
+      <a href="/over-ons.html">
+        <b>🤝 Waarom we dit bouwen</b>
+        <span>De foor is erfgoed. Wij maken de reden om terug te komen wat groter.</span>
+      </a>
     </div>
   </section>
 
   <section>
     <div class="container">
       <div class="cta">
-        <h2>Zelf sparen op de kermis?</h2>
-        <p>Met Funpoints spaar je punten bij elk bezoek en win je echte prijzen aan het kraam. Gratis, gewoon in je browser.</p>
-        <a class="btn btn-ghost btn-lg" href="/bezoekers.html">Zo werkt sparen voor bezoekers</a>
+        <h2>Zelf punten sparen op de kermis?</h2>
+        <p>Je krijgt een kaartje aan het kraam en spaart meteen mee — thuis maak je je account
+        aan. Gratis, en je hoeft niets te installeren om te beginnen.</p>
+        <a class="btn btn-ghost btn-lg" href="/bezoekers.html">Zo spaar je punten</a>
       </div>
     </div>
   </section>

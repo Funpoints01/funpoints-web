@@ -127,7 +127,7 @@ def kop(titel, beschrijving, canoniek, dl, extra_head='', jsonld=None, noindex=F
 <meta property="og:image" content="{BASIS}/img/funpoints-digitale-spaarkaart-kermis.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Funpoints — het digitale spaarkaartje van de kermis">
+<meta property="og:image:alt" content="Funpoints — punten sparen en acties op de kermis">
 <meta property="og:site_name" content="Funpoints">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#10B981">
@@ -363,8 +363,8 @@ def bouw_kermis(p):
     vragen = [
         (f'Is de kermis in {p["gemeente"]} gratis?',
          'Ja. Het kermisterrein is vrij toegankelijk — je betaalt enkel per attractie, '
-         'per spel of per portie. Met een <a href="/hoe-het-werkt.html">digitale spaarkaart</a> '
-         'houd je bij elke beurt punten over.'),
+         'per spel of per portie. Met <a href="/hoe-het-werkt.html">Funpoints</a> houd je bij '
+         'elke beurt punten over, en zie je meteen welke acties er bij de kramen lopen.'),
         ('Gaat de kermis door bij regen?',
          'Meestal wel. De kramen blijven open bij regen; alleen bij storm of harde wind '
          'leggen foorkramers de hoge attracties tijdelijk stil. Bij twijfel volg je best '
@@ -389,8 +389,8 @@ def bouw_kermis(p):
     vragen.append(
         (f'Kan ik punten sparen op de kermis in {p["gemeente"]}?',
          'Bij elk kraam dat met Funpoints werkt wel. Je toont je persoonlijke QR-code, de '
-         'foorkramer scant hem, en je punten staan meteen geboekt. Staat er hier nog geen '
-         'Funpoints-kraam? Laat het weten aan je vaste foorkramer — of '
+         'medewerker aan het kraam scant hem, en je punten staan meteen geboekt. Staat er hier '
+         'nog geen Funpoints-kraam? Laat het weten aan je vaste kraam — of '
          '<a href="/demo/">vraag een demo aan</a> als je er zelf een uitbaat.'))
 
     # ---- schema
@@ -473,11 +473,12 @@ def bouw_kermis(p):
       </ul>
 
       <h2 id="spaaractie">Punten sparen op deze kermis</h2>
-      <p>Funpoints vervangt het papieren spaarkaartje: je hebt één QR-code op je telefoon die
-      elk deelnemend kraam scant. Je punten blijven bij het kraam waar je ze spaarde, en je
-      neemt ze mee naar de volgende kermis op je route. <a href="/hoe-het-werkt.html">Zo werkt
-      punten sparen</a>, van registreren tot je prijs uit de kast.</p>
-      <p class="note">Deelnemende kramen verschijnen op deze pagina zodra ze aangesloten zijn.
+      <p>Funpoints is twee dingen in één: je spaarkaart en je actielijst. Je hebt één QR-code op
+      je telefoon die elk aangesloten kraam scant, je punten blijven bij het kraam waar je ze
+      spaarde, en je ziet meteen welke acties er op dat moment lopen.
+      <a href="/hoe-het-werkt.html">Zo werkt punten sparen</a> — je begint met een kaartje aan het
+      kraam en maakt thuis je account aan.</p>
+      <p class="note">Aangesloten kramen verschijnen op deze pagina zodra ze meedoen.
       Nog geen Funpoints-kraam in {e(p["gemeente"])}? <a href="/uitbaters.html">Uitbaters lezen
       hier hoe ze aansluiten</a>.</p>
 
@@ -498,7 +499,8 @@ def bouw_kermis(p):
     <div class="container">
       <div class="cta">
         <h2>Spaar punten bij elke beurt</h2>
-        <p>Eén QR-code voor alle deelnemende kramen, je punten reizen mee van kermis naar kermis.</p>
+        <p>Eén QR-code voor alle aangesloten kramen. Je punten reizen mee naar de volgende foor,
+        en je pakt de acties mee die er lopen.</p>
         <a class="btn btn-ghost btn-lg" href="/bezoekers.html">Zo werkt het voor bezoekers</a>
       </div>
     </div>
@@ -655,8 +657,8 @@ def bouw_gemeente(slug):
     <div class="container section-head">
       <span class="kicker">Punten sparen</span>
       <h2>Sparen op de kermis in {e(g["naam"])}</h2>
-      <p>Eén QR-code op je telefoon, bij elk deelnemend kraam. Je punten blijven staan tussen
-      twee kermissen door — wat je in het voorjaar spaart, ruil je in het najaar in.
+      <p>Eén QR-code op je telefoon, bij elk aangesloten kraam. Je punten blijven staan tussen
+      twee kermissen door, en je ziet meteen welke acties er lopen.
       <a href="/hoe-het-werkt.html">Zo werkt punten sparen</a>.</p>
     </div>
     <div class="container grid-3">
@@ -666,9 +668,9 @@ def bouw_gemeente(slug):
         <p>Elk aangesloten kraam scant dezelfde code. Je punten komen bij dàt kraam terecht.</p>
       </div>
       <div class="card">
-        <div class="ic tint-coral">🎁</div>
-        <h3>Naar een prijs toe</h3>
-        <p>Je ziet per kraam hoeveel punten je nog nodig hebt voor de prijs uit de kast.</p>
+        <div class="ic tint-coral">🔥</div>
+        <h3>Plus de acties</h3>
+        <p>Extra punten in een stil weekend, een gratis rit of een voucher — je ziet ze in de app.</p>
       </div>
       <div class="card linked">
         <div class="ic tint-violet">🧭</div>
@@ -923,7 +925,7 @@ def bouw_hub():
          "image": {"@type": "ImageObject",
                    "url": f"{BASIS}/img/funpoints-digitale-spaarkaart-kermis.png",
                    "width": 1200, "height": 630,
-                   "caption": "Funpoints — het digitale spaarkaartje van de kermis"}},
+                   "caption": "Funpoints — punten sparen en acties op de kermis"}},
         {"@type": "ItemList", "name": 'Kermissen in België per provincie',
          "numberOfItems": len(provincies),
          "itemListElement": [

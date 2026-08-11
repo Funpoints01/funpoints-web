@@ -347,6 +347,7 @@ section.aansluitend-strak { padding-top: 0; }
    width/height staan in de HTML, zodat de verhouding vastligt en er niets rekt. */
 .schermbeeld { display: block; margin: 0 auto; max-width: min(100%, 420px); height: auto;
   border-radius: 18px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.schermbeeld.smal-beeld { max-width: min(100%, 300px); }
 .schermbeeld-bij { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 12px; }
 
 /* Schermmock: het dashboard van een uitbater, nagebouwd in HTML zodat er geen
@@ -591,6 +592,48 @@ section.aansluitend-strak { padding-top: 0; }
 }
 .kermis-kop .tot { font-size: 14px; color: var(--muted); font-weight: 700; }
 
+/* ================================================================
+   MAGAZINE — kaartenraster in plaats van een smalle lijst. Elke kaart
+   heeft een gekleurde kop met het icoon, zodat je op kleur en beeld
+   scant in plaats van op tekst.
+   ================================================================ */
+.artikelgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.artikelkaart {
+  display: flex; flex-direction: column; background: var(--card);
+  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+  color: var(--ink); text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.artikelkaart:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: rgba(36,27,58,0.2); }
+.artikelkaart:focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; }
+.artikelkaart .kop {
+  height: 108px; display: grid; place-items: center; font-size: 42px;
+  background: rgba(139,92,246,0.10);
+}
+.artikelkaart.groen .kop { background: rgba(16,185,129,0.12); }
+.artikelkaart.koraal .kop { background: rgba(251,113,133,0.14); }
+.artikelkaart.amber .kop { background: rgba(245,158,11,0.14); }
+.artikelkaart.lucht .kop { background: rgba(56,189,248,0.14); }
+.artikelkaart .body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+.artikelkaart .cat {
+  font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .8px;
+  color: var(--coral-d); margin-bottom: 7px;
+}
+.artikelkaart b { display: block; font-size: 17.5px; font-weight: 800; line-height: 1.3; }
+.artikelkaart p { color: var(--muted); font-size: 14.5px; margin: 7px 0 0; flex: 1; }
+.artikelkaart .duur {
+  display: block; font-size: 12.5px; color: var(--muted); font-weight: 600;
+  margin-top: 16px; padding-top: 13px; border-top: 1px solid var(--line);
+}
+
+/* Uitgelicht artikel: breed, met het icoon als kolom ernaast */
+.uitgelicht.breed { display: grid; grid-template-columns: 190px 1fr; gap: 0; padding: 0; overflow: hidden; }
+.uitgelicht.breed .kop {
+  display: grid; place-items: center; font-size: 62px; background: rgba(245,158,11,0.16);
+}
+.uitgelicht.breed .body { padding: 30px 34px; }
+.uitgelicht.breed h2 { margin-bottom: 10px; }
+
 /* Citaatkaart voor reviews van uitbaters */
 .card.citaat { display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
 .card.citaat blockquote { margin: 0; }
@@ -834,6 +877,11 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   .feiten { grid-template-columns: 1fr; }
   .fp-melding { left: 12px; right: 12px; bottom: 12px; max-width: none; }
   body.heeft-sticky .fp-melding { bottom: 78px; }
+
+  .artikelgrid { grid-template-columns: 1fr 1fr; }
+  .uitgelicht.breed { grid-template-columns: 130px 1fr; }
+  .uitgelicht.breed .kop { font-size: 44px; }
+  .uitgelicht.breed .body { padding: 24px; }
 }
 @media (max-width: 620px) {
   /* Pas hier naar één kolom: op een tablet blijven twee kolommen leesbaar. */
@@ -919,4 +967,9 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   .kal-zoek input { font-size: 16px; padding: 14px 16px 14px 46px; }
   .kermis-kop .blok { padding: 10px 16px; }
   .kermis-kop .blok b { font-size: 22px; }
+
+  .artikelgrid { grid-template-columns: 1fr; }
+  .artikelkaart .kop { height: 86px; font-size: 34px; }
+  .uitgelicht.breed { grid-template-columns: 1fr; }
+  .uitgelicht.breed .kop { height: 96px; font-size: 40px; }
 }
