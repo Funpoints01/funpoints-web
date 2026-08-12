@@ -1363,10 +1363,45 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
 
 /* Twee knoppen onder de paginakop, even groot en gecentreerd */
 .hero-knoppen {
-  display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 26px;
+  display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px;
 }
 .hero-knoppen .btn-lg { min-height: 58px; padding-top: 0; padding-bottom: 0; display: inline-flex;
   align-items: center; justify-content: center; }
+
+/* Prijskaartje in de paginakop: de twee bedragen staan meteen in beeld,
+   zodat niemand moet scrollen om te weten wat het kost. */
+.prijs-kaartje {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: 0 26px 60px rgba(36,27,58,0.16); padding: 22px; max-width: 430px;
+  margin-left: auto; text-align: left;
+}
+.prijs-kaartje .titel {
+  font-size: 11.5px; font-weight: 900; letter-spacing: .9px; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 12px;
+}
+.prijs-kaartje .rij {
+  display: flex; justify-content: space-between; align-items: center; gap: 14px;
+  padding: 14px 16px; margin-bottom: 10px; border: 1.5px solid var(--line); border-radius: 15px;
+  text-decoration: none; color: var(--ink);
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.prijs-kaartje .rij:hover, .prijs-kaartje .rij:focus-visible {
+  transform: translateY(-2px); border-color: rgba(36,27,58,0.24); box-shadow: var(--shadow);
+}
+.prijs-kaartje .rij.uit { border-color: rgba(16,185,129,0.45); background: rgba(16,185,129,0.07); }
+.prijs-kaartje .rij.uit:hover { border-color: var(--green); }
+.prijs-kaartje .nm { font-size: 15.5px; font-weight: 800; line-height: 1.25; }
+.prijs-kaartje .nm small { display: block; font-size: 12.5px; font-weight: 600; color: var(--muted); margin-top: 2px; }
+.prijs-kaartje .rij b { font-size: 27px; font-weight: 900; letter-spacing: -1.2px; white-space: nowrap; }
+.prijs-kaartje .rij b small { font-size: 12.5px; font-weight: 700; color: var(--muted); margin-left: 4px; letter-spacing: 0; }
+.launch-mini {
+  background: rgba(124,58,237,0.10); border: 1px solid rgba(124,58,237,0.28); border-radius: 14px;
+  padding: 12px 15px; font-size: 13.5px; line-height: 1.5; margin-top: 4px;
+}
+.launch-mini b { display: block; color: #6D3BE0; font-size: 13px; font-weight: 900; letter-spacing: .3px; margin-bottom: 2px; }
+.launch-mini span { color: var(--muted); }
+.launch-mini a { color: #6D3BE0; font-weight: 700; }
+.prijs-kaartje .fijn { font-size: 12.5px; color: var(--muted); margin-top: 13px; text-align: center; }
 
 /* Ankerbalk: blijft plakken onder de hoofdnavigatie zodat je op een
    lange prijspagina altijd weet waar je bent en snel kan springen.
@@ -1456,5 +1491,9 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   .rekenblok { grid-template-columns: 1fr; }
   .reken-uit { border-left: none; border-top: 1px solid var(--line); }
   .hero-knoppen { flex-direction: column; }
+  /* De demoknop staat op mobiel al in de vaste balk onderaan; twee keer
+     dezelfde knop op één scherm duwt het prijskaartje onnodig naar beneden. */
+  .prijzen-pagina .hero-knoppen .btn-primary { display: none; }
+  .prijs-kaartje { margin-left: auto; margin-right: auto; }
   .hero-knoppen .btn { width: 100%; }
 }
