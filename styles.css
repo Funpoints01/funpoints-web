@@ -689,16 +689,40 @@ section.aansluitend-strak { padding-top: 0; }
 .card.citaat figcaption b { display: block; font-size: 15.5px; font-weight: 800; }
 .card.citaat figcaption span { display: block; color: var(--muted); font-size: 13.5px; margin-top: 2px; }
 
-/* Prijsregel onder het Basis-pakket */
-.prijsregel {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 18px;
-  background: var(--card); border: 1px solid var(--line); border-radius: 999px;
-  padding: 14px 26px; margin: 26px auto 0; width: fit-content; max-width: 100%;
-  box-shadow: var(--shadow); text-align: center;
+/* ================================================================
+   PAKKETKAART — Funpoints Basis. Eén kaart met de prijs, wat er in
+   zit en wat er nu tijdelijk wegvalt. Bewust rustiger dan de rest van
+   de pagina: bij een prijs wil je geen kleurenspektakel.
+   ================================================================ */
+.pakket {
+  max-width: 620px; margin: 34px auto 0; background: var(--card);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden; text-align: left;
 }
-.prijsregel b { font-size: 17px; font-weight: 900; }
-.prijsregel span { color: var(--muted); font-size: 14.5px; }
-.prijsregel .punt { color: rgba(36,27,58,0.22); }
+.pakket-kop {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  flex-wrap: wrap; padding: 20px 28px; background: rgba(139,92,246,0.08);
+  border-bottom: 1px solid var(--line);
+}
+.pakket-kop .naam { font-size: 18px; font-weight: 900; letter-spacing: -.3px; }
+.pakket-kop .badge {
+  font-size: 12.5px; font-weight: 800; letter-spacing: .3px; padding: 6px 13px;
+  border-radius: 999px; background: var(--green); color: #fff; white-space: nowrap;
+}
+.pakket-body { padding: 26px 28px 28px; }
+.pakket .prijs { display: flex; align-items: baseline; gap: 9px; margin: 0 0 4px; }
+.pakket .prijs b { font-size: 42px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
+.pakket .prijs span { color: var(--muted); font-size: 15.5px; font-weight: 700; }
+.pakket .streep { color: var(--muted); font-size: 14.5px; margin: 0 0 18px; }
+.pakket ul { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 10px; }
+.pakket li { position: relative; padding-left: 28px; font-size: 15.5px; }
+.pakket li:before {
+  content: "✓"; position: absolute; left: 0; top: 1px; width: 19px; height: 19px;
+  border-radius: 50%; background: rgba(139,92,246,0.16); color: #6D3BE0;
+  font-size: 11px; font-weight: 900; display: grid; place-items: center;
+}
+.pakket .btn { width: 100%; }
+.pakket .klein { font-size: 13px; color: var(--muted); margin: 14px 0 0; text-align: center; }
 
 /* ================================================================
    APP-KNOP — vaste knop tegen de rechterrand die naar de App Store
@@ -790,6 +814,10 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   background: #FFF8F0;
 }
 .device .film { display: block; overflow: hidden; border-radius: 25px; }
+/* De schermopname komt van een telefoon waarop minder op één scherm past dan
+   op de toestellen van de andere beelden. Alles oogt daardoor groter. Vandaar
+   een iets smaller kader, zodat de video niet over de hero heerst. */
+.device.met-film { width: 232px; }
 .device img { width: 100%; height: auto; display: block; }
 .device-wrap { display: grid; place-items: center; }
 .device-cap { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 12px; max-width: 300px; }
@@ -797,6 +825,7 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
    en suggereert dat het scherm doorloopt. */
 @media (min-width: 901px) {
   .device picture, .device .film { max-height: 430px; }
+  .device.met-film .film { max-height: 392px; }
   .device:after {
     content: ""; position: absolute; left: 10px; right: 10px; bottom: 10px; height: 90px;
     border-radius: 0 0 25px 25px; pointer-events: none;
@@ -1096,6 +1125,7 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
 
 
   .download.gelijk { grid-template-columns: 1fr; max-width: none; }
-  .prijsregel { border-radius: 20px; padding: 16px 20px; flex-direction: column; gap: 6px; }
-  .prijsregel .punt { display: none; }
+  .pakket-kop { padding: 18px 20px; }
+  .pakket-body { padding: 22px 20px 24px; }
+  .pakket .prijs b { font-size: 34px; }
 }
