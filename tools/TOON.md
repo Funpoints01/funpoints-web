@@ -71,7 +71,7 @@ spaarkaart én je actielijst" — maar nooit als de hele belofte.
 
 ## 3 · Toon
 
-Vijf regels, in volgorde van belang.
+Zes regels, in volgorde van belang.
 
 1. **Zeg wat er gebeurt, niet wat het betekent.**
    ✅ *De medewerker scant je code en tikt op de snelknop.*
@@ -89,7 +89,14 @@ Vijf regels, in volgorde van belang.
    uit onze eigen data komen en kloppen (633 kermissen, 574 gemeenten,
    25 cent per credit).
 
-5. **Nooit gebruikersactiviteit verzinnen.** Geen namen van mensen die zogezegd
+5. **De app is het startpunt, niet een optie.** Schrijf nooit meer "je hoeft
+   niets te installeren" of "je hebt de app niet nodig". Dat klopt niet: zonder
+   app is er geen QR-code, geen saldo, geen actielijst. Het kaartje aan het
+   kraam is een brug voor wie de app nog niet heeft — een uitzondering onderaan
+   een blok, niet de hoofdlijn. Elke bezoekerspagina eindigt met een
+   downloadknop.
+
+6. **Nooit gebruikersactiviteit verzinnen.** Geen namen van mensen die zogezegd
    net de app downloadden, geen opgeklopte aantallen. Dat is een oneerlijke
    handelspraktijk onder Boek VI van het Wetboek van Economisch Recht, en het is
    precies het soort claim waar een concurrent op aanklopt.
@@ -137,9 +144,8 @@ site als één stem.
 
 | Waar | Zin |
 |---|---|
-| Instap | Je hoeft niets te installeren om te beginnen. |
-| Kaartje | Je krijgt een kaartje met een code die alleen van jou is. |
-| Account | Thuis scan je de achterkant en maak je je account aan — je punten staan er al op. |
+| Instap | Je hebt de app nodig om te sparen. Gratis in de App Store, klaar in een halve minuut. |
+| Kaartje *(uitzondering)* | Sta je aan een kraam zonder de app? Vraag een kaartje — je punten staan er al op tegen dat je ze thuis koppelt. |
 | Eén code | Eén QR-code voor alle aangesloten kramen. |
 | Punten per kraam | Je punten blijven bij het kraam waar je ze spaarde. |
 | Reizen mee | Je punten reizen mee naar de volgende foor. |
@@ -149,7 +155,22 @@ site als één stem.
 
 ---
 
-## 6 · Opmaakregels
+## 6 · De app
+
+| | |
+|---|---|
+| App Store (iOS) | `https://apps.apple.com/be/app/funpoints/id6799701408?l=nl` |
+| Play Store (Android) | *nog niet ingevuld — geef de link door en ik zet hem overal bij* |
+| Uitbatersdashboard | `https://app.funpoints.be` — dat is de browser, geen app |
+
+De vaste knop rechts (`.app-knop`) staat via `tools/partials/footer.html` op alle
+1.243 pagina's. De knoppen in de inhoud gebruiken `.btn-store`. Beide worden
+apart gemeten in GTM via `klik_positie` = `app-knop` of `downloadblok`.
+
+Verwar het uitbatersdashboard niet met de app: `app.funpoints.be` draait in de
+browser en is voor uitbaters. De App Store-app is voor bezoekers.
+
+## 7 · Opmaakregels
 
 - **Koppen** in zinsvorm, niet in Title Case: *Zo werkt punten sparen*, niet
   *Zo Werkt Punten Sparen*. Uitzondering: de `<title>` in de `<head>`, waar

@@ -15,6 +15,8 @@
 
   /* Waar op de pagina is geklikt? Bepaalt de waarde van klik_positie. */
   function positieVan(el) {
+    if (el.closest('.app-knop'))   return 'app-knop';
+    if (el.closest('.btn-store'))   return 'downloadblok';
     if (el.closest('.sticky-cta'))  return 'mobiele-balk';
     if (el.closest('.subnav'))      return 'subnavigatie';
     if (el.closest('header'))       return 'hoofdnavigatie';
