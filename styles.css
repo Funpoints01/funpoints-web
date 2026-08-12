@@ -812,6 +812,52 @@ section.aansluitend-strak { padding-top: 0; }
 .formule .kader.opstart { border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.06); }
 .formule .btn { margin-top: auto; width: 100%; }
 
+/* Waardestapel: wat het normaal kost tegenover wat je nu betaalt.
+   Het bedrag onderaan is de hele reden dat dit blok bestaat. */
+.waardestapel { background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 18px; overflow: hidden; margin-top: 26px; }
+.waardestapel .rij {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  padding: 13px 20px; border-bottom: 1px solid rgba(255,255,255,0.16); font-size: 15px;
+}
+.waardestapel .rij:last-child { border-bottom: none; }
+.waardestapel .rij b { font-weight: 800; white-space: nowrap; }
+.waardestapel .rij .weg { text-decoration: line-through; opacity: .75; }
+.waardestapel .totaal {
+  background: rgba(0,0,0,0.16); font-size: 17px; font-weight: 800; padding: 17px 20px;
+}
+.waardestapel .totaal b { font-size: 24px; font-weight: 900; }
+
+/* Uitleg over credits: bewust een rustig, informatief blok */
+.uitleg-blok {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 30px 34px; box-shadow: var(--shadow);
+}
+.uitleg-blok h3 { font-size: 21px; font-weight: 900; margin-bottom: 10px; }
+.uitleg-blok p { color: var(--muted); font-size: 16px; margin-bottom: 14px; }
+.uitleg-blok p:last-child { margin-bottom: 0; }
+.uitleg-blok .nadruk { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25);
+  border-radius: 14px; padding: 14px 18px; color: var(--ink); font-size: 15.5px; }
+.credit-rij { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0; }
+.credit-rij div { background: rgba(36,27,58,0.03); border: 1px solid var(--line);
+  border-radius: 14px; padding: 15px 17px; }
+.credit-rij b { display: block; font-size: 15.5px; margin-bottom: 4px; }
+.credit-rij span { display: block; font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+/* Keuzehulp: twee vragen, twee antwoorden */
+.keuzehulp { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.keuzehulp > div {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 26px 28px; box-shadow: var(--shadow);
+}
+.keuzehulp .vraag { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+.keuzehulp p { color: var(--muted); font-size: 15.5px; margin-bottom: 16px; }
+.keuzehulp .kies {
+  display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15.5px;
+  color: var(--green-d); text-decoration: none;
+}
+.keuzehulp .kies:hover { text-decoration: underline; }
+
 /* Launch-blok: bewust een andere kleur dan de rest van de site */
 .launch {
   background: linear-gradient(135deg, #7C3AED, #A855F7); color: #fff;
@@ -1162,6 +1208,11 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   .launch { padding: 28px 24px; }
   .launch h2 { font-size: 27px; }
   .launch-grid { grid-template-columns: 1fr; }
+
+  .credit-rij { grid-template-columns: 1fr; }
+  .keuzehulp { grid-template-columns: 1fr; }
+  .uitleg-blok { padding: 24px 22px; }
+  .waardestapel .rij { padding: 12px 16px; font-size: 14.5px; }
 }
 @media (max-width: 620px) {
   /* Pas hier naar één kolom: op een tablet blijven twee kolommen leesbaar. */
