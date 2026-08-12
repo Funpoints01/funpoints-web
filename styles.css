@@ -1354,3 +1354,107 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   .pakket-body { padding: 22px 20px 24px; }
   .pakket .prijs b { font-size: 34px; }
 }
+
+/* ================================================================
+   PRIJZENPAGINA — blokken die alleen daar staan.
+   Volgorde: knoppen in de kop, ankerbalk, rekenmodule, quote in de
+   prijskaart, kopje in het launch-blok.
+   ================================================================ */
+
+/* Twee knoppen onder de paginakop, even groot en gecentreerd */
+.hero-knoppen {
+  display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 26px;
+}
+.hero-knoppen .btn-lg { min-height: 58px; padding-top: 0; padding-bottom: 0; display: inline-flex;
+  align-items: center; justify-content: center; }
+
+/* Ankerbalk: blijft plakken onder de hoofdnavigatie zodat je op een
+   lange prijspagina altijd weet waar je bent en snel kan springen.
+   --nav-h is gemeten: de navigatiebalk zonder de subnav erboven. */
+.ankerbalk {
+  position: sticky; top: 69px; z-index: 40;
+  background: rgba(255,248,240,0.94); backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.ankerbalk .container {
+  display: flex; gap: 4px; overflow-x: auto; padding-top: 9px; padding-bottom: 9px;
+  scrollbar-width: none;
+}
+.ankerbalk .container::-webkit-scrollbar { display: none; }
+.ankerbalk a {
+  white-space: nowrap; font-size: 14px; font-weight: 700; color: var(--muted);
+  text-decoration: none; padding: 7px 14px; border-radius: 999px;
+}
+.ankerbalk a:hover, .ankerbalk a:focus-visible { color: var(--ink); background: rgba(36,27,58,0.06); }
+.prijzen-pagina section[id], .prijzen-pagina .formule[id] { scroll-margin-top: 126px; }
+
+/* Rekenmodule: links zijn eigen cijfers, rechts wat dat betekent.
+   Alles wat hier staat komt uit zijn invoer — wij beloven niets. */
+.rekenblok {
+  display: grid; grid-template-columns: 1fr 1fr; background: var(--card);
+  border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.reken-in { padding: 28px 30px; display: grid; align-content: center; }
+.reken-in label {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
+  font-size: 15px; font-weight: 700; margin-top: 22px;
+}
+.reken-in label:first-child { margin-top: 0; }
+.reken-in output { font-size: 18px; font-weight: 900; color: var(--green-d); white-space: nowrap; }
+.reken-in input[type="range"] {
+  -webkit-appearance: none; appearance: none; width: 100%; margin: 12px 0 0; height: 28px;
+  background: transparent; cursor: pointer;
+}
+.reken-in input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px; border-radius: 999px; background: rgba(36,27,58,0.14);
+}
+.reken-in input[type="range"]::-moz-range-track {
+  height: 8px; border-radius: 999px; background: rgba(36,27,58,0.14);
+}
+.reken-in input[type="range"]::-moz-range-progress { height: 8px; border-radius: 999px; background: var(--green); }
+.reken-in input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 26px; height: 26px; margin-top: -9px;
+  border-radius: 50%; background: var(--green); border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.45);
+}
+.reken-in input[type="range"]::-moz-range-thumb {
+  width: 22px; height: 22px; border-radius: 50%; background: var(--green); border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.45);
+}
+.reken-in input[type="range"]:focus-visible { outline: 3px solid var(--violet); outline-offset: 4px; }
+.reken-hint { font-size: 13px; color: var(--muted); margin-top: 14px; }
+
+.reken-uit {
+  background: rgba(36,27,58,0.03); border-left: 1px solid var(--line);
+  padding: 24px 26px; display: grid; gap: 14px; align-content: center;
+}
+.reken-uit .rr { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  padding: 16px 18px; }
+.reken-uit .rr.groen { border-color: rgba(16,185,129,0.45); background: rgba(16,185,129,0.07); }
+.reken-uit .nm { display: block; font-size: 12px; font-weight: 900; letter-spacing: .7px;
+  text-transform: uppercase; color: var(--muted); }
+.reken-uit .getal { display: flex; align-items: baseline; gap: 8px; margin: 4px 0 3px; }
+.reken-uit .getal b { font-size: 38px; font-weight: 900; letter-spacing: -1.6px; line-height: 1; }
+.reken-uit .getal span { font-size: 15px; font-weight: 700; color: var(--muted); }
+.reken-uit .pd { display: block; font-size: 14px; color: var(--muted); }
+
+/* De zin zoals een foorkramer ze zelf zegt, bovenaan de lijst */
+.formule .zeg {
+  font-size: 14.5px; font-style: italic; color: var(--ink); background: rgba(36,27,58,0.05);
+  border-radius: 12px; padding: 11px 15px; margin-bottom: 16px;
+}
+.formule.aanbevolen .zeg { background: rgba(16,185,129,0.10); }
+
+.launch h3 { font-size: 19px; font-weight: 900; margin: 30px 0 -12px; }
+.prijzen-pagina .launch-grid { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 900px) {
+  .ankerbalk { top: 69px; }
+  .prijzen-pagina section[id], .prijzen-pagina .formule[id] { scroll-margin-top: 124px; }
+  .prijzen-pagina .launch-grid { grid-template-columns: 1fr; }
+  .rekenblok { grid-template-columns: 1fr; }
+  .reken-uit { border-left: none; border-top: 1px solid var(--line); }
+  .hero-knoppen { flex-direction: column; }
+  .hero-knoppen .btn { width: 100%; }
+}

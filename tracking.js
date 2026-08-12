@@ -27,6 +27,9 @@
     if (el.closest('.related'))     return 'verder-lezen';
     if (el.closest('.jump'))        return 'doorsteek';
     if (el.closest('.lp-hero') || el.closest('.hero') || el.closest('.page-hero')) return 'hero';
+    if (el.closest('.formule'))     return 'prijskaart';
+    if (el.closest('.launch'))      return 'launch-blok';
+    if (el.closest('.ankerbalk'))   return 'ankerbalk';
     if (el.closest('.usp'))         return 'usp-kaart';
     if (el.closest('.card'))        return 'kaart';
     if (el.closest('.article'))     return 'artikeltekst';
