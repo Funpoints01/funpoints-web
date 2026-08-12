@@ -51,10 +51,11 @@ img { max-width: 100%; display: block; }
 }
 .nav-inner { display: flex; align-items: center; gap: 20px; height: 68px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; }
+/* Het logo staat als afbeelding in de header en de footer. De afgeronde hoek
+   en de schaduw komen van hier, zodat het beeld zelf een vierkant blijft. */
 .mark {
-  width: 34px; height: 34px; border-radius: 10px; background: var(--green);
-  display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 18px;
-  box-shadow: 0 6px 14px rgba(16,185,129,0.35);
+  width: 34px; height: 34px; border-radius: 10px; display: block; flex: 0 0 auto;
+  object-fit: cover; box-shadow: 0 6px 14px rgba(16,185,129,0.35);
 }
 .nav-links { display: flex; gap: 26px; margin-left: 18px; }
 .nav-links a { color: var(--muted); font-weight: 600; font-size: 15px; }

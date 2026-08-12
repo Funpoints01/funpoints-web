@@ -1,0 +1,14 @@
+{
+  "name": "Funpoints",
+  "short_name": "Funpoints",
+  "description": "Alles van de kermis in één app: de kermiskalender, punten sparen bij de kramen en alle acties.",
+  "lang": "nl-BE",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8F0",
+  "theme_color": "#10B981",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

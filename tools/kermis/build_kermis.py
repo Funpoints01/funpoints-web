@@ -124,14 +124,16 @@ def kop(titel, beschrijving, canoniek, dl, extra_head='', jsonld=None, noindex=F
 <meta property="og:title" content="{e(titel)}">
 <meta property="og:description" content="{e(beschrijving)}">
 <meta property="og:locale" content="nl_BE">
-<meta property="og:image" content="{BASIS}/img/funpoints-digitale-spaarkaart-kermis.png">
+<meta property="og:image" content="{BASIS}/img/funpoints-kermisapp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Funpoints — punten sparen en acties op de kermis">
+<meta property="og:image:alt" content="Funpoints — alles van de kermis, in één app">
 <meta property="og:site_name" content="Funpoints">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#10B981">
 <link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -171,7 +173,7 @@ ORG = {
     "logo": {"@type": "ImageObject", "url": f"{BASIS}/favicon.png",
              "width": 256, "height": 256},
     "email": "info@funpoints.be",
-    "description": "Funpoints is het digitale spaarsysteem voor de kermis.",
+    "description": "Funpoints is de app van de Belgische kermis: de kalender, punten sparen bij de kramen en alle acties.",
     "areaServed": "BE",
 }
 
@@ -416,7 +418,7 @@ def bouw_kermis(p):
                 "addressCountry": "BE",
             },
         },
-        "image": [f"{BASIS}/img/funpoints-digitale-spaarkaart-kermis.png"],
+        "image": [f"{BASIS}/img/funpoints-kermisapp.png"],
     }
     ld = {"@context": "https://schema.org", "@graph": [
         event,
@@ -925,9 +927,9 @@ def bouw_hub():
          "inLanguage": "nl-BE", "description": descr,
          "publisher": {"@id": f"{BASIS}/#organization"},
          "image": {"@type": "ImageObject",
-                   "url": f"{BASIS}/img/funpoints-digitale-spaarkaart-kermis.png",
+                   "url": f"{BASIS}/img/funpoints-kermisapp.png",
                    "width": 1200, "height": 630,
-                   "caption": "Funpoints — punten sparen en acties op de kermis"}},
+                   "caption": "Funpoints — alles van de kermis, in één app"}},
         {"@type": "ItemList", "name": 'Kermissen in België per provincie',
          "numberOfItems": len(provincies),
          "itemListElement": [
