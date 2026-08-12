@@ -765,36 +765,66 @@ section.aansluitend-strak { padding-top: 0; }
 .pakket .klein { font-size: 13px; color: var(--muted); margin: 14px 0 0; text-align: center; }
 
 /* ================================================================
-   PRIJZEN — twee formules naast elkaar. De aanbevolen formule krijgt
-   een donkere kop in plaats van een schreeuwerige rand: dat leidt het
-   oog zonder de andere formule goedkoop te doen lijken.
+   PRIJZEN — twee kaarten die je náást elkaar moet kunnen lezen. Dat
+   lukt alleen als alles op dezelfde hoogte staat: de naam, de prijs,
+   de opstartkost en de knop. Vandaar vaste hoogtes op die vier
+   onderdelen in plaats van "het valt wel op zijn plaats".
    ================================================================ */
-.formules { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+/* Subgrid laat de twee kaarten hun rijhoogtes delen: lint, kop, knop en
+   lijst staan daardoor gegarandeerd op dezelfde hoogte, ook als de ene
+   tekst een regel langer is dan de andere. Browsers zonder subgrid
+   krijgen gewoon twee losse kaarten — dan klopt alleen de uitlijning
+   niet, en breekt er niets. */
+.formules {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch;
+  grid-template-rows: auto auto auto auto;
+}
+@supports (grid-template-rows: subgrid) {
+  .formule { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+}
 .formule {
-  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-  overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column;
+  background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow); position: relative;
 }
-.formule.aanbevolen { border-color: rgba(16,185,129,0.5); box-shadow: 0 26px 56px rgba(16,185,129,0.20); }
-.formule .kop { padding: 26px 28px 22px; border-bottom: 1px solid var(--line); }
-.formule.aanbevolen .kop { background: linear-gradient(135deg, var(--green), #0B8F65); color: #fff; border-bottom: none; }
-.formule .vlag {
-  display: inline-block; font-size: 11.5px; font-weight: 900; letter-spacing: .8px;
-  text-transform: uppercase; padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
-  background: rgba(255,255,255,0.22); color: #fff;
+.formule.aanbevolen {
+  border-color: var(--green);
+  box-shadow: 0 24px 52px rgba(16,185,129,0.22);
 }
-.formule h3 { font-size: 24px; font-weight: 900; letter-spacing: -.5px; }
-.formule .onder { font-size: 14.5px; font-weight: 600; opacity: .8; margin-top: 3px; }
-.formule .prijs { display: flex; align-items: baseline; gap: 8px; margin-top: 18px; }
-.formule .prijs b { font-size: 44px; font-weight: 900; letter-spacing: -1.6px; line-height: 1; }
-.formule .prijs span { font-size: 15.5px; font-weight: 700; opacity: .75; }
-.formule .fijn { font-size: 13px; font-weight: 700; margin-top: 8px; color: var(--green-d); }
-.formule.aanbevolen .fijn { color: rgba(255,255,255,0.9); }
-.formule .body { padding: 24px 28px 28px; display: flex; flex-direction: column; flex: 1; }
+/* Lint bovenaan de aanbevolen kaart, even hoog als de lege ruimte
+   bovenaan de andere kaart — anders schuift alles eronder mee. */
+.formule .lint {
+  height: 38px; display: grid; place-items: center; font-size: 12px; font-weight: 900;
+  letter-spacing: 1px; text-transform: uppercase; background: rgba(36,27,58,0.05);
+  color: var(--muted);
+}
+.formule.aanbevolen .lint { background: var(--green); color: #fff; }
+
+.formule .kop { padding: 26px 28px 24px; }
+.formule h3 { font-size: 23px; font-weight: 900; letter-spacing: -.5px; }
+.formule .onder { color: var(--muted); font-size: 14.5px; margin-top: 4px; min-height: 42px; }
+.formule .prijs { display: flex; align-items: baseline; gap: 8px; margin-top: 6px; }
+.formule .prijs b { font-size: 46px; font-weight: 900; letter-spacing: -1.8px; line-height: 1; }
+.formule .prijs span { font-size: 15.5px; font-weight: 700; color: var(--muted); }
+.formule .fijn { font-size: 13.5px; font-weight: 700; color: var(--green-d); margin-top: 8px; }
+
+/* De drie regels die elke foorkramer eerst zoekt: opstartkost, attracties
+   en credits. Bewust een eigen naam: .feiten bestaat al op de kalender. */
+.kernfeiten { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 11px; }
+.kernfeiten > div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14.5px; }
+.kernfeiten span { color: var(--muted); }
+.kernfeiten b { font-weight: 800; white-space: nowrap; }
+
+.formule .knop-vak { padding: 0 28px 22px; }
+.formule .knop-vak .btn { width: 100%; }
+.formule .knop-vak .mini { font-size: 12.5px; color: var(--muted); text-align: center; margin-top: 10px; }
+
+.formule .body { padding: 22px 28px 28px; border-top: 1px solid var(--line);
+  background: rgba(36,27,58,0.015); }
 .formule .titeltje {
   font-size: 11.5px; font-weight: 900; letter-spacing: .8px; text-transform: uppercase;
   color: var(--muted); margin-bottom: 14px;
 }
-.formule ul { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 11px; }
+.formule ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
 .formule li { position: relative; padding-left: 28px; font-size: 15px; line-height: 1.5; }
 .formule li:before {
   content: "✓"; position: absolute; left: 0; top: 1px; width: 19px; height: 19px;
@@ -802,61 +832,11 @@ section.aansluitend-strak { padding-top: 0; }
   font-size: 11px; font-weight: 900; display: grid; place-items: center;
 }
 .formule li.niet { color: var(--muted); }
-.formule li.niet:before { content: "–"; background: rgba(36,27,58,0.07); color: var(--muted); }
-.formule .kader {
-  border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; margin-bottom: 14px;
-  background: rgba(36,27,58,0.02); font-size: 14px;
+.formule li.niet:before { content: "✕"; background: rgba(36,27,58,0.06); color: var(--muted); font-size: 10px; }
+.formule .extra {
+  margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line);
+  font-size: 14px; color: var(--muted);
 }
-.formule .kader b { display: block; font-size: 15px; margin-bottom: 4px; }
-.formule .kader p { color: var(--muted); margin: 0; font-size: 14px; }
-.formule .kader.opstart { border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.06); }
-.formule .btn { margin-top: auto; width: 100%; }
-
-/* Waardestapel: wat het normaal kost tegenover wat je nu betaalt.
-   Het bedrag onderaan is de hele reden dat dit blok bestaat. */
-.waardestapel { background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22);
-  border-radius: 18px; overflow: hidden; margin-top: 26px; }
-.waardestapel .rij {
-  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
-  padding: 13px 20px; border-bottom: 1px solid rgba(255,255,255,0.16); font-size: 15px;
-}
-.waardestapel .rij:last-child { border-bottom: none; }
-.waardestapel .rij b { font-weight: 800; white-space: nowrap; }
-.waardestapel .rij .weg { text-decoration: line-through; opacity: .75; }
-.waardestapel .totaal {
-  background: rgba(0,0,0,0.16); font-size: 17px; font-weight: 800; padding: 17px 20px;
-}
-.waardestapel .totaal b { font-size: 24px; font-weight: 900; }
-
-/* Uitleg over credits: bewust een rustig, informatief blok */
-.uitleg-blok {
-  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 30px 34px; box-shadow: var(--shadow);
-}
-.uitleg-blok h3 { font-size: 21px; font-weight: 900; margin-bottom: 10px; }
-.uitleg-blok p { color: var(--muted); font-size: 16px; margin-bottom: 14px; }
-.uitleg-blok p:last-child { margin-bottom: 0; }
-.uitleg-blok .nadruk { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25);
-  border-radius: 14px; padding: 14px 18px; color: var(--ink); font-size: 15.5px; }
-.credit-rij { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0; }
-.credit-rij div { background: rgba(36,27,58,0.03); border: 1px solid var(--line);
-  border-radius: 14px; padding: 15px 17px; }
-.credit-rij b { display: block; font-size: 15.5px; margin-bottom: 4px; }
-.credit-rij span { display: block; font-size: 14px; color: var(--muted); line-height: 1.5; }
-
-/* Keuzehulp: twee vragen, twee antwoorden */
-.keuzehulp { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.keuzehulp > div {
-  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 26px 28px; box-shadow: var(--shadow);
-}
-.keuzehulp .vraag { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
-.keuzehulp p { color: var(--muted); font-size: 15.5px; margin-bottom: 16px; }
-.keuzehulp .kies {
-  display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15.5px;
-  color: var(--green-d); text-decoration: none;
-}
-.keuzehulp .kies:hover { text-decoration: underline; }
 
 /* Launch-blok: bewust een andere kleur dan de rest van de site */
 .launch {
@@ -1205,6 +1185,7 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   .overlap { margin-top: -28px; }
 
   .formules { grid-template-columns: 1fr; }
+  .formule .onder { min-height: 0; }
   .launch { padding: 28px 24px; }
   .launch h2 { font-size: 27px; }
   .launch-grid { grid-template-columns: 1fr; }
