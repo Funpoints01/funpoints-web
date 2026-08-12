@@ -783,13 +783,20 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   position: relative;
 }
 .device picture { display: block; overflow: hidden; border-radius: 25px; }
+/* De schermopname in de hero gedraagt zich exact als de afbeelding die er
+   stond: zelfde kader, zelfde afronding, zelfde afsnijding op groot scherm. */
+.device video {
+  display: block; width: 100%; height: auto; border-radius: 25px;
+  background: #FFF8F0;
+}
+.device .film { display: block; overflow: hidden; border-radius: 25px; }
 .device img { width: 100%; height: auto; display: block; }
 .device-wrap { display: grid; place-items: center; }
 .device-cap { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 12px; max-width: 300px; }
 /* Op ruimere schermen het scherm afsnijden met een fade: houdt de hero in balans
    en suggereert dat het scherm doorloopt. */
 @media (min-width: 901px) {
-  .device picture { max-height: 430px; }
+  .device picture, .device .film { max-height: 430px; }
   .device:after {
     content: ""; position: absolute; left: 10px; right: 10px; bottom: 10px; height: 90px;
     border-radius: 0 0 25px 25px; pointer-events: none;

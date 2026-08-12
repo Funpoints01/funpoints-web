@@ -122,6 +122,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         "price": "0",
         "priceCurrency": "EUR"
       }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://funpoints.be/#appvideo",
+      "name": "Funpoints — alles van de kermis, in één app",
+      "description": "Een rondleiding door de Funpoints-app: de kermissen van deze week, de acties en deals van de kramen, alle aangesloten kramen en de kermiskalender van 2026.",
+      "thumbnailUrl": [
+        "https://funpoints.be/img/funpoints-app-poster.jpg"
+      ],
+      "contentUrl": "https://funpoints.be/img/funpoints-app.mp4",
+      "uploadDate": "2026-08-12",
+      "duration": "PT17S",
+      "inLanguage": "nl-BE",
+      "isFamilyFriendly": true,
+      "publisher": {
+        "@id": "https://funpoints.be/#organization"
+      }
     }
   ]
 }</script>
@@ -189,13 +206,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="device-wrap">
         <div class="device">
-          <picture>
-            <source srcset="/img/kermiskalender-in-de-funpoints-app.webp" type="image/webp">
-            <img src="/img/kermiskalender-in-de-funpoints-app.jpg" width="780" height="1566" fetchpriority="high"
-                 alt="De kermiskalender in de Funpoints-app: kermissen in 2026, met filters voor heel België of je eigen regio en een lijst van de kermissen die nu bezig zijn.">
-          </picture>
+          <div class="film">
+            <video class="app-film" width="560" height="1140" muted loop playsinline
+                   preload="none" poster="/img/funpoints-app-poster.jpg"
+                   data-src="/img/funpoints-app.mp4"
+                   data-src-webm="/img/funpoints-app.webm"
+                   aria-label="Schermopname van de Funpoints-app: de startpagina met de kermissen van deze week, de acties en deals van de kramen, de lijst met aangesloten kramen en de kermiskalender van 2026.">
+            </video>
+          </div>
         </div>
-        <p class="device-cap">Honderden Belgische kermissen, met de data en de kramen die er staan.</p>
+        <p class="device-cap">Dit is de app: de kermissen van deze week, de acties van de kramen
+        en de kalender van heel België.</p>
       </div>
     </div>
   </section>
@@ -555,6 +576,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- /fp:footer -->
 
 <script src="/tracking.js" defer></script>
+<script src="/js/funpoints-video.js" defer></script>
 <script src="/js/funpoints-social.js" defer></script>
 </body>
 </html>

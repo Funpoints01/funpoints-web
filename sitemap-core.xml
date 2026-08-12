@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://funpoints.be/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <image:image>
-      <image:loc>https://funpoints.be/img/kermiskalender-in-de-funpoints-app.jpg</image:loc>
-      <image:title>De kermiskalender in de Funpoints-app</image:title>
+      <image:loc>https://funpoints.be/img/funpoints-app-poster.jpg</image:loc>
+      <image:title>De Funpoints-app: kermissen van deze week, acties en deals</image:title>
     </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://funpoints.be/img/funpoints-app-poster.jpg</video:thumbnail_loc>
+      <video:title>Funpoints — alles van de kermis, in één app</video:title>
+      <video:description>Een rondleiding door de Funpoints-app: de kermissen van deze week, de acties en deals van de kramen, alle aangesloten kramen en de kermiskalender van 2026.</video:description>
+      <video:content_loc>https://funpoints.be/img/funpoints-app.mp4</video:content_loc>
+      <video:duration>17</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
   </url>
   <url>
     <loc>https://funpoints.be/bezoekers.html</loc>
