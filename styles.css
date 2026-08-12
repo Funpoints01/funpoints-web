@@ -597,6 +597,18 @@ section.aansluitend-strak { padding-top: 0; }
 }
 .kermis-kop .tot { font-size: 14px; color: var(--muted); font-weight: 700; }
 
+/* Eén regel overtuiging, zonder kader eromheen. Breekt het ritme van
+   kicker-kop-raster dat de rest van de pagina aanhoudt. */
+.overtuiging {
+  max-width: 780px; margin: 0 auto; text-align: center;
+  font-size: 27px; font-weight: 800; line-height: 1.35; letter-spacing: -.4px;
+}
+.overtuiging span { color: var(--coral-d); }
+.overtuiging + .bron {
+  text-align: center; margin-top: 16px; font-size: 14px; color: var(--muted);
+}
+.overtuiging + .bron a { color: var(--coral-d); font-weight: 600; }
+
 /* ================================================================
    TWEE KANTEN — Funpoints is geen product voor één publiek. Dit blok
    zet de bezoekerskant en de uitbaterskant naast elkaar, even groot,
@@ -1017,4 +1029,6 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   .artikelkaart .kop { height: 86px; font-size: 34px; }
   .uitgelicht.breed { grid-template-columns: 1fr; }
   .uitgelicht.breed .kop { height: 96px; font-size: 40px; }
+
+  .overtuiging { font-size: 21px; }
 }
