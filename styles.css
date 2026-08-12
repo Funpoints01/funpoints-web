@@ -223,6 +223,46 @@ a.more:hover { text-decoration: underline; }
 
 /* Page hero (subpaginas) */
 .page-hero { padding: 66px 0 20px; text-align: center; }
+
+/* ================================================================
+   RIJKE PAGINAKOP — de homepage had een hero met kleur en diepte, de
+   binnenpagina's alleen platte tekst. Dat verschil voelde je. Deze
+   variant geeft ze dezelfde warmte: een zachte band, twee vlekken en
+   ruimte voor chips of een kaart die eroverheen valt.
+   ================================================================ */
+.page-hero.rijk {
+  position: relative; overflow: hidden; padding: 62px 0 54px;
+  background: linear-gradient(180deg, rgba(255,236,214,0.55), rgba(255,248,240,0) 92%);
+}
+.page-hero.rijk h1 { margin-top: 16px; }
+.page-hero.rijk > .container { position: relative; z-index: 1; }
+
+/* Rijtje pillen onder een paginakop: cijfers of snelkoppelingen */
+.hero-chips {
+  display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 26px;
+}
+.hero-chips a, .hero-chips span {
+  display: inline-flex; align-items: center; gap: 7px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px;
+  font-size: 14.5px; font-weight: 700; color: var(--ink); text-decoration: none;
+}
+.hero-chips a { transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease; }
+.hero-chips a:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: rgba(36,27,58,0.2); }
+.hero-chips b { color: var(--coral-d); font-weight: 900; }
+.hero-chips .stil { color: var(--muted); font-weight: 600; }
+
+/* Een kaart die over de onderrand van de kop valt */
+.overlap { margin-top: -40px; position: relative; z-index: 2; }
+
+/* Tweekoloms paginakop: tekst links, telefoon rechts */
+.page-hero.rijk .kop-grid {
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 44px; align-items: center;
+  text-align: left;
+}
+.page-hero.rijk .kop-grid h1 { margin-top: 14px; }
+.page-hero.rijk .kop-grid p { margin-left: 0; max-width: 520px; }
+.page-hero.rijk .device-cap { margin-left: auto; margin-right: auto; }
+
 .page-hero h1 { font-size: 46px; font-weight: 900; letter-spacing: -1px; margin: 14px 0 14px; }
 .page-hero p { color: var(--muted); font-size: 18px; max-width: 620px; margin: 0 auto; }
 /* .page-hero p zet de marge op nul; het notitieregeltje onder de knoppen heeft
@@ -1032,6 +1072,12 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   body.has-sticky-cta .app-knop { bottom: 82px; }
   .app-knop:hover, .app-knop:focus-visible { max-width: 54px; }
   .app-knop .tk { display: none; }
+
+  .page-hero.rijk { padding: 46px 0 40px; }
+  .page-hero.rijk .kop-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+  .page-hero.rijk .kop-grid p { margin-left: auto; margin-right: auto; }
+  .page-hero.rijk .kop-grid .download { justify-content: center; }
+  .overlap { margin-top: -28px; }
 }
 @media (max-width: 620px) {
   /* Pas hier naar één kolom: op een tablet blijven twee kolommen leesbaar. */

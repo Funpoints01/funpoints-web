@@ -104,8 +104,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- /fp:header -->
 
 <main id="main">
-  <section class="page-hero">
-    <div class="container smal" style="text-align:center;">
+  <section class="page-hero rijk">
+    <div class="blob a"></div>
+    <div class="container smal">
       <span class="eyebrow">🗓️ Kermiskalender 2026</span>
       <h1>Wanneer is het kermis in jouw gemeente?</h1>
       <p>Alle 633 kermissen van België op één kalender, met de data erbij.
@@ -117,12 +118,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                aria-controls="kal-treffers" aria-expanded="false">
         <div class="kal-treffers" id="kal-treffers" role="listbox" aria-label="Gevonden gemeenten"></div>
       </form>
+      <div class="hero-chips">
+        <a href="#nu-bezig"><b>35</b> nu bezig</a>
+        <a href="#eerstvolgende">Wat komt er aan</a>
+        <a href="#provincies">Per provincie</a>
+      </div>
     </div>
   </section>
 
-  <section class="aansluitend">
+  <section class="aansluitend-strak">
     <div class="container">
-      <div class="kal-cijfers">
+      <div class="kal-cijfers overlap">
         <div><b>633</b><span>kermissen in 2026</span></div>
         <div><b>574</b><span>gemeenten</span></div>
         <div><b>10</b><span>provincies</span></div>
@@ -139,7 +145,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="aansluitend">
+  <section class="aansluitend" id="nu-bezig">
     <div class="container section-head">
       <span class="kicker">Op dit moment</span>
       <h2>Deze kermissen zijn nu bezig</h2>
@@ -191,7 +197,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="aansluitend">
+  <section class="aansluitend" id="eerstvolgende">
     <div class="container section-head">
       <span class="kicker">Eerstvolgende</span>
       <h2>Kermis in de komende weken</h2>
@@ -265,7 +271,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="aansluitend">
+  <section class="aansluitend" id="provincies">
     <div class="container section-head">
       <span class="kicker">Kies je provincie</span>
       <h2>Blader per provincie</h2>

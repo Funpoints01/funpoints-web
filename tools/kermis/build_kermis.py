@@ -911,7 +911,7 @@ def bouw_hub():
 
     blok_nu = ''
     if nu:
-        blok_nu = ('\n  <section class="aansluitend">\n'
+        blok_nu = ('\n  <section class="aansluitend" id="nu-bezig">\n'
                    '    <div class="container section-head">\n'
                    '      <span class="kicker">Op dit moment</span>\n'
                    '      <h2>Deze kermissen zijn nu bezig</h2>\n'
@@ -942,8 +942,9 @@ def bouw_hub():
     dl = {"page_type": "hub", "page_category": "kermis", "page_audience": "b2c",
           "page_name": "Kermiskalender", "page_language": "nl-BE"}
 
-    body = f'''  <section class="page-hero">
-    <div class="container smal" style="text-align:center;">
+    body = f'''  <section class="page-hero rijk">
+    <div class="blob a"></div>
+    <div class="container smal">
       <span class="eyebrow">🗓️ Kermiskalender {JAAR}</span>
       <h1>Wanneer is het kermis in jouw gemeente?</h1>
       <p>Alle {len(paginas)} kermissen van België op één kalender, met de data erbij.
@@ -955,12 +956,17 @@ def bouw_hub():
                aria-controls="kal-treffers" aria-expanded="false">
         <div class="kal-treffers" id="kal-treffers" role="listbox" aria-label="Gevonden gemeenten"></div>
       </form>
+      <div class="hero-chips">
+        <a href="#nu-bezig"><b>{len(bezig)}</b> nu bezig</a>
+        <a href="#eerstvolgende">Wat komt er aan</a>
+        <a href="#provincies">Per provincie</a>
+      </div>
     </div>
   </section>
 
-  <section class="aansluitend">
+  <section class="aansluitend-strak">
     <div class="container">
-      <div class="kal-cijfers">
+      <div class="kal-cijfers overlap">
         <div><b>{len(paginas)}</b><span>kermissen in {JAAR}</span></div>
         <div><b>{len(gemeenten)}</b><span>gemeenten</span></div>
         <div><b>{aantal_prov}</b><span>provincies</span></div>
@@ -977,7 +983,7 @@ def bouw_hub():
     </div>
   </section>
 {blok_nu}
-  <section class="aansluitend">
+  <section class="aansluitend" id="eerstvolgende">
     <div class="container section-head">
       <span class="kicker">Eerstvolgende</span>
       <h2>{kop_straks}</h2>
@@ -989,7 +995,7 @@ def bouw_hub():
     </div>
   </section>
 
-  <section class="aansluitend">
+  <section class="aansluitend" id="provincies">
     <div class="container section-head">
       <span class="kicker">Kies je provincie</span>
       <h2>Blader per provincie</h2>
