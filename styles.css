@@ -688,6 +688,17 @@ section.aansluitend-strak { padding-top: 0; }
 .card.citaat figcaption b { display: block; font-size: 15.5px; font-weight: 800; }
 .card.citaat figcaption span { display: block; color: var(--muted); font-size: 13.5px; margin-top: 2px; }
 
+/* Prijsregel onder het Basis-pakket */
+.prijsregel {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 18px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+  padding: 14px 26px; margin: 26px auto 0; width: fit-content; max-width: 100%;
+  box-shadow: var(--shadow); text-align: center;
+}
+.prijsregel b { font-size: 17px; font-weight: 900; }
+.prijsregel span { color: var(--muted); font-size: 14.5px; }
+.prijsregel .punt { color: rgba(36,27,58,0.22); }
+
 /* ================================================================
    APP-KNOP — vaste knop tegen de rechterrand die naar de App Store
    wijst. Ingeklapt tot een icoontje, klapt open bij hover of focus,
@@ -710,20 +721,30 @@ section.aansluitend-strak { padding-top: 0; }
 .app-knop .tk b { display: block; font-size: 14.5px; font-weight: 800; line-height: 1.25; }
 .app-knop .tk span { display: block; font-size: 12.5px; opacity: .72; }
 
-/* Downloadblok in de inhoud: twee knoppen naast elkaar */
+/* Downloadblok in de inhoud. De App Store-knop en de knop ernaast moeten
+   exact even groot zijn: zelfde hoogte, zelfde breedte. Vandaar een raster
+   met gelijke kolommen in plaats van twee losse knoppen naast elkaar. */
 .download {
-  display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 22px;
+  display: flex; gap: 14px; flex-wrap: wrap; align-items: stretch; margin-top: 24px;
 }
+.download.gelijk {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 540px; gap: 14px;
+}
+.download.gelijk .btn-store, .download.gelijk .btn { width: 100%; }
 .btn-store {
-  display: inline-flex; align-items: center; gap: 12px; background: var(--ink); color: #fff;
-  padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 800;
-  transition: transform .18s ease, box-shadow .18s ease;
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  background: var(--ink); color: #fff; min-height: 58px; padding: 10px 22px;
+  border: 1.5px solid var(--ink); border-radius: 999px; text-decoration: none;
+  font-weight: 800; transition: transform .18s ease, box-shadow .18s ease;
 }
 .btn-store:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(36,27,58,0.24); }
 .btn-store svg { width: 22px; height: 22px; fill: #fff; flex: 0 0 auto; }
 .btn-store small { display: block; font-size: 11.5px; font-weight: 600; opacity: .72; letter-spacing: .3px; }
 .btn-store b { display: block; font-size: 15px; font-weight: 800; line-height: 1.2; }
-.download .straks { font-size: 13.5px; color: var(--muted); }
+/* Even hoog als de App Store-knop, zodat het paar niet scheef staat */
+.download .btn-lg { min-height: 58px; padding-top: 0; padding-bottom: 0; white-space: normal; text-align: center; line-height: 1.25; }
+.download .straks { font-size: 13.5px; color: var(--muted); align-self: center; }
 
 /* ================================================================
    SOCIAL PROOF — melding linksonder. De inhoud komt uit
@@ -1065,4 +1086,8 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   .uitgelicht.breed { grid-template-columns: 1fr; }
   .uitgelicht.breed .kop { height: 96px; font-size: 40px; }
 
+
+  .download.gelijk { grid-template-columns: 1fr; max-width: none; }
+  .prijsregel { border-radius: 20px; padding: 16px 20px; flex-direction: column; gap: 6px; }
+  .prijsregel .punt { display: none; }
 }

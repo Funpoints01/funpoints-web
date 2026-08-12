@@ -853,6 +853,8 @@ def bouw_provincie(naam):
 # ------------------------------------------------------------ hub
 def bouw_hub():
     url = f'{BASIS}/kermis/'
+    # Brussel staat in de dataset als gebied, maar is een gewest en geen provincie.
+    aantal_prov = len([n for n in provincies if n != 'Brussel'])
     komend = sorted([p for p in paginas
                      if status(p['start'], p['eind']) != 'voorbij' and not p['noindex']],
                     key=lambda p: p['start'])
@@ -959,7 +961,7 @@ def bouw_hub():
       <div class="kal-cijfers">
         <div><b>{len(paginas)}</b><span>kermissen in {JAAR}</span></div>
         <div><b>{len(gemeenten)}</b><span>gemeenten</span></div>
-        <div><b>{len(provincies)}</b><span>provincies</span></div>
+        <div><b>{aantal_prov}</b><span>provincies</span></div>
         <div><b>{len(bezig)}</b><span>nu aan de gang</span></div>
       </div>
     </div>
