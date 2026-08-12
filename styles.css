@@ -123,6 +123,10 @@ img { max-width: 100%; display: block; }
 .hero h1 .hl { color: var(--coral-d); }
 .hero p.lead { font-size: 18.5px; color: var(--muted); max-width: 520px; }
 .hero-cta { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+.hero-sub {
+  font-size: 19px; font-weight: 700; margin: 14px 0 0; color: var(--ink);
+}
+.hero-sub b { color: var(--coral-d); }
 .hero-note { margin-top: 16px; font-size: 13.5px; color: var(--muted); }
 
 .blob { position: absolute; border-radius: 50%; filter: blur(6px); opacity: 0.16; z-index: -1; }
@@ -171,6 +175,7 @@ a.more:hover { text-decoration: underline; }
 .tint-coral { background: rgba(251,113,133,0.14); }
 .tint-violet { background: rgba(139,92,246,0.14); }
 .tint-amber { background: rgba(245,158,11,0.16); }
+.tint-sky { background: rgba(56,189,248,0.16); }
 
 /* Steps */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; counter-reset: step; }
@@ -593,6 +598,44 @@ section.aansluitend-strak { padding-top: 0; }
 .kermis-kop .tot { font-size: 14px; color: var(--muted); font-weight: 700; }
 
 /* ================================================================
+   TWEE KANTEN — Funpoints is geen product voor één publiek. Dit blok
+   zet de bezoekerskant en de uitbaterskant naast elkaar, even groot,
+   zodat meteen duidelijk is dat het systeem twee helften heeft.
+   ================================================================ */
+.kanten { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.kant {
+  display: flex; flex-direction: column; background: var(--card);
+  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.kant .kop {
+  padding: 22px 26px 18px; background: rgba(16,185,129,0.10);
+  border-bottom: 1px solid var(--line);
+}
+.kant.uitbaters .kop { background: rgba(139,92,246,0.10); }
+.kant .kop .ic { font-size: 26px; display: block; margin-bottom: 8px; }
+.kant .kop b { display: block; font-size: 21px; font-weight: 900; letter-spacing: -.3px; }
+.kant .kop span { display: block; color: var(--muted); font-size: 14.5px; margin-top: 4px; }
+.kant .body { padding: 22px 26px 26px; display: flex; flex-direction: column; flex: 1; }
+.kant ul { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 11px; flex: 1; }
+.kant li {
+  position: relative; padding-left: 28px; font-size: 15.5px; line-height: 1.5;
+}
+.kant li:before {
+  content: "✓"; position: absolute; left: 0; top: 0; width: 19px; height: 19px;
+  border-radius: 50%; background: rgba(16,185,129,0.16); color: var(--green-d);
+  font-size: 11px; font-weight: 900; display: grid; place-items: center; margin-top: 3px;
+}
+.kant.uitbaters li:before { background: rgba(139,92,246,0.16); color: #6D3BE0; }
+.kant .btn { align-self: flex-start; }
+
+/* Losse regel die de twee kanten aan elkaar knoopt */
+.brug {
+  text-align: center; margin-top: 26px; font-size: 15.5px; color: var(--muted);
+}
+.brug b { color: var(--ink); font-weight: 800; }
+
+/* ================================================================
    MAGAZINE — kaartenraster in plaats van een smalle lijst. Elke kaart
    heeft een gekleurde kop met het icoon, zodat je op kleur en beeld
    scant in plaats van op tekst.
@@ -882,6 +925,8 @@ body.heeft-sticky .fp-melding { bottom: 84px; }
   .uitgelicht.breed { grid-template-columns: 130px 1fr; }
   .uitgelicht.breed .kop { font-size: 44px; }
   .uitgelicht.breed .body { padding: 24px; }
+
+  .kanten { grid-template-columns: 1fr; }
 }
 @media (max-width: 620px) {
   /* Pas hier naar één kolom: op een tablet blijven twee kolommen leesbaar. */
